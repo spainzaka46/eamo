@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  prouduct_id: MyString
+  integer: MyString
+  disk_number: MyString
+  integer: MyString
+
+two:
+  prouduct_id: MyString
+  integer: MyString
+  disk_number: MyString
+  integer: MyString

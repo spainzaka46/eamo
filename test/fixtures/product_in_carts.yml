@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  end_user_id: MyString
+  integer: MyString
+  product_id: MyString
+  integer: MyString
+  sheet: MyString
+  integr: MyString
+
+two:
+  end_user_id: MyString
+  integer: MyString
+  product_id: MyString
+  integer: MyString
+  sheet: MyString
+  integr: MyString
