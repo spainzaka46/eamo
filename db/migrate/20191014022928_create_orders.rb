@@ -1,23 +1,22 @@
 class CreateOrders < ActiveRecord::Migration[5.2]
   def change
     create_table :orders do |t|
-      t.string :end_user_id
-      t.string :integer
-      t.string :method_of_payment
-      t.string :integer
-      t.string :postal_code
-      t.string :string
-      t.string :address
-      t.string :string
-      t.string :phone_number
-      t.string :string
-      t.string :send_name
-      t.string :string
-      t.string :delivery
-      t.string :charge
-      t.string :integer
-      t.string :order_status
-      t.string :integer
+      t.integer :end_user_id, null: false
+
+      t.integer :method_of_payment, null: false
+
+      t.string :postal_code, null: false
+
+      t.string :address, null: false
+
+      t.string :phone_number, null: false
+
+      t.string :send_name, null: false
+
+      t.integer :delivery_charge, null: false
+
+      t.integer :order_status, null: false
+
 
       t.timestamps
     end
