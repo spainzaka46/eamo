@@ -1,2 +1,23 @@
-<h1>Admin::Orders#index</h1>
-<p>Find me in app/views/admin/orders/index.html.erb</p>
+<h1>受注一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th>受注日</th>
+      <th>ユーザ名</th>
+      <th>購入額</th>
+      <th>支払い方法</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <%= select :status,:name,Order.statuses.keys.to_a %>
+      </td>
+    </tr>
+  </tbody>
+</table>
