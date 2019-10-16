@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
 
-  devise_for :admins
-  devise_for :end_users
+  devise_for :admins, controllers: {
+  sessions:      'admins/sessions',
+  passwords:     'admins/passwords',
+  registrations: 'admins/registrations'
+}
+
+  devise_for :users, controllers: {
+  sessions:      'users/sessions',
+  passwords:     'users/passwords',
+  registrations: 'users/registrations'
+}
+
 get 'end_user/finish' => 'end_user/users#finish', as: 'end_user_finish'
 
 namespace :admin do
@@ -24,6 +34,7 @@ namespace :end_user do
 	resources :orders,only: [:index, :show,]
 	resources :carts,only: [:index,:destroy, :create]
 	resources :cheecks,only: [:index, :new, :create]
+	resources :addresses,only: [:new, :create]
 end
 # resources :end_user_sessions,only: [:new, :create]
 
