@@ -1,4 +1,4 @@
 class Disk < ApplicationRecord
-	has_many :record_musicks, dependent: :destroy
 	belongs_to :product
+	has_many :record_musics, dependent: :destroy
 end

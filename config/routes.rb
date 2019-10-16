@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   registrations: 'admins/registrations'
 }
 
-  devise_for :users, controllers: {
+  devise_for :end_users, controllers: {
   sessions:      'users/sessions',
   passwords:     'users/passwords',
   registrations: 'users/registrations'
