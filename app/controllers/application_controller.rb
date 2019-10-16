@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
  before_action :configure_permitted_parameters, if: :devise_controller?
  def after_sign_in_path_for(resource)
-  	end_user_users_path(current_user[:id])
+  	end_user_users_path(resource)
   end
 protected
  def configure_permitted_parameters

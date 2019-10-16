@@ -7,9 +7,11 @@ Rails.application.routes.draw do
 }
 
   devise_for :end_users, controllers: {
-  sessions:      'users/sessions',
-  passwords:     'users/passwords',
-  registrations: 'users/registrations'
+
+  sessions:      'end_users/sessions',
+  passwords:     'end_users/passwords',
+  registrations: 'end_users/registrations'
+
 }
 
 get 'end_user/finish' => 'end_user/users#finish', as: 'end_user_finish'
@@ -26,7 +28,7 @@ namespace :admin do
 end
 # resources :admin_sessions,only: [:destroy, :new, :create]
 namespace :end_user do
-	resources :users,only: [:index, :show, :edit, :update, :finish, :destroy, :new, :create]
+	resources :users,only: [ :edit, :update, :finish, :destroy, :new, :create]
 
 	resources :products,only: [:search, :show, :index] do
 		get '/search' => 'products#search', as: 'search'
@@ -36,6 +38,10 @@ namespace :end_user do
 	resources :cheecks,only: [:index, :new, :create]
 	resources :addresses,only: [:new, :create]
 end
+scope module: :end_user do
+   get 'mypage', to: "users#show"
+end
+
 # resources :end_user_sessions,only: [:new, :create]
 
 
