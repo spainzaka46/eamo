@@ -41,15 +41,13 @@
   <table class="end_user_address">
 		<thead>
 		<tr>
-			<th></th><th></th>
+			<th>郵便番号</th><th>住所</th><th>電話番号</th>
 		</tr>
 	    </thead>
 
 	    <tbody>
-
-			<tr>
-            user.addresses.each do |address|
-	        tr
+	       <%=current_end_user.addresses.each do |address|%>
+	        <tr>
 		    <td> address.postal_code </td>
 		    <td> address.address</td>
 			<td> address.phone_number</td>
