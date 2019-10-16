@@ -2,7 +2,7 @@ ja:
   activerecord:
     errors:
       models:
-        user:
+        end_user:
           attributes:
             email:
               taken: "は既に使用されています。"
@@ -18,7 +18,7 @@ ja:
               invalid: "は有効でありません。"
               confirmation: "が内容とあっていません。"
     attributes:
-      user:
+      end_user:
         current_password: "現在のパスワード"
         name: 名前
         email: "メールアドレス"
