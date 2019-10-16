@@ -1,2 +1,46 @@
-<h1>Admin::Arrivals#new</h1>
+<h1>Admin::Arrivals#new 入荷処理</h1>
 <p>Find me in app/views/admin/arrivals/new.html.erb</p>
+
+div>
+	<div>
+		<%= form_for @ do |f| %>
+			<table>
+				<thead>
+					<tr>
+						<th>日付</th>
+						<th>タイトル</th>
+						<th>アーティスト</th>
+						<th>個数</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= f.date_select :arrival_day %></td>
+						<td><%= f.text_field :title %></td>
+						<td><%= f.text_field :artist_name %></td>
+						<td><%= f.text_field :sheet %></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table>
+				<tr>
+					<th>日付</th>
+					<th>タイトル</th>
+					<th>アーティスト</th>
+					<th>個数</th>
+				</tr>
+				<tr class="table-link">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+
+			<%= f.submit '入荷' %>
+		<% end %>
+	</div>
+</div>
+
+

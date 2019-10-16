@@ -34,4 +34,9 @@ class Admin::ProductsController < ApplicationController
   def
 
   end
+
+  def create
+  end
+
+  
 end
