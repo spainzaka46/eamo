@@ -10,152 +10,142 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_14_023545) do
+ActiveRecord::Schema.define(version: 2019_10_14_081436) do
 
   create_table "addresses", force: :cascade do |t|
-    t.string "end_user_id"
-    t.string "integer"
-    t.string "postal_code"
-    t.string "string"
-    t.string "address"
-    t.string "phone_number"
-    t.string "send_name"
+    t.integer "end_user_id", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "phone_number", null: false
+    t.string "send_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "admins", force: :cascade do |t|
-    t.string "email"
-    t.string "string"
-    t.string "possword"
+    t.string "possword", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
   create_table "arrival_of_goods", force: :cascade do |t|
-    t.string "product_id"
-    t.string "integer"
-    t.string "arrival_day"
-    t.string "date"
-    t.string "sheet"
-    t.string "integrt"
+    t.integer "product_id", null: false
+    t.date "arrival_day", null: false
+    t.integer "sheet", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "artists", force: :cascade do |t|
-    t.string "artist_name"
-    t.string "string"
+    t.string "artist_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "delivery_charges", force: :cascade do |t|
-    t.string "delivery_charge"
-    t.string "integer"
+    t.integer "delivery_charge", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "disks", force: :cascade do |t|
-    t.string "prouduct_id"
-    t.string "integer"
-    t.string "disk_number"
+    t.integer "prouduct_id", null: false
+    t.integer "disk_number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "end_users", force: :cascade do |t|
-    t.string "kanzi_last_name"
-    t.string "string"
-    t.string "kanzi_first_name"
-    t.string "kana_last_name"
-    t.string "kana_first_name"
-    t.string "email"
-    t.string "possword"
+    t.string "kanzi_last_name", null: false
+    t.string "kanzi_first_name", null: false
+    t.string "kana_last_name", null: false
+    t.string "kana_first_name", null: false
+    t.string "possword", null: false
+    t.datetime "daleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_end_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "genre_name"
-    t.string "string"
+    t.string "genre_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "labels", force: :cascade do |t|
-    t.string "label_name"
-    t.string "string"
+    t.string "label_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "method_of_payments", force: :cascade do |t|
-    t.string "mathod_of_payment"
-    t.string "integer"
+    t.integer "mathod_of_payment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "order_details", force: :cascade do |t|
-    t.string "order_id"
-    t.string "integer"
-    t.string "product_id"
-    t.string "sheet"
-    t.string "price"
+    t.integer "order_id", null: false
+    t.integer "product_id", null: false
+    t.integer "sheet", null: false
+    t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "end_user_id"
-    t.string "integer"
-    t.string "method_of_payment"
-    t.string "postal_code"
-    t.string "string"
-    t.string "address"
-    t.string "phone_number"
-    t.string "send_name"
-    t.string "delivery"
-    t.string "charge"
-    t.string "order_status"
+    t.integer "end_user_id", null: false
+    t.integer "method_of_payment", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "phone_number", null: false
+    t.string "send_name", null: false
+    t.integer "delivery_charge", null: false
+    t.integer "order_status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "product_in_carts", force: :cascade do |t|
-    t.string "end_user_id"
-    t.string "integer"
-    t.string "product_id"
-    t.string "sheet"
-    t.string "integr"
+    t.integer "end_user_id", null: false
+    t.integer "product_id", null: false
+    t.integer "sheet", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "genre_id"
-    t.string "integer"
-    t.string "label_id"
-    t.string "artist_id"
-    t.string "title"
-    t.string "string"
-    t.string "sales_status"
-    t.string "price"
-    t.string "photo"
-    t.string "text"
+    t.integer "genre_id", null: false
+    t.integer "label_id", null: false
+    t.integer "artist_id", null: false
+    t.string "title", null: false
+    t.integer "sales_status", null: false
+    t.integer "price", null: false
+    t.text "photo", null: false
+    t.datetime "daleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "record_musics", force: :cascade do |t|
-    t.string "disk_id"
-    t.string "integer"
-    t.string "track_number"
-    t.string "theme"
-    t.string "string"
-    t.string "song_name"
+    t.integer "disk_id", null: false
+    t.integer "track_number", null: false
+    t.string "theme", null: false
+    t.string "song_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
