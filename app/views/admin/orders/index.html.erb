@@ -10,14 +10,29 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>
-        <%= select :status,:name,Order.statuses.keys.to_a %>
-      </td>
-    </tr>
+    <% @orders.each do |order| %>
+      <tr>
+        <td>
+          <%= order.created_at.strftime('%Y/%m/%d') %>           <!-- ここ! -->
+        </td>
+        <td>
+          <%= order.send_name %>
+        </td>
+        <td>
+          <% totalprice = 0 %>                  <!-- ここ! -->
+          <% order.order_details.each do |order_detail| %>
+            <% price = order_detail.price * order_detail.sheet %>
+            <% totalprice = totalprice + price %>
+          <% end %>
+          <%= totalprice + order.delivery_charge %>
+        </td>
+        <td>
+          <%= order.method_of_payment %>            <!-- ここ! -->
+        </td>
+        <td>
+          <%= select :order_status,:name,Order.statuses.keys.to_a %>              <!-- ここ! -->
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
