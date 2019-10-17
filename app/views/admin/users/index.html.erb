@@ -2,4 +2,31 @@
 <p>Find me in app/views/admin/users/index.html.erb</p>
 
 
-	
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>名前</th>
+			<th>カナ</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<% @end_users.each do |end_user| %>
+			<td>
+				<%= end_user.id %>
+			</td>
+				<td>
+					<%= end_user.kanzi_last_name+end_user.kanzi_first_name %>
+				</td>
+
+				<td>カナ</td>
+				<td>
+					<%= end_user.kana_last_name+""+end_user.kana_first_name %>
+				</td>
+				<td>
+					
+			<% end %>
+		</tr>
+	</tbody>
+</table>

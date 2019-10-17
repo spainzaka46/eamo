@@ -27,34 +27,47 @@
 				<td>
 					<%= current_end_user.email %>
 				</td>
-				<td>パスワード</td>
-				<td>
-					<%= current_end_user.password %>
-				</td>
+
 			</tr>
  	    </tbody>
      </table>
  </div>
+ <div class="edit_btn">
+ 	<%= link_to"マイページ編集", edit_end_user_user_path(current_end_user) %>
+ </div>
+
+
 
  <h1>住所情報</h1>
  <div class="profile">
-  <table class="end_user_address">
+    <table class="end_user_address">
 		<thead>
 		<tr>
-			<th>郵便番号</th><th>住所</th><th>電話番号</th>
+			<th>送り先名前</th><th>郵便番号</th><th>住所</th><th>電話番号</th><th></th>
 		</tr>
 	    </thead>
 
 	    <tbody>
-	       <%=current_end_user.addresses.each do |address|%>
+	       <% current_end_user.addresses.each do |address|%>
 	        <tr>
-		    <td> address.postal_code </td>
-		    <td> address.address</td>
-			<td> address.phone_number</td>
+	        <td> <%=address.send_name%> </td>
+		    <td> <%=address.postal_code%> </td>
+		    <td> <%=address.address%></td>
+			<td> <%=address.phone_number%></td>
+			<td><%= link_to "編集", edit_end_user_address_path(address) %></td>
 	        </tr>
-         <%end%>
-     </tbody>
+          <%end%>
+         </tbody>
     </table>
+</div>
 
-
+<div class="order">
+ 	<%= link_to"購入履歴", end_user_order_path(current_end_user) %>
  </div>
+<div class="address">
+ 	<%= link_to"住所登録", new_end_user_address_path(current_end_user) %>
+ </div>
+<div class="unsubscibe">
+ 	<%= link_to"退会", end_user_user_path(current_end_user) %>
+ </div>
+

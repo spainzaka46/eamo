@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'user_address/edit'
+  end
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -25,18 +28,19 @@ namespace :admin do
 	resources :orders,only: [:index, :show,]
 	resources :orderhistories,only: [:index,]
 	resources :tops,only: [:index,]
+	resources :user_address,only: [:edit,:update]
 end
 # resources :admin_sessions,only: [:destroy, :new, :create]
 namespace :end_user do
-	resources :users,only: [ :edit, :update, :finish, :destroy, :new, :create]
-
+	resources :users,only: [ :edit, :update, :finish, :destroy, :new, :create,:check]
+     get '/check' => 'users#check', as: 'check'
 	resources :products,only: [:search, :show, :index] do
 		get '/search' => 'products#search', as: 'search'
 	end
 	resources :orders,only: [:index, :show,]
 	resources :carts,only: [:index,:destroy, :create]
 	resources :cheecks,only: [:index, :new, :create]
-	resources :addresses,only: [:new, :create]
+	resources :addresses,only: [:new, :create,:edit, :update]
 end
 scope module: :end_user do
    get 'mypage', to: "users#show"
