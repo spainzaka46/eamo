@@ -31,12 +31,5 @@ class Admin::ProductsController < ApplicationController
     params.require(:product).permit(:)
   end
 
-  def
 
-  end
-
-  def create
-  end
-
-  
 end

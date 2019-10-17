@@ -1,2 +1,26 @@
 <h1>EndUser::Carts#index</h1>
 <p>Find me in app/views/end_user/carts/index.html.erb</p>
+<div>
+	<div>
+		<h2>カート内一覧</h2>
+
+		<div>
+			<p>Title</p>
+			<%= %>
+			<p>アーティスト</p>
+			<%=  %>
+			<p>個数</p>
+			<%= %>
+			<p>価格</p>
+			<%= f.number_field :sheet %>
+			<%= link_to '削除' , class:  "btn btn-danger ", method: :delete ,"data-confirm" => "本当に消しますか？" %>
+		</div>
+
+		<p>商品小計（税込）</p>
+		<%=  %>
+
+		<%= link_to 'ショッピングを続ける', end_user_order(@products.id) %>
+
+		<%= link_to '購入手続きへ', new_end_user_user %>
+	</div>
+</div>

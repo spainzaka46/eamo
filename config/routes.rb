@@ -33,7 +33,7 @@ namespace :end_user do
 	end
 	resources :orders,only: [:index, :show,]
 	resources :carts,only: [:index,:destroy, :create]
-	resources :cheecks,only: [:index, :new, :create]
+	resources :cheacks,only: [:show, :new, :create]
 	resources :addresses,only: [:new, :create]
 end
 # resources :end_user_sessions,only: [:new, :create]

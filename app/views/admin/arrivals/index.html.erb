@@ -1,2 +1,28 @@
 <h1>Admin::Arrivals#index</h1>
 <p>Find me in app/views/admin/arrivals/index.html.erb</p>
+
+<div>
+	<div>
+		<h2>入荷履歴</h2>
+		<%= @arrivals.each do |arrival| %>
+			<table>
+				<thead>
+					<tr>
+						<th>日付</th>
+						<th>タイトル</th>
+						<th>アーティスト</th>
+						<th>個数</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		<% end %>
+	</div>
+</div>

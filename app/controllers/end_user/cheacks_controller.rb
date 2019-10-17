@@ -3,5 +3,9 @@ class EndUser::CheacksController < ApplicationController
   end
 
   def new
+  	
+  end
+
+  def create
   end
 end
