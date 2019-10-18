@@ -3,8 +3,8 @@ class Admin::ArrivalsController < ApplicationController
   	@arrival = ArrivalOfGood.new
     @product = Product.all
     @select = []
-    @product.each do | pd |
-      ar =[pd.title+":"+pd.artist.artist_name,pd.id]
+    @product.each do | pd | #selectの配列の中にproductの配列がある
+      ar =[pd.title+":"+pd.artist.artist_name,pd.id] #セレクトボックス
       @select.push(ar)
     end
   end
@@ -12,14 +12,17 @@ class Admin::ArrivalsController < ApplicationController
   def create
   	arrival = ArrivalOfGood.new(arrival_of_good_params)
   	arrival.save
+#    rescue ActiveRecord::RecordInvalid => e
+#      pp e.record.errors
   	redirect_to admin_arrivals_path
   end
 
   def index
-    @arrivals = ArrivalOfGood.all
+    # @arrivals = ArrivalOfGood.all.order(arrival_day: "desc") #新しい入荷順番です。
+     @arrivals = ArrivalOfGood.page(params[:page]).per(4).reverse_order
   end
 
   def arrival_of_good_params
-  	params.require(:arrival_of_good).permit(:arrival_day, :sheet)
+  	params.require(:arrival_of_good).permit(:product_id,:arrival_day, :sheet)
   end
 end
