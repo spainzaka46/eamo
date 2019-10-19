@@ -2,6 +2,7 @@ class EndUser::OrdersController < ApplicationController
   def index
     enduser = EndUser.find(params[:user_id])
     @orders = enduser.orders.page(params[:page]).reverse_order
+    
   end
 
   def show
