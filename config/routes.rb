@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+  
   namespace :admin do
     get 'user_address/edit'
   end
@@ -32,15 +34,19 @@ namespace :admin do
 end
 # resources :admin_sessions,only: [:destroy, :new, :create]
 namespace :end_user do
-	resources :users,only: [ :edit, :update, :finish, :destroy, :new, :create,:check]
-     get '/check' => 'users#check', as: 'check'
+	resources :users,only: [ :edit, :update, :finish, :destroy, :new,:create,:check]
+     get '/users/:id' => 'users#check', as: 'check'
+
 	resources :products,only: [:search, :show, :index] do
 		get '/search' => 'products#search', as: 'search'
 	end
 	resources :orders,only: [:index, :show,]
 	resources :carts,only: [:index,:destroy, :create]
-	resources :cheecks,only: [:index, :new, :create]
+	resources :cheecks,only: [:index, :new, :create,:show]
 	resources :addresses,only: [:new, :create,:edit, :update]
+    resources :pays,only: [:new, :create,:show ]
+    resources :cart_addresses,only: [:new, :create,:show ]
+   get '/users/:id/cart_addresses' => 'cart_addresses#show', as: 'show'
 end
 scope module: :end_user do
    get 'mypage', to: "users#show"

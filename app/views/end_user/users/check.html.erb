@@ -3,8 +3,8 @@
 <h1>本当に退会しますか？</h1>
 
 <div class="mypage">
- 	<%= link_to"マイページへ戻る",   mypage_path %>
+ 	<%= link_to "マイページへ戻る",   mypage_path(current_end_user.id)	 %>
  </div>
  <div class="TOP render">
- 	<%= link_to"退会",  end_user_finish_path %>
+ 	<%= link_to"退会",  end_user_user_path(current_end_user.id) ,method: :delete %>
  </div>
