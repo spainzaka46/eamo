@@ -1,0 +1,32 @@
+<h1>EndUser::Pays#show</h1>
+<p>Find me in app/views/end_user/pays/show.html.erb</p>
+<div>
+    <div>
+        <div>
+            <h2>購入する内容を確認</h2>
+            <p>＜お届け先＞</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>名前</th>
+                        <th>郵便番号</th>
+                        <th>住所</th>
+                        <th>電話番号</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><%= @address.send_name %></td>
+                        <td><%= @address.postal_code %></td>
+                        <td><%= @address.address %></td>
+                        <td><%= @address.phone_number %></td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+
+        <td><%= link_to "支払い方法を選択", new_end_user_pay_path %></td>
