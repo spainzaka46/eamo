@@ -10,44 +10,52 @@
   </head>
 
   <body>
-    <div>
-      <div>
-        <h2>管理者ページ</h2>
-        
-          <div>
-            <p<%= link_to '商品', admin_products_path %></p>
-          </div>
+    <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title">ジャンル別</h2>
+  </div>
+  <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action">J-POP</a>
+      <a href="#" class="list-group-item list-group-item-action">ロック/ポップ</a>
+      <a href="#" class="list-group-item list-group-item-action">ソウル/クラブ</a>
+      <a href="#" class="list-group-item list-group-item-action">カントリー/ブルース</a>
+      <a href="#" class="list-group-item list-group-item-action">ジャズ</a>
+      <a href="#" class="list-group-item list-group-item-action">ヒーリング</a>
+      <a href="#" class="list-group-item list-group-item-action">K-POP</a>
+      <a href="#" class="list-group-item list-group-item-action">サウンド</a>
+      <a href="#" class="list-group-item list-group-item-action">アニメ/ゲーム</a>
+  </div>
+</div>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h2 class="panel-title">フィーリング</h2>
+  </div>
+    <a href="#" class="list-group-item">ラブソング</a>
+    <a href="#" class="list-group-item">失恋ソング</a>
+    <a href="#" class="list-group-item">応援ソング</a>
+    <a href="#" class="list-group-item">リラックス/癒し</a>
+    <a href="#" class="list-group-item">オルゴール</a>
+    <a href="#" class="list-group-item">泣ける</a>
+    <a href="#" class="list-group-item">バラード</a>
+    <a href="#" class="list-group-item">テンション</a>
+    <a href="#" class="list-group-item">ドライブ</a>
+</div>
 
-          <div>
-            <p><%= link_to '新商品', new_admin_product_path %></p>
-          </div>
-
-          <div>
-            <p><%= link_to '入荷処理', new_admin_arrival_path %></p>
-          </div>
-
-          <div>
-            <p><%= link_to '入荷履歴', admin_arrivals_path %></p>
-          </div>
-
-          <div>
-            <p><%= link_to '受注', admin_orders_path %></p>
-          </div>
-
-          <div>
-            <p><%= link_to 'ユーザ', admin_users_path %></p>
-          </div>
-      
-
+<div class="container-fluid">
+    <div class="row">
+    <div class="clearfix"></div>
+    <div class="col-sm-3 col-md-2 sidebar">
+      <div class="panel-heading">
+        <h2 class="panel-title">フィーリング</h2>
       </div>
+        <ul class="nav nav-sidebar">
+            <li class="active"><a href="">料理</a></li>
+            <li><a href="">アクセス</a></li>
+            <li><a href="">皆様のご意見</a></li>
+            <li><a href="/questionnaire">アンケート</a></li>
+        </ul>
     </div>
 
     <%= yield %>
-
-    <footer>
-      <div>
-        
-      </div>
-    </footer>
   </body>
 </html>

@@ -5,15 +5,18 @@
 		<h2>カート内一覧</h2>
 
 		<div>
-			<p>Title</p>
-				<%= %>
-			<p>アーティスト</p>
-				<%=  %>
-			<p>個数</p>
-				<%= %>
-			<p>価格</p>
-				<%= f.number_field :sheet %>
-				<%= link_to '削除' , class: "btn btn-danger ", method: :delete ,"data-confirm" => "本当に消しますか？" %>
+			<% @end_user.product_in_carts.each do |product_in_cart| %>
+				<p>Title</p>
+					<%= product_in_cart.product.title %>
+				<p>アーティスト</p>
+					<%= product_in_cart.product.artist.artist_name %>
+				<p>個数</p>
+					<%=  f.number_field :sheet %>
+					<!-- <%= product_in_cart.sheet %> -->
+				<p>価格</p>
+					<%= product_in_cart.product.price %>
+				<%= link_to '削除' , class: "btn btn-danger ", method: :delete  %>
+			<% end %>
 		</div>
 
 		<p>商品小計（税込）</p>

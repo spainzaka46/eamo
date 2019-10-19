@@ -22,6 +22,7 @@ class Admin::ArrivalsController < ApplicationController
      @arrivals = ArrivalOfGood.page(params[:page]).per(4).reverse_order
   end
 
+  private
   def arrival_of_good_params
   	params.require(:arrival_of_good).permit(:product_id,:arrival_day, :sheet)
   end
