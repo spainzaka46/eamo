@@ -26,12 +26,14 @@ namespace :admin do
 end
 # resources :admin_sessions,only: [:destroy, :new, :create]
 namespace :end_user do
-	resources :users,only: [:index, :show, :edit, :update, :finish, :destroy, :new, :create]
+	resources :users,only: [:index, :show, :edit, :update, :finish, :destroy, :new, :create] do
+    get '/orders' => 'orders#index', as: 'orders'
+    get '/orders/:id' => 'orders#show', as: 'order'
+  end
 
 	resources :products,only: [:search, :show, :index] do
 		get '/search' => 'products#search', as: 'search'
 	end
-	resources :orders,only: [:index, :show,]
 	resources :carts,only: [:index,:destroy, :create]
 	resources :cheecks,only: [:index, :new, :create]
 	resources :addresses,only: [:new, :create]
