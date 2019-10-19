@@ -1,0 +1,2 @@
+module EndUser::PaysHelper
+end
