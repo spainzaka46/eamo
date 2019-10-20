@@ -43,9 +43,9 @@ if Rails.env == "development"
   DeliveryCharge.create!(delivery_charge: "500".to_i)
 
   
-  MethodOfPayment.create!(mathod_of_payment: "クレジットカード決済")
-  MethodOfPayment.create!(mathod_of_payment: "銀行振込")
-  MethodOfPayment.create!(mathod_of_payment: "代金引換")
+  MethodOfPayment.create!(method_of_payment: "クレジットカード決済")
+  MethodOfPayment.create!(method_of_payment: "銀行振込")
+  MethodOfPayment.create!(method_of_payment: "代金引換")
 
   10.times do |i|
   Order.create!(end_user_id: i + 1,
