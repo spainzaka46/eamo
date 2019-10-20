@@ -1,0 +1,21 @@
+<h1>Admin::UserAddress#edit</h1>
+<p>Find me in app/views/admin/user_address/edit.html.erb</p>
+<h1>住所編集</h1>
+
+<%= form_for(@address,url:  admin_user_address_path) do |f| %>
+
+<h2>送り先名前</h2>
+	<%= f.text_field :send_name %>
+
+<h2>郵便番号</h2>
+<%= f.number_field :postal_code %>
+
+<h2>住所</h2>
+<%= f.text_field :address %>
+
+<h2>電話番号</h2>
+<%= f.number_field :phone_number %>
+
+
+<%= f.submit "Update User"%>
+<%end%>

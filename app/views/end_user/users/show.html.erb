@@ -1,2 +1,73 @@
-<h1>EndUser::Users#show</h1>
+destroy<h1>EndUser::Users#show</h1>
 <p>Find me in app/views/end_user/users/show.html.erb</p>
+
+<h1>マイページ</h1>
+ <div class="profile">
+  <table class="end_user_profile">
+		<thead>
+		<tr>
+			<th></th><th></th>
+		</tr>
+	    </thead>
+
+	    <tbody>
+
+			<tr>
+				<td>名前</td>
+				<td>
+					<%= current_end_user.kanzi_last_name+current_end_user.kanzi_first_name %>
+				</td>
+
+				<td>カナ</td>
+				<td>
+					<%= current_end_user.kana_last_name+""+current_end_user.kana_first_name %>
+				</td>
+			
+				<td>メールアドレス</td>
+				<td>
+					<%= current_end_user.email %>
+				</td>
+
+			</tr>
+ 	    </tbody>
+     </table>
+ </div>
+ <div class="edit_btn">
+ 	<%= link_to"マイページ編集", edit_end_user_user_path(current_end_user) %>
+ </div>
+
+
+
+ <h1>住所情報</h1>
+ <div class="profile">
+    <table class="end_user_address">
+		<thead>
+		<tr>
+			<th>送り先名前</th><th>郵便番号</th><th>住所</th><th>電話番号</th><th></th>
+		</tr>
+	    </thead>
+
+	    <tbody>
+	       <% current_end_user.addresses.each do |address|%>
+	        <tr>
+	        <td> <%=address.send_name%> </td>
+		    <td> <%=address.postal_code%> </td>
+		    <td> <%=address.address%></td>
+			<td> <%=address.phone_number%></td>
+			<td><%= link_to "編集", edit_end_user_address_path(address) %></td>
+	        </tr>
+          <%end%>
+         </tbody>
+    </table>
+</div>
+
+<div class="order">
+ 	<%= link_to"購入履歴", end_user_order_path(current_end_user) %>
+ </div>
+<div class="address">
+ 	<%= link_to"住所登録", new_end_user_address_path(current_end_user) %>
+ </div>
+<div class="unsubscibe">
+ 	<%= link_to"退会", end_user_check_path(current_end_user) %>
+ </div>
+

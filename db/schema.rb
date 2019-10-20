@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_16_053231) do
+ActiveRecord::Schema.define(version: 2019_10_19_061330) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "end_user_id", null: false
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_10_16_053231) do
   end
 
   create_table "disks", force: :cascade do |t|
-    t.integer "prouduct_id", null: false
+    t.integer "product_id", null: false
     t.integer "disk_number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2019_10_16_053231) do
     t.string "kanzi_first_name", null: false
     t.string "kana_last_name", null: false
     t.string "kana_first_name", null: false
-    t.datetime "daleted_at"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2019_10_16_053231) do
   end
 
   create_table "method_of_payments", force: :cascade do |t|
-    t.integer "mathod_of_payment", null: false
+    t.integer "method_of_payment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
