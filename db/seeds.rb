@@ -55,7 +55,7 @@ if Rails.env == "development"
     			phone_number: "000-000-000#{i + 1}",
     			send_name: "秋田裕二#{i + 1}",
     			delivery_charge: "500".to_i,
-    			order_status: "1".to_i)
+    			order_status: "受付")
   end
 
 

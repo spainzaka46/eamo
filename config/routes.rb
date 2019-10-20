@@ -20,7 +20,7 @@ namespace :admin do
 		get '/orderhistories' => 'users#orderhistories',as: 'orderhistories'
 	end
 	resources :arrivals,only: [:index, :new, :create]
-	resources :orders,only: [:index, :show,]
+	resources :orders,only: [:index, :show, :update]
 	resources :orderhistories,only: [:index,]
 	resources :tops,only: [:index,]
 end
