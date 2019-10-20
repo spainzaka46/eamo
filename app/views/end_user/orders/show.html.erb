@@ -1,31 +1,75 @@
 <h1>購入履歴詳細</h1>
 <h2>お届け先</h2>
   <table>
-    <% @orders.each do |order| %>
       <tr>
         <th>名前</th>
         <td>
-          <%= order.send_name %>
+          <%= @order.send_name %>
         </td>
       </tr>
       <tr>
         <th>郵便番号</th>
         <td>
-          <%= order.postal_code%>
+          <%= @order.postal_code %>
         </td>
       </tr>
       <tr>
         <th>住所</th>
         <td>
-          <%= order.address%>
+          <%= @order.address %>
         </td>
       </tr>
       <tr>
         <th>電話番号</th>
         <td>
-          <%= oreder.phone_number %>
+          <%= @order.phone_number %>
         </td>
+      </tr>
+  </table>
+
+<h2>購入内容</h2>
+  <table>
+    <% @total = 0 %>
+    <% @order_details.each do |order_detail| %>
+      <tr>
+        <th>タイトル</th>
+        <td>
+          <%= order_detail.product.title %>
+        </td>
+      </tr>
+      <tr>
+        <th>アーティスト</th>
+        <td>
+          <%= order_detail.product.artist.artist_name %>
+        </td>
+      </tr>
+      <tr>
+        <th>個数</th>
+        <td>
+          <%= order_detail.sheet %>
+        </td>
+      </tr>
+      <tr>
+        <th>価格（税込）</th>
+        <td>
+          <%= subtotal = order_detail.price * order_detail.sheet %>
+        </td>
+          <% @total = @total + subtotal %>
       </tr>
     <% end %>
   </table>
-<h2>購入内容</h2>
+
+  <table>
+      <tr>
+        <th>送料</th>
+        <td>
+          <%= @order.delivery_charge %>
+        </td>
+      </tr>
+      <tr>
+        <th>購入額（税込）</th>
+        <td>
+          <%= @total + @order.delivery_charge %>
+        </td>
+      </tr>
+  </table>
