@@ -1,31 +1,37 @@
-<h1>EndUser::Users#edit</h1>
-<p>Find me in app/views/end_user/users/edit.html.erb</p>
 
-<h1>マイページ編集</h1>
-<%= form_for(@end_user,url:end_user_user_path) do |f| %>
+ <h1 class="text-center">マイページ編集</h1>
+   <div class="container">
+ 	<div class="row">
+      <%= form_for(@end_user,url:end_user_user_path) do |f| %>
+     <div class="field">
+     <h2 class="text-center">姓</h2>
+     <h2 class="text-center"><%= f.text_field :kanzi_last_name %></h2>
+     </div>
 
+     <div class="field">
+     <h2 class="text-center">名</h2>
+     <h2 class="text-center"><%= f.text_field :kanzi_first_name %></h2>
+     </div>
 
-<h2>姓</h2>
-<%= f.text_field :kanzi_last_name %>
+	 <div class="field">
+	 <h2 class="text-center">セイ</h2>
+	 <h2 class="text-center"><%= f.text_field :kana_last_name %></h2>
+	 </div>
 
+     <div class="field">
+     <h2 class="text-center">メイ</h2>
+     <h2 class="text-center"><%= f.text_field :kana_first_name %></h2>
+     </div>
 
-<h2>名</h2>
-<%= f.text_field :kanzi_first_name %>
+     <div class="field">
+     <h2 class="text-center">メールアドレス</h2>
+     <h2 class="text-center"><%= f.text_field :email %></h2>
+     </div>
 
+     <div class="field">
+     <h2 class="text-center">
+     <%= f.submit "更新"%>
+     <%end%>
+     </h2>
+     </div>
 
-<h2>セイ</h2>
-<%= f.text_field :kana_last_name %>
-
-
-<h2>メイ</h2>
-<%= f.text_field :kana_first_name %>
-
-
-<h2>メールアドレス</h2>
-<%= f.text_field :email %>
-
-
-
-
-<%= f.submit "Update User"%>
-<%end%>
