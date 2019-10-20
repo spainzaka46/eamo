@@ -1,0 +1,41 @@
+<h1>EndUser::CartAddresses#show</h1>
+<p>Find me in app/views/end_user/cart_addresses/show.html.erb</p>
+<h1>住所情報</h1>
+ <div class="profile">
+    <table class="end_user_address">
+		<thead>
+		<tr>
+			<th>送り先名前</th><th>郵便番号</th><th>住所</th><th>電話番号</th>
+		</tr>
+	    </thead>
+
+	    <tbody>
+	       <% current_end_user.addresses.each do |address|%>
+	        <tr>
+	        <td> <%=address.send_name%> </td>
+		    <td> <%=address.postal_code%> </td>
+		    <td> <%=address.address%></td>
+			<td> <%=address.phone_number%></td>
+			<td><%= link_to "この住所に送る", end_user_pay_path(address) %></td>
+		
+	        </tr>
+          <%end%>
+         </tbody>
+    </table>
+</div>
+
+<%= form_for(@address,url:end_user_addresses_path) do |f| %>
+    <h2>送り先名前</h2>
+	<%= f.text_field :send_name %>
+
+	<h2>郵便番号</h2>
+	<%= f.number_field :postal_code %>
+
+	<h2>住所</h2>
+	<%= f.text_field :address %>
+
+	<h2>電話番号</h2>
+	<%= f.number_field :phone_number %>
+
+	<%= f.submit "create address" %>
+<% end %>

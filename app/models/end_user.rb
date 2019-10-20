@@ -1,9 +1,10 @@
 class EndUser < ApplicationRecord
+	  acts_as_paranoid
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-	has_many :producut_in_cats, dependent: :destroy
+	has_many :product_in_carts, dependent: :destroy
 	has_many :orders, dependent: :destroy
 	has_many :addresses, dependent: :destroy
 end
