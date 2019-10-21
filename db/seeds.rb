@@ -36,14 +36,7 @@ if Rails.env == "development"
     Label.create!(label_name: "label_#{i + 1}")
   end
 
-  [
-    'J-POP', 'ロック/ポップス', 'ソウル/クラブ/ラップ', 'カントリー/ブルース',
-    'ジャズ', 'ヒーリング/ニューエイジ', 'K-POP/ワールド', 'サウンドトラック', 'アニメ/ゲーム'
-  ].each do |genre|
-    Genre.create!(
-      { genre_name: genre }
-    )
-  end
+
 
   DeliveryCharge.create!(delivery_charge: "500".to_i)
 

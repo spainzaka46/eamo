@@ -59,6 +59,10 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
+<<<<<<< product-in-carts
+
+end
+=======
   private
 
   def product_params
@@ -70,3 +74,4 @@ class Admin::ProductsController < ApplicationController
   end
 
 end
+>>>>>>> develop
