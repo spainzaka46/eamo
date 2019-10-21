@@ -1,2 +1,13 @@
-<h1>Admin::Tops#index</h1>
-<p>Find me in app/views/admin/tops/index.html.erb</p>
+
+<div class="container">
+   <h1 class="text-center">管理者様TOPページ</h1>
+   <div class="row">
+       <button type="button" class="btn btn-default btn-lg col-md-6 col-md-offset-3" ><%=link_to"商品",admin_products_path,class:"glyphicon glyphicon-headphones" %></button>
+       <button type="button" class="btn btn-default btn-lg col-md-6 col-md-offset-3"><%=link_to"新商品",new_admin_product_path,class:"glyphicon glyphicon-thumbs-up" %></button>
+       <button type="button" class="btn btn-default btn-lg col-md-6 col-md-offset-3"><%=link_to"入荷処理",admin_arrivals_path,class:"glyphicon glyphicon-save" %></button>
+       <button type="button" class="btn btn-default btn-lg col-md-6 col-md-offset-3"><%=link_to"入荷履歴",  new_admin_arrival_path,class:"glyphicon glyphicon-import"  %></button>
+       <button type="button" class="btn btn-default btn-lg col-md-6 col-md-offset-3"><%=link_to"受注",admin_orders_path,class:"glyphicon glyphicon-cloud-upload"%></button>
+       <button type="button" class="btn btn-default btn-lg col-md-6 col-md-offset-3"><%=link_to"ユーザ一覧",admin_users_path,class:"glyphicon glyphicon-user"%></button>
+
+    </div>
+</div>

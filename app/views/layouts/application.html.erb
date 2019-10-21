@@ -11,6 +11,7 @@
 
   <body>
 
+
     <div class="panel panel-primary">
   <div class="panel-heading">
     <h2 class="panel-title">ジャンル別</h2>
@@ -43,6 +44,38 @@
 </div>
 
 
+
+<header class="admin_header">
+  <div class="list-group-item list-group-item-info">
+   <h1 class="text-center">管理者ページ</h1>
+
+   
+        <div class="admin_heder">
+      
+          <div class="btn-group btn-group-justified" role="group">
+
+           <div class="btn-group" role="group">
+           <button class="btn btn-default"><%=link_to"商品",admin_products_path,class:"glyphicon glyphicon-headphones" %></button>
+           </div>
+           <div class="btn-group" role="group">
+           <button class="btn btn-default"><%=link_to"新商品",new_admin_product_path,class:"glyphicon glyphicon-thumbs-up" %></button>
+           </div>
+           <div class="btn-group" role="group">
+           <button class="btn btn-default"><%=link_to"入荷処理",admin_arrivals_path,class:"glyphicon glyphicon-save" %></button>
+            </div>
+           <div class="btn-group" role="group">
+           <button class="btn btn-default"><%=link_to"入荷履歴",  new_admin_arrival_path,class:"glyphicon glyphicon-import"  %></button>
+            </div>
+           <div class="btn-group" role="group">
+           <button class="btn btn-default"><%=link_to"受注",admin_orders_path,class:"glyphicon glyphicon-cloud-upload"%></button>
+            </div>
+           <div class="btn-group" role="group">
+           <button class="btn btn-default"><%=link_to"ユーザ一覧",admin_users_path,class:"glyphicon glyphicon-user"%></button>
+           </div>
+          </div>
+        </div>
+   </div>
+
 </header>
 
 
@@ -55,4 +88,28 @@
 
     
   </body>
-</html>
+
+    <%= yield %>
+
+    <footer class="page-footer font-small teal pt-4">
+     <div class="list-group-item list-group-item-info">
+      <div class="container-fluid text-center text">
+        <div class="row">
+          <div class="col-md-6 mt-md-0 mt-3">
+            <h5 class="text-uppercase font-weight-bold">会社情報</h5>
+            <p>
+
+            会社名<br>
+            住所<br>
+            電話番号</p>
+          </div>
+        </div>
+      </div>
+            <div class="footer-copyright text-center">© 2018 nagano music Inc</div>
+     </div>
+   </footer>
+ </body>
+ </html>
+
+
+

@@ -27,7 +27,7 @@ namespace :admin do
 		get '/orderhistories' => 'users#orderhistories',as: 'orderhistories'
 	end
 	resources :arrivals,only: [:index, :new, :create]
-	resources :orders,only: [:index, :show,]
+	resources :orders,only: [:index, :show, :update]
 	resources :orderhistories,only: [:index,]
 	resources :tops,only: [:index,]
 	resources :user_address,only: [:edit,:update]
@@ -46,9 +46,6 @@ namespace :end_user do
 	get '/search/genres/:id' => 'products#genre_search', as: 'search'
 	resources :orders,only: [:index, :show,]
 
-	resources :cheacks,only: [:show, :new, :create]
-
-	
 	resources :checks,only: [:index, :new, :create,:show]
 	resources :addresses,only: [:new, :create,:edit, :update]
     resources :pays,only: [:new, :create,:show ]

@@ -11,6 +11,12 @@ class Admin::UsersController < ApplicationController
   def edit
   		@end_user=EndUser.find(params[:id])
   end
+  def destroy
+    @end_user = EndUser.find(params[:id])
+    @end_user.destroy
+    redirect_to dmin_users_path
+    
+  end
 
   def updatedef update
     @end_user = EndUser.find(params[:id])
