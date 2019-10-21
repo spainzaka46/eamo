@@ -1,2 +1,71 @@
 <h1>EndUser::Cheacks#new</h1>
 <p>Find me in app/views/end_user/cheacks/new.html.erb</p>
+<div>
+  <div>
+    <div>
+        <div>
+            <h2>購入する内容を確認</h2>
+            <p>＜お届け先＞</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>名前</th>
+                        <th>郵便番号</th>
+                        <th>住所</th>
+                        <th>電話番号</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><%= @address.send_name %></td>
+                        <td><%= @address.postal_code %></td>
+                        <td><%= @address.address %></td>
+                        <td><%= @address.phone_number %></td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p>＜支払い方法＞</p>
+            <div>
+                <p><%= @order.method_of_payments %>
+                    
+                </p>
+            </div>
+        </div>
+        <div>
+    <div>
+            <h2>購入する内容を確認</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>商品の小計</th>
+                        <th>配送料（一律）</th>
+                        <th>ご請求額</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><%= @ product_in_carts.sheet %></td>
+                        <td><%= @ delivery_charges.delivery_charges %></td>
+                        <td><%=@total></td>
+
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+
+        </div>
+        <%= link_to '確定', end_user_cheack_path, class: 'btn btn-default' %>
+    </div>
+</div>

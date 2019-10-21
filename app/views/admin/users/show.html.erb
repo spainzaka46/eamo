@@ -1,2 +1,71 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+
+<h1 class="text-center">ユーザ情報</h1>
+<div class="container">
+ <div class="profile">
+   <table class="table table-bordered">
+		<thead>
+		<tr>
+			<th style="text-align:center;">名前</th>
+			<th style="text-align:center;">カナ</th>
+			<th style="text-align:center;">メールアドレス</th>
+		</tr>
+	    </thead>
+
+	    <tbody>
+
+			<tr>
+				<td align="center">
+					<%= @end_user.kanzi_last_name+@end_user.kanzi_first_name %>
+				</td>
+				<td align="center">
+					<%= @end_user.kana_last_name+""+@end_user.kana_first_name %>
+				</td>
+				<td align="center">
+					<%= @end_user.email %>
+				</td>
+			</tr>
+ 	    </tbody>
+     </table>
+ </div>
+
+
+ <h1 class="text-center">住所情報</h1>
+ <div class="profile">
+    <table class="table table-bordered">
+		<thead>
+		<tr>
+			<th style="text-align:center;">送り先名前</th>
+			<th style="text-align:center;">郵便番号</th>
+			<th style="text-align:center;">住所</th>
+			<th style="text-align:center;">電話番号</th>
+			<th style="text-align:center;"></th>
+		</tr>
+	    </thead>
+
+	    <tbody>
+	       <% @end_user.addresses.each do |address|%>
+	        <tr>
+	        <td align="center"> <%=address.send_name%> </td>
+		    <td align="center"> <%=address.postal_code%> </td>
+		    <td align="center"> <%=address.address%></td>
+			<td align="center"> <%=address.phone_number%></td>
+			<td align="center"><%= link_to "編集", edit_admin_user_address_path(address) %></td>
+	        </tr>
+          <%end%>
+         </tbody>
+    </table>
+       <div class="btn-group btn-group-justified" role="group">
+         <div class="btn-group" role="group" >
+		 	<button class="btn btn-default"><%= link_to"削除", admin_users_path(@end_user),method: :delete %></button>
+		</div>
+
+		<div class="btn-group" role="group" >
+		 	<button class="btn btn-default"><%= link_to"マイページ編集", edit_admin_user_path(@end_user) %></button>
+		 </div>
+
+		 <div class="btn-group" role="group">
+ 	     <button class="btn btn-default"><%= link_to"購入履歴", admin_orderhistories_path(@end_user) %></button>
+         </div>
+     </div>
+</div>
+</div>

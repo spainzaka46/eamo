@@ -1,42 +1,59 @@
 <h1>受注詳細</h1>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
 <p>お届け先</p>
 <table>
   <thead>
     <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>名前</th>
+      <th>郵便番号</th>
+      <th>住所</th>
+      <th>電話番号</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>
+        <%= @order.send_name %>
+      </td>
+      <td>
+        <%= @order.postal_code %>
+      </td>
+      <td>
+        <%= @order.address %>
+      </td>
+      <td>
+        <%= @order.phone_number %>
+      </td>
     </tr>
   </tbody>
 </table>
 <p>購入内容</p>
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>アーティスト</th>
+      <th>個数</th>
+      <th>価格（税込）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% total_price = 0 %>                <!-- ここ! -->
+    <% @order.order_details.each do |order_detail| %>
+    <tr>
+      <td><%= order_detail.product.title %></td>
+      <td><%= order_detail.product.artist.artist_name %></td>
+      <td>
+        <%= order_detail.sheet %>
+      </td>
+      <td>
+        <% price = order_detail.price * order_detail.sheet %>
+        <%= price %>
+      </td>
+    </tr>
+    <% total_price = total_price + price %>
+    <% end %>
+  </tbody>
+</table>
 <table>
   <thead>
     <tr>
@@ -46,8 +63,12 @@
   </thead>
   <tbody>
     <tr>
-      <td></td>
-      <td></td>
+      <td>
+        <%= @order.delivery_charge %>
+      </td>
+      <td>
+        <%= @order.delivery_charge + total_price %>
+      </td>
     </tr>
   </tbody>
 </table>
