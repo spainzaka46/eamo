@@ -1,4 +1,4 @@
 class RecordMusic < ApplicationRecord
-	belongs_to :disk, optional:true
-	# belongs_to :theme
+	belongs_to :disk
+	belongs_to :theme
 end

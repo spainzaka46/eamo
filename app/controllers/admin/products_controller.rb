@@ -7,14 +7,22 @@ class Admin::ProductsController < ApplicationController
     @artist = @product.artist
     @genre = @product.genre
     @label = @product.label
-    order = OrderDetail.where(product_id:@product.id).group(:product_id).sum(:sheet)
-    logger.debug(order)
-    ordersum = order[@product.id]
-    logger.debug(ordersum)
-    arrival = ArrivalOfGood.where(product_id:@product.id).group(:product_id).sum(:sheet)
-    logger.debug(arrival)
-    arrivalsum = arrival[@product.id]
-    logger.debug(arrivalsum)
+    ordersum = 0
+    arrivalsum = 0
+    @product.order_details.each do |order_detail|
+      ordersum = order_detail.sheet + ordersum
+    end
+    @product.arrival_of_goods.each do |arrival_of_good| 
+      arrivalsum = arrival_of_good.sheet + arrivalsum
+    end
+    # order = OrderDetail.where(product_id:@product.id).group(:product_id).sum(:sheet)
+    # logger.debug(order)
+    # ordersum = order[@product.id]
+    # logger.debug(ordersum)
+    # arrival = ArrivalOfGood.where(product_id:@product.id).group(:product_id).sum(:sheet)
+    # logger.debug(arrival)
+    # arrivalsum = arrival[@product.id]
+    # logger.debug(arrivalsum)
     @stock = arrivalsum - ordersum
   end
 
@@ -41,7 +49,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def update
-    # binding.pry
+    binding.pry
     @product = Product.find(params[:id])
     if @product.update(product_params)
       flash[:notice] = "商品情報を更新しました"
@@ -54,14 +62,11 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product)
-    .permit(:genre_id,:label_id,:artist_id,:title,:sales_status,:price,:photo,
-    	disks_attributes:[
-    		:id,:product_id, :disk_number, :_destroy,
-    		record_musics_attributes:[
-    			:id,:disk_id, :track_number, :song_name, :theme_id, :_destroy
-    		]
-    	])
+    params.require(:product).permit(:photo, :title, :artist_id, :genre_id, :label_id, :price, :sales_status,
+      disks_attributes:[:id, :disk_number, :_destroy,
+        record_musics_attributes:[:id, :track_number, :song_name, :theme_id, :_destroy]
+      ])
+
   end
 
 end
