@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <h2>レーベル名編集</h2>
+    <% if @label.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @label.errors.count %> errors prohibited this book from being saved:</h2>
+        <ul>
+          <% @label.errors.full_messages.each do |msg| %>
+            <li> <%= msg %> </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form_for(@label, url: admin_label_path) do |f| %>
+      <div class="field">
+        <%= f.label :label_name, "レーベル名" %> </br>
+        <%= f.text_field :label_name, class: "form-control"%>
+      </div>
+
+      <div class="action">
+        <%= f.submit "変更", class: "btn btn-default" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <%= link_to "一覧に戻る", admin_labels_path %>
+  </div>
+</div>

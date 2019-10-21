@@ -1,2 +1,45 @@
-<h1>Admin::Orderhistories#index</h1>
-<p>Find me in app/views/admin/orderhistories/index.html.erb</p>
+<h1>ユーザ購入履歴</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>購入者</th>
+      <th>購入日</th>
+      <th>タイトル</th>
+      <th>枚数</th>
+      <th>小計</th>
+      <th>送付先</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @orders.each do |order| %>
+        <td>
+          <%= order.send_name %>
+        </td>
+        <td>
+          <%= order.created_at.strftime('%m/%d') %>
+        </td>
+          <% order.order_details.each do |detail| %>
+            <td>
+              <%= detail.product.title %>
+            </td>
+            <td>
+              <%= detail.sheet %>
+            </td>
+            <td>
+              <%= detail.price * detail.sheet %>
+            </td>
+            <td>
+              <%= detail.order.address %>
+            </td>
+          <% end %>
+        <td>
+          <%= order.order_status %>
+        </td>
+      <% end %>
+    <%= paginate @orders, class: "paginate" %>
+    </tr>
+  </tbody>
+</table>

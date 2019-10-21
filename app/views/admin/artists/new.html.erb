@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <h2>アーティスト新規登録</h2>
+    <% if @artist.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @artist.errors.count %> errors prohibited this book from being saved:</h2>
+        <ul>
+          <% @artist.errors.full_messages.each do |msg| %>
+            <li> <%= msg %> </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_for(@artist, url: admin_artists_path) do |f| %>
+      <div class="field">
+        <%= f.label :artist_name, "アーティスト名" %> </br>
+        <%= f.text_field :artist_name, class: "form-control"%>
+      </div>
+
+      <div class="action">
+        <%= f.submit "登録", class: "btn btn-default" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <%= link_to "一覧に戻る", admin_artists_path %>
+  </div>
+</div>
+

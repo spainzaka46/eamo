@@ -2,24 +2,56 @@
 <html>
   <head>
     <title>Eamo</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <link href="/slick/slick-theme.css" rel="stylesheet" type="text/css">
-    <link href="/slick/slick.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="/slick/slick.js"></script>
 
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <% if admin_signed_in?%>
-      <header class="admin_header">
-       <div class="list-group-item list-group-item-info">
-        <h1 class="text-center">管理者ページ</h1>
-         <div class="admin_heder">
 
+
+    <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title">ジャンル別</h2>
+  </div>
+  <div class="list-group">
+      <%= link_to "J-POP", "/search/genres/1",class: "list-group-item list-group-item-action" %>
+      <%= link_to "ロック/ポップ", "/search/genres/2",class: "list-group-item list-group-item-action" %>
+      <%= link_to "ソウル/クラブ", "/search/genres/3",class: "list-group-item list-group-item-action" %>
+      <%= link_to "カントリー/ブルース", "/search/genres/4",class: "list-group-item list-group-item-action" %>
+      <%= link_to "ジャズ", "/search/genres/5",class: "list-group-item list-group-item-action" %>
+      <%= link_to "ヒーリング", "/search/genres/6",class: "list-group-item list-group-item-action" %>
+      <%= link_to "K-POP", "/search/genres/7",class: "list-group-item list-group-item-action" %>
+      <%= link_to "サウンド", "/search/genres/8",class: "list-group-item list-group-item-action" %>
+      <%= link_to "アニメ/ゲーム", "/search/genres/9",class: "list-group-item list-group-item-action" %>
+  </div>
+</div>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h2 class="panel-title">フィーリング</h2>
+  </div>
+    <a href="#" class="list-group-item">ラブソング</a>
+    <a href="#" class="list-group-item">失恋ソング</a>
+    <a href="#" class="list-group-item">応援ソング</a>
+    <a href="#" class="list-group-item">リラックス/癒し</a>
+    <a href="#" class="list-group-item">オルゴール</a>
+    <a href="#" class="list-group-item">泣ける</a>
+    <a href="#" class="list-group-item">バラード</a>
+    <a href="#" class="list-group-item">テンション</a>
+    <a href="#" class="list-group-item">ドライブ</a>
+</div>
+
+
+
+<header class="admin_header">
+  <div class="list-group-item list-group-item-info">
+   <h1 class="text-center">管理者ページ</h1>
+
+   
+        <div class="admin_heder">
+      
           <div class="btn-group btn-group-justified" role="group">
 
            <div class="btn-group" role="group">
@@ -40,81 +72,46 @@
            <div class="btn-group" role="group">
            <button class="btn btn-default"><%=link_to"ユーザ一覧",admin_users_path,class:"glyphicon glyphicon-user"%></button>
            </div>
-           <div class="btn-group" role="group">
-           <button class="btn btn-default"><%=link_to"ログアウト",destroy_admin_session_path,method: :delete, class:"glyphicon glyphicon-user"%></button>
-           </div>
           </div>
         </div>
-      </div>
-    </header>
+   </div>
+
+</header>
 
 
-  <% elsif end_user_signed_in?%>
-
-    <header class="admin_header">
-      <div class="list-group-item list-group-item-info">
-       <h1 class="text-center">ユーザーページ</h1>
-
-        <div class="user_heder">
-          <div class="btn-group btn-group-justified" role="group">
-
-           <div class="btn-group" role="group">
-           <button class="btn btn-default"><%=link_to"トップ",admin_products_path,class:"glyphicon glyphicon-music" %></button>
-           </div>
-           <div class="btn-group" role="group">
-           <button class="btn btn-default"><%=link_to"マイページ",mypage_path,class:"glyphicon glyphicon-home" %></button>
-           </div>
-           <div class="btn-group" role="group">
-           <button class="btn btn-default"><%=link_to"カート",end_user_carts_path,class:"glyphicon glyphicon-lock" %></button>
-            </div>
-           <div class="btn-group" role="group">
-           <button class="btn btn-default"><%=link_to"ログアウト",  destroy_end_user_session_path,method: :delete,class:"glyphicon glyphicon-log-out" %></button>
-            </div>
-          </div>
-         </div>
-       </div>
-     </header>
-
-            <% else%>
-    <header class="admin_header">
-      <div class="list-group-item list-group-item-info">
-        <h1 class="text-center">ユーザーページ</h1>
-
-           <button class="btn btn-default"><%=link_to"トップ",admin_products_path,class:"glyphicon glyphicon-music" %></button>
-           </div>
-           <div class="btn-group" role="group">
-           <button class="btn btn-default"><%=link_to"会員登録",   new_end_user_registration_path,class:"glyphicon glyphicon-home"%></button>
-           </div>
-           <div class="btn-group" role="group">
-           <button class="btn btn-default"><%=link_to"ログイン",new_end_user_session_path,class:"glyphicon glyphicon-log-out" %></button>
-           </div>
-          </div>
-         </div>
-       </div>
-     </header>
-
-<% end %>
 
 
+  
+
+    <%= yield %>
+
+
+    
+  </body>
 
     <%= yield %>
 
     <footer class="page-footer font-small teal pt-4">
      <div class="list-group-item list-group-item-info">
-      <div class="container-fluid">
+      <div class="container-fluid text-center text">
+        <div class="row">
+          <div class="col-md-6 mt-md-0 mt-3">
+            <h5 class="text-uppercase font-weight-bold">会社情報</h5>
+            <p>
 
-            <h5 class="text-center">会社情報<br>
-            会社名 （株）eamo<br>
-            住所　東京都渋谷区神南1-1-1-1<br>
-            電話番号 xxx-xxx-xxx</h5>
+            会社名<br>
+            住所<br>
+            電話番号</p>
           </div>
-
+        </div>
+      </div>
             <div class="footer-copyright text-center">© 2018 nagano music Inc</div>
-            <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
      </div>
    </footer>
  </body>
-</html>
+ </html>
+
+
 
 
 
