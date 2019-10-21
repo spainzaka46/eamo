@@ -24,7 +24,7 @@ get 'end_user/finish' => 'end_user/users#finish', as: 'end_user_finish'
 namespace :admin do
 	resources :products,only: [:index, :show, :edit, :update, :new, :create]
 	resources :users,only: [:index, :show, :edit, :update, :destroy] do
-		get '/orderhistories' => 'users#orderhistories',as: 'orderhistories'
+		get '/orderhistories' => 'orderhistories#index',as: 'orderhistories'
 	end
 	resources :arrivals,only: [:index, :new, :create]
 	resources :orders,only: [:index, :show, :update]
