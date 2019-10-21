@@ -1,4 +1,5 @@
 class Admin::UserAddressController < ApplicationController
+  before_action :authenticate_admin!
 
 
 def edit
