@@ -13,7 +13,17 @@ class EndUser::UsersController < ApplicationController
   end
 
   def new
-    
+    @address=Address.new
+  end
+  def create
+    @address = Address.new(address_params)
+    @address.end_user_id=current_end_user.id
+    if @address.save
+      redirect_to end_user_pay_path(@address)
+    else
+
+      render :new
+    end
   end
 
   
@@ -30,7 +40,7 @@ class EndUser::UsersController < ApplicationController
   def update
     @end_user = EndUser.find(params[:id])
     if @end_user.update(end_user_params)
-    redirect_to mypage_path(@end_user.id)
+    redirect_to admin_user_path(@end_user.id)
     else
     render "edit"
     end
@@ -43,5 +53,10 @@ class EndUser::UsersController < ApplicationController
     def order_params
       params.require(:order).permit(:sand_name, :postal_code,:address,:phone_number)
     end
+    def address_params
+      params.require(:address).permit(:send_name,:postal_code, :address, :phone_number)
+    end
 end
+
+
 

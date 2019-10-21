@@ -1,8 +1,7 @@
-<h1>EndUser::Pays#new</h1>
-<p>Find me in app/views/end_user/pays/new.html.erb</p>
 
-<h1>支払い方法選択</h1>
 
+<h1 class="text-center">支払い方法選択</h1>
+<h2 class="text-center">
 <%= form_for(@method_of_payments,url: new_end_user_cheeck_path) do |form| %>
   <%= form.radio_button :method_of_payment, :銀行振込 %>
   <%= form.label :method_of_payment, "銀行振込"  %>
@@ -12,6 +11,7 @@
   <%= form.label :method_of_payment, "代引き"  %>
 <%= form.submit "決定" %>
 <% end %>
+</h2>
 
 
 
