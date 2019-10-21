@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+
+      <h1><strong>レーベル一覧</strong></h1>
+
+      <div class="action">
+        <%= link_to "レーベル新規登録", new_admin_label_path %>
+      </div>
+        <table class="table table-striped">
+  	      <thead>
+  	        <tr>
+              <th></th>
+  	          <th>レーベル名</th>
+  	        </tr>
+  	      </thead>
+
+  	      <tbody>
+            <% @labels.each do |label| %>
+              <tr>
+              	<td><%= label.label_name %></td>
+                <td><%= link_to "編集", edit_admin_label_path(label.id) %></td>
+              </tr>
+            <% end %>
+        	</tbody>
+        </table>
+        <%= paginate @labels, class: "paginate" %>
+    </div>
+  </div>
+</div>

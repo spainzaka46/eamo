@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2019_10_19_061330) do
-
+ActiveRecord::Schema.define(version: 2019_10_19_101141) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "end_user_id", null: false
@@ -135,8 +133,8 @@ ActiveRecord::Schema.define(version: 2019_10_19_061330) do
     t.string "title", null: false
     t.integer "sales_status", null: false
     t.integer "price", null: false
-    t.text "photo", null: false
-    t.datetime "daleted_at"
+    t.integer "photo_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -144,8 +142,14 @@ ActiveRecord::Schema.define(version: 2019_10_19_061330) do
   create_table "record_musics", force: :cascade do |t|
     t.integer "disk_id", null: false
     t.integer "track_number", null: false
-    t.string "theme", null: false
     t.string "song_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "theme_id"
+  end
+
+  create_table "themes", force: :cascade do |t|
+    t.string "theme"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

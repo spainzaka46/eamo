@@ -1,4 +1,4 @@
 class Artist < ApplicationRecord
 	has_many :products
-	accepts_nested_attributes_for :products
+	default_scope -> { order(artist_name: :desc) }
 end
