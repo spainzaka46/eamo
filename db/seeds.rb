@@ -47,7 +47,10 @@ if Rails.env == "development"
 
   DeliveryCharge.create!(delivery_charge: "500".to_i)
 
-  MethodOfPayment.create!(method_of_payment: "1".to_i)
+
+  MethodOfPayment.create!(method_of_payment: "クレジットカード決済")
+  MethodOfPayment.create!(method_of_payment: "銀行振込")
+  MethodOfPayment.create!(method_of_payment: "代金引換")
 
   10.times do |i|
   Order.create!(end_user_id: i + 1,
@@ -57,7 +60,7 @@ if Rails.env == "development"
     			phone_number: "000-000-000#{i + 1}",
     			send_name: "秋田裕二#{i + 1}",
     			delivery_charge: "500".to_i,
-    			order_status: "1".to_i)
+    			order_status: "受付")
   end
 
 

@@ -2,22 +2,50 @@
 <table>
   <thead>
     <tr>
+      <th>受注</th>
       <th>受注日</th>
       <th>ユーザ名</th>
       <th>購入額</th>
       <th>支払い方法</th>
       <th>ステータス</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>
-        <%= select :status,:name,Order.statuses.keys.to_a %>
-      </td>
-    </tr>
+    <% @orders.each do |order| %>
+      <tr>
+        <td>
+          <%= link_to admin_order_path(order) do %>
+            <%= order.id %>
+          <% end %>
+        </td>
+        <td>
+            <%= order.created_at.strftime('%Y/%m/%d') %>     <!-- ここ! -->
+        </td>
+        <td>
+          <%= order.send_name %>
+        </td>
+        <td>
+          <% totalprice = 0 %>                  <!-- ここ! -->
+          <% order.order_details.each do |order_detail| %>
+            <% price = order_detail.price * order_detail.sheet %>
+            <% totalprice = totalprice + price %>
+          <% end %>
+          <%= totalprice + order.delivery_charge %>
+        </td>
+        <td>
+          <%= order.method_of_payment %>            <!-- ここ! -->
+        </td>
+        <td>
+          <%= form_for order, url:admin_order_path(order) do |f|%>       <!-- ここ! -->
+            <%= f.select :order_status, Order.order_statuses.keys.to_a, {} %>
+            <%= f.submit 'save' %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "詳細", admin_order_path(order) %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
