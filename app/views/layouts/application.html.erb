@@ -10,21 +10,21 @@
   </head>
 
   <body>
-<<<<<<< HEAD
+
     <div class="panel panel-primary">
   <div class="panel-heading">
     <h2 class="panel-title">ジャンル別</h2>
   </div>
   <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action">J-POP</a>
-      <a href="#" class="list-group-item list-group-item-action">ロック/ポップ</a>
-      <a href="#" class="list-group-item list-group-item-action">ソウル/クラブ</a>
-      <a href="#" class="list-group-item list-group-item-action">カントリー/ブルース</a>
-      <a href="#" class="list-group-item list-group-item-action">ジャズ</a>
-      <a href="#" class="list-group-item list-group-item-action">ヒーリング</a>
-      <a href="#" class="list-group-item list-group-item-action">K-POP</a>
-      <a href="#" class="list-group-item list-group-item-action">サウンド</a>
-      <a href="#" class="list-group-item list-group-item-action">アニメ/ゲーム</a>
+      <%= link_to "J-POP", "/search/genres/1",class: "list-group-item list-group-item-action" %>
+      <%= link_to "ロック/ポップ", "/search/genres/2",class: "list-group-item list-group-item-action" %>
+      <%= link_to "ソウル/クラブ", "/search/genres/3",class: "list-group-item list-group-item-action" %>
+      <%= link_to "カントリー/ブルース", "/search/genres/4",class: "list-group-item list-group-item-action" %>
+      <%= link_to "ジャズ", "/search/genres/5",class: "list-group-item list-group-item-action" %>
+      <%= link_to "ヒーリング", "/search/genres/6",class: "list-group-item list-group-item-action" %>
+      <%= link_to "K-POP", "/search/genres/7",class: "list-group-item list-group-item-action" %>
+      <%= link_to "サウンド", "/search/genres/8",class: "list-group-item list-group-item-action" %>
+      <%= link_to "アニメ/ゲーム", "/search/genres/9",class: "list-group-item list-group-item-action" %>
   </div>
 </div>
 <div class="panel panel-success">
@@ -42,74 +42,17 @@
     <a href="#" class="list-group-item">ドライブ</a>
 </div>
 
-<div class="container-fluid">
-    <div class="row">
-    <div class="clearfix"></div>
-    <div class="col-sm-3 col-md-2 sidebar">
-      <div class="panel-heading">
-        <h2 class="panel-title">フィーリング</h2>
-      </div>
-        <ul class="nav nav-sidebar">
-            <li class="active"><a href="">料理</a></li>
-            <li><a href="">アクセス</a></li>
-            <li><a href="">皆様のご意見</a></li>
-            <li><a href="/questionnaire">アンケート</a></li>
-        </ul>
-    </div>
 
-=======
-<header class="admin_header">
-  <h1>管理者ページ</h1>
-  <div class="admin_heder">
-      <ul class="admin_menu">
-
-          <li>
-            <%=link_to"商品",admin_products_path %>
-          </li>
-          <li>
-            <%=link_to"新商品",new_admin_product_path %>
-          </li>
-          <li>
-            <%=link_to"入荷処理",admin_arrivals_path %>
-          </li>
-           <li>
-            <%=link_to"入荷履歴",  new_admin_arrival_path %>
-           </li>
-           <li>
-            <%=link_to"受注",admin_orders_path%>
-          </li>
-           <li>
-            <%=link_to"ユーザ一覧",admin_users_path%>
-          </li>
-      </ul>
-  </div>
 </header>
 
 
 
 
   
->>>>>>> develop
+
     <%= yield %>
 
 
-    <footer>
-      <div class="company_information">
-       <p class="infomatin">
-        会社情報 <br>
-        会社名<br>
-        住所<br>
-        電話番号</p>
-      </div>
-
-
-      <div class="conteiner">
-        <div class="row">
-          <div class="col-xs-3 col-xs-offset-9">
-      <p class>©️ nagano music Inc</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    
   </body>
 </html>

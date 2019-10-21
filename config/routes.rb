@@ -35,29 +35,26 @@ end
 # resources :admin_sessions,only: [:destroy, :new, :create]
 namespace :end_user do
 
-	resources :users,only: [:index, :show, :edit, :update, :finish, :destroy, :new, :create] do
-		resources :carts,only: [:index,:destroy, :create]
-	end
 
 	resources :users,only: [ :edit, :update, :finish, :destroy, :new,:create,:check]
      get '/users/:id' => 'users#check', as: 'check'
 
 
 	resources :products,only: [:search, :show, :index] do
-		get '/search' => 'products#search', as: 'search'
+		resources :carts,only: [:index,:destroy, :create]
 	end
+	get '/search/genres/:id' => 'products#genre_search', as: 'search'
 	resources :orders,only: [:index, :show,]
 
 	resources :cheacks,only: [:show, :new, :create]
-	resources :addresses,only: [:new, :create]
 
-
+	
 	resources :checks,only: [:index, :new, :create,:show]
 	resources :addresses,only: [:new, :create,:edit, :update]
     resources :pays,only: [:new, :create,:show ]
     resources :cart_addresses,only: [:new, :create,:show ]
    get '/users/:id/cart_addresses' => 'cart_addresses#show', as: 'show'
->>>>>>> develop
+
 end
 scope module: :end_user do
    get 'mypage', to: "users#show"

@@ -36,16 +36,27 @@ if Rails.env == "development"
     Label.create!(label_name: "label_#{i + 1}")
   end
 
-  10.times do |i|
-    Genre.create!(genre_name: "genre_#{i + 1}")
-  end
+
+  Genre.create!(genre_name: "Jpop")
+  Genre.create!(genre_name: "ロック/ポップ")
+  Genre.create!(genre_name: "ソウル/クラブ")
+  Genre.create!(genre_name: "カントリー/ブルース")
+  Genre.create!(genre_name: "ソウル/クラブ")
+  Genre.create!(genre_name: "カントリー/ブルース")
+  Genre.create!(genre_name: "ジャズ")
+  Genre.create!(genre_name: "ヒーリング")
+  Genre.create!(genre_name: "K-POP")
+  Genre.create!(genre_name: "サウンド")
+  Genre.create!(genre_name: "アニメ/ゲーム")
+
+
 
   DeliveryCharge.create!(delivery_charge: "500".to_i)
 
-  
-  MethodOfPayment.create!(mathod_of_payment: "クレジットカード決済")
-  MethodOfPayment.create!(mathod_of_payment: "銀行振込")
-  MethodOfPayment.create!(mathod_of_payment: "代金引換")
+
+  MethodOfPayment.create!(method_of_payment: "クレジットカード決済")
+  MethodOfPayment.create!(method_of_payment: "銀行振込")
+  MethodOfPayment.create!(method_of_payment: "代金引換")
 
   10.times do |i|
   Order.create!(end_user_id: i + 1,
