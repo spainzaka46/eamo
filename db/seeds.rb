@@ -10,7 +10,7 @@
 
 if Rails.env == "development"
 
-#Admin.create!(password: "password", email: "admintest@example.com")
+  # Admin.create!(password: "password", email: "admintest@example.com")
 
   10.times do |i|
     EndUser.create!(email: "test#{i + 1}@example.com",
@@ -36,16 +36,18 @@ if Rails.env == "development"
     Label.create!(label_name: "label_#{i + 1}")
   end
 
-  10.times do |i|
-    Genre.create!(genre_name: "genre_#{i + 1}")
+  [
+    'J-POP', 'ロック/ポップス', 'ソウル/クラブ/ラップ', 'カントリー/ブルース',
+    'ジャズ', 'ヒーリング/ニューエイジ', 'K-POP/ワールド', 'サウンドトラック', 'アニメ/ゲーム'
+  ].each do |genre|
+    Genre.create!(
+      { genre_name: genre }
+    )
   end
 
   DeliveryCharge.create!(delivery_charge: "500".to_i)
 
-  
-  MethodOfPayment.create!(mathod_of_payment: "クレジットカード決済")
-  MethodOfPayment.create!(mathod_of_payment: "銀行振込")
-  MethodOfPayment.create!(mathod_of_payment: "代金引換")
+  MethodOfPayment.create!(method_of_payment: "1".to_i)
 
   10.times do |i|
   Order.create!(end_user_id: i + 1,
@@ -62,7 +64,7 @@ if Rails.env == "development"
   10.times do |i|
     Product.create!(genre_id: i + 1, label_id: i + 1, artist_id: i + 1,
     				title: "タイトル#{i + 1}", sales_status: "1".to_i,
-    				price: "1#{i + 1}00".to_i, photo: "no_image.jpg")
+    				price: "1#{i + 1}00".to_i)
   end
 
   10.times do |i|
@@ -72,13 +74,22 @@ if Rails.env == "development"
   10.times do |i|
     Disk.create!(product_id: i + 1, disk_number: i + 1)
   end
-  
+
   10.times do |i|
     OrderDetail.create!(order_id: i + 1, product_id: i + 1, price: "1#{i + 1}00".to_i, sheet: i + 1)
   end
 
+  [
+    'ラブソング', '応援ソング', 'リラックス・癒し', 'オルゴール',
+    '泣ける', 'バラード', 'テンションが上がる', 'ドライブ'
+  ].each do |theme|
+    Theme.create!(
+      { theme: theme }
+    )
+  end
+
   10.times do |i|
-    RecordMusic.create!(disk_id: i + 1, track_number: i + 1, theme: "1",
+    RecordMusic.create!(disk_id: i + 1, track_number: i + 1, theme_id: 1,
                 song_name: "song_name#{i + 1}")
   end
 

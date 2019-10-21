@@ -1,0 +1,22 @@
+<div class="nested-fields well well-compact" id="disk_nested">
+	<h4>収録ディスク</h4>
+	<div class="form-group">
+		<%= f.label :disk_number, "ディスクNo." %>
+		<%= f.number_field :disk_number %><br>
+		<%= link_to_remove_association "ディスク削除", f, class: "btn btn-danger" %>
+	</div>
+
+		<div id="nest">
+			<%= link_to_add_association "トラック追加", f, :record_musics, class: "btn btn-info",data:{
+				association_insertion_method:'append'
+			} %>
+			<%= f.fields_for :record_musics do |record_music| %>
+			  <%= render 'record_music_fields', f: record_music %>
+			<% end %>
+
+
+		</div>
+
+
+	</div>
+</div>
