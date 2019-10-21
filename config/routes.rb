@@ -24,7 +24,7 @@ get 'end_user/finish' => 'end_user/users#finish', as: 'end_user_finish'
 namespace :admin do
 	resources :products
 	resources :artists
-    resources :labels
+  resources :labels
 	resources :users,only: [:index, :show, :edit, :update, :destroy] do
 		get '/orderhistories' => 'orderhistories#index',as: 'orderhistories'
 	end
@@ -37,23 +37,20 @@ namespace :admin do
 end
 # resources :admin_sessions,only: [:destroy, :new, :create]
 namespace :end_user do
-
-
-	resources :users,only: [ :edit, :update, :finish, :destroy, :new,:create,:check]
-     get '/users/:id' => 'users#check', as: 'check'
-
-
+	resources :users,only: [:index, :show, :edit, :update, :finish, :destroy, :new, :create] do
+    get '/orders' => 'orders#index', as: 'orders'
+    get '/orders/:id' => 'orders#show', as: 'order'
+    get '/users/:id' => 'users#check', as: 'check'
+  end
 	resources :products,only: [:search, :show, :index] do
 		resources :carts,only: [:index,:destroy, :create]
 	end
-	get '/search/genres/:id' => 'products#genre_search', as: 'search'
 	resources :orders,only: [:index, :show,]
-
 	resources :checks,only: [:index, :new, :create,:show]
 	resources :addresses,only: [:new, :create,:edit, :update]
-    resources :pays,only: [:new, :create,:show ]
-    resources :cart_addresses,only: [:new, :create,:show ]
-   get '/users/:id/cart_addresses' => 'cart_addresses#show', as: 'show'
+  resources :pays,only: [:new, :create,:show ]
+  resources :cart_addresses,only: [:new, :create,:show ]
+  get '/users/:id/cart_addresses' => 'cart_addresses#show', as: 'show'
 
 end
 scope module: :end_user do
