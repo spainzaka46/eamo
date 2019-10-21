@@ -26,7 +26,7 @@ namespace :admin do
 	resources :artists
     resources :labels
 	resources :users,only: [:index, :show, :edit, :update, :destroy] do
-		get '/orderhistories' => 'users#orderhistories',as: 'orderhistories'
+		get '/orderhistories' => 'orderhistories#index',as: 'orderhistories'
 	end
 	resources :arrivals,only: [:index, :new, :create]
 	resources :orders,only: [:index, :show, :update]
