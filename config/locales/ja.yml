@@ -2,6 +2,9 @@ ja:
   activerecord:
     errors:
       models:
+        record_music:
+          attributes:
+            theme: "テーマがおかしい？！"
         end_user:
           attributes:
             email:

@@ -1,2 +1,23 @@
-<h1>Admin::Products#edit</h1>
-<p>Find me in app/views/admin/products/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+      <h2>商品編集</h2>
+	  <% if @product.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= @product.errors.count %> errors prohibited this product from being saved:</h2>
+	    <ul>
+	      <% @product.errors.full_messages.each do |msg| %>
+	        <li> <%= msg %> </li>
+	      <% end %>
+	    </ul>
+	  </div>
+	  <% end %>
+    <div class="product-content">
+	<%= form_for @product, url: {action: 'update'} do |f| %>
+
+	  <%= render 'form', product: @product, f: f %>
+
+	<% end %>
+
+    <%= link_to '商品詳細へ戻る', admin_product_path(@product), class: "btn btn-default" %>
+  </div>
+</div>

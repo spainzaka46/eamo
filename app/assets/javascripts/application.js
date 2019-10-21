@@ -15,6 +15,7 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
+<<<<<<< product-in-carts
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
@@ -25,3 +26,8 @@
   //= require bootstrap-sprockets
   //= require_tree .
 
+=======
+//= require bootstrap-sprockets
+//= require cocoon
+//= require_tree .
+>>>>>>> develop
