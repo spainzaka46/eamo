@@ -1,6 +1,9 @@
 class Admin::UsersController < ApplicationController
+  before_action :authenticate_admin!
+  PER=8
   def index
-  	@end_users = EndUser.all
+  	@end_users = EndUser.page(params[:page]).per(PER)
+
   end
 
   def show
