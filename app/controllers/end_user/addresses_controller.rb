@@ -1,8 +1,8 @@
 class EndUser::AddressesController < ApplicationController
   def new
   	@address=Address.new
-
   end
+
   def create
   	@address = Address.new(address_params)
     @address.end_user_id=current_end_user.id
@@ -13,6 +13,7 @@ class EndUser::AddressesController < ApplicationController
   		render :new
      end
    end
+
   def edit
   	@address = Address.find(params[:id])
   end
@@ -23,11 +24,11 @@ class EndUser::AddressesController < ApplicationController
     if
   	 @address.update(address_params)
      redirect_to mypage_path(current_end_user.id)
-   else
+    else
      redirect_to mypage_path(current_end_user.id)
-
+    end
   end
-end
+
  private
     def address_params
       params.require(:address).permit(:send_name,:postal_code, :address, :phone_number)

@@ -10,6 +10,41 @@
   </head>
 
   <body>
+
+
+    <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title">ジャンル別</h2>
+  </div>
+  <div class="list-group">
+      <%= link_to "J-POP", "/search/genres/1",class: "list-group-item list-group-item-action" %>
+      <%= link_to "ロック/ポップ", "/search/genres/2",class: "list-group-item list-group-item-action" %>
+      <%= link_to "ソウル/クラブ", "/search/genres/3",class: "list-group-item list-group-item-action" %>
+      <%= link_to "カントリー/ブルース", "/search/genres/4",class: "list-group-item list-group-item-action" %>
+      <%= link_to "ジャズ", "/search/genres/5",class: "list-group-item list-group-item-action" %>
+      <%= link_to "ヒーリング", "/search/genres/6",class: "list-group-item list-group-item-action" %>
+      <%= link_to "K-POP", "/search/genres/7",class: "list-group-item list-group-item-action" %>
+      <%= link_to "サウンド", "/search/genres/8",class: "list-group-item list-group-item-action" %>
+      <%= link_to "アニメ/ゲーム", "/search/genres/9",class: "list-group-item list-group-item-action" %>
+  </div>
+</div>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h2 class="panel-title">フィーリング</h2>
+  </div>
+    <a href="#" class="list-group-item">ラブソング</a>
+    <a href="#" class="list-group-item">失恋ソング</a>
+    <a href="#" class="list-group-item">応援ソング</a>
+    <a href="#" class="list-group-item">リラックス/癒し</a>
+    <a href="#" class="list-group-item">オルゴール</a>
+    <a href="#" class="list-group-item">泣ける</a>
+    <a href="#" class="list-group-item">バラード</a>
+    <a href="#" class="list-group-item">テンション</a>
+    <a href="#" class="list-group-item">ドライブ</a>
+</div>
+
+
+
 <header class="admin_header">
   <div class="list-group-item list-group-item-info">
    <h1 class="text-center">管理者ページ</h1>
@@ -40,12 +75,20 @@
           </div>
         </div>
    </div>
+
 </header>
 
 
 
 
   
+
+    <%= yield %>
+
+
+    
+  </body>
+
     <%= yield %>
 
     <footer class="page-footer font-small teal pt-4">
@@ -66,7 +109,7 @@
      </div>
    </footer>
  </body>
-</html>
+ </html>
 
 
 

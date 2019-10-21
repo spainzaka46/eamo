@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  
+
   namespace :admin do
     get 'user_address/edit'
   end
@@ -22,7 +22,9 @@ Rails.application.routes.draw do
 get 'end_user/finish' => 'end_user/users#finish', as: 'end_user_finish'
 
 namespace :admin do
-	resources :products,only: [:index, :show, :edit, :update, :new, :create]
+	resources :products
+	resources :artists
+  resources :labels
 	resources :users,only: [:index, :show, :edit, :update, :destroy] do
 		get '/orderhistories' => 'orderhistories#index',as: 'orderhistories'
 	end
@@ -31,6 +33,7 @@ namespace :admin do
 	resources :orderhistories,only: [:index,]
 	resources :tops,only: [:index,]
 	resources :user_address,only: [:edit,:update]
+	get '/disks', to: 'disks#index'
 end
 # resources :admin_sessions,only: [:destroy, :new, :create]
 namespace :end_user do
@@ -39,16 +42,16 @@ namespace :end_user do
     get '/orders/:id' => 'orders#show', as: 'order'
     get '/users/:id' => 'users#check', as: 'check'
   end
-
 	resources :products,only: [:search, :show, :index] do
-		get '/search' => 'products#search', as: 'search'
+		resources :carts,only: [:index,:destroy, :create]
 	end
-	resources :carts,only: [:index,:destroy, :create]
-	resources :cheecks,only: [:index, :new, :create,:show]
+	resources :orders,only: [:index, :show,]
+	resources :checks,only: [:index, :new, :create,:show]
 	resources :addresses,only: [:new, :create,:edit, :update]
-    resources :pays,only: [:new, :create,:show ]
-    resources :cart_addresses,only: [:new, :create,:show ]
-   get '/users/:id/cart_addresses' => 'cart_addresses#show', as: 'show'
+  resources :pays,only: [:new, :create,:show ]
+  resources :cart_addresses,only: [:new, :create,:show ]
+  get '/users/:id/cart_addresses' => 'cart_addresses#show', as: 'show'
+
 end
 scope module: :end_user do
    get 'mypage', to: "users#show"

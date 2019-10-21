@@ -1,2 +1,30 @@
 <h1>Admin::Arrivals#index</h1>
-<p>Find me in app/views/admin/arrivals/index.html.erb</p>
+<%= render 'admin/arrivals/list' %>
+
+<div>
+	<div>
+		<h2>入荷履歴</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>日付</th>
+						<th>タイトル</th>
+						<th>アーティスト</th>
+						<th>個数</th>
+					</tr>
+				</thead>
+				<% @arrivals.each do |arrival| %>
+					<tbody>
+						<tr>
+							<td><%= arrival.arrival_day %></td>
+								<td><%= arrival.product.title %></td>
+								<td><%= arrival.product.artist.artist_name %></td>
+							<td><%= arrival.sheet %></td>
+						</tr>
+					</tbody>
+				<% end %>
+			</table>
+			<%= paginate @arrivals %>
+	</div>
+</div>
+<%= render 'admin/arrivals/list2' %>
