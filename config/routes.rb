@@ -43,8 +43,10 @@ namespace :end_user do
     get '/users/:id' => 'users#check', as: 'check'
   end
 	resources :products,only: [:search, :show, :index] do
-		resources :carts,only: [:index,:destroy, :create]
-	end
+    resources :carts,only: [:destroy, :create]
+  end
+  resources :carts,only: [:index]
+
 
   get '/products/genre/:id' => 'products#genre_serch', as: 'genre'
 	resources :orders,only: [:index, :show,]

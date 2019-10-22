@@ -5,10 +5,11 @@ class EndUser::ProductsController < ApplicationController
   def genre_serch
   	@products = Product.where(genre_id:  params[:id])
     @genres = Genre.all
+    @cart = ProductInCart.new
   end
 
   def show
-  	@product = Product.find(params[:id])	
+  	@product = Product.find(params[:id])
     @artist = @product.artist	
     @genre = @product.genre	
     @label = @product.label	
