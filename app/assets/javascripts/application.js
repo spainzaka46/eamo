@@ -24,7 +24,11 @@
 
 
 
+<<<<<<< Updated upstream
 //= require popper
+=======
+// require popper
+>>>>>>> Stashed changes
 //= require bootstrap-sprockets
 //= require_tree .
 
