@@ -1,74 +1,98 @@
-<h1>受注詳細</h1>
-<p>お届け先</p>
-<table>
-  <thead>
-    <tr>
-      <th>名前</th>
-      <th>郵便番号</th>
-      <th>住所</th>
-      <th>電話番号</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <%= @order.send_name %>
-      </td>
-      <td>
-        <%= @order.postal_code %>
-      </td>
-      <td>
-        <%= @order.address %>
-      </td>
-      <td>
-        <%= @order.phone_number %>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<p>購入内容</p>
-<table>
-  <thead>
-    <tr>
-      <th>タイトル</th>
-      <th>アーティスト</th>
-      <th>個数</th>
-      <th>価格（税込）</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% total_price = 0 %>                <!-- ここ! -->
-    <% @order.order_details.each do |order_detail| %>
-    <tr>
-      <td><%= order_detail.product.title %></td>
-      <td><%= order_detail.product.artist.artist_name %></td>
-      <td>
-        <%= order_detail.sheet %>
-      </td>
-      <td>
-        <% price = order_detail.price * order_detail.sheet %>
-        <%= price %>
-      </td>
-    </tr>
-    <% total_price = total_price + price %>
-    <% end %>
-  </tbody>
-</table>
-<table>
-  <thead>
-    <tr>
-      <th>送料</th>
-      <th>購入額（税込）</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <%= @order.delivery_charge %>
-      </td>
-      <td>
-        <%= @order.delivery_charge + total_price %>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<h1 class="text-center">受注詳細</h1>
+
+<h2 class="text-center"><お届け先></h2>
+<div class="container">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="text-align:center;">名前</th>
+            <th style="text-align:center;">郵便番号</th>
+            <th style="text-align:center;">住所</th>
+            <th style="text-align:center;">電話番号</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center">
+              <%= @order.send_name %>
+            </td>
+            <td align="center">
+              <%= @order.postal_code %>
+            </td>
+            <td align="center">
+              <%= @order.address %>
+            </td>
+            <td align="center">
+              <%= @order.phone_number %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h３ class="text-center">購入内容</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="text-align:center;">タイトル</th>
+            <th style="text-align:center;">アーティスト</th>
+            <th style="text-align:center;">個数</th>
+            <th style="text-align:center;">価格（税込）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% total_price = 0 %>                <!-- ここ! -->
+          <% @order.order_details.each do |order_detail| %>
+          <tr>
+            <td align="center"><%= order_detail.product.title %></td>
+            <td align="center"><%= order_detail.product.artist.artist_name %></td>
+            <td align="center">
+              <%= order_detail.sheet %>
+            </td>
+            <td align="center">
+              <% price = order_detail.price * order_detail.sheet %>
+              <%= price %>
+            </td>
+          </tr>
+          <% total_price = total_price + price %>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="row">
+        <div class="test">
+        
+             <table class="table-bordered col-sm-4 test">
+            <thead>
+              <tr>
+                <th style="text-align:center;">送料</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center">
+                  <%= @order.delivery_charge %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="test">
+         <table class="table-bordered col-sm-4 test">
+        <thead>
+          <tr>
+            <th style="text-align:center;">購入額（税込）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center">
+              <%= @order.delivery_charge + total_price %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      </div>
+    </div>
