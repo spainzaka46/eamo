@@ -1,27 +1,29 @@
 <div class="container">
   <div class="row">
-    <h2>レーベル新規登録</h2>
-    <% if @label.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= @label.errors.count %> errors prohibited this book from being saved:</h2>
-        <ul>
-          <% @label.errors.full_messages.each do |msg| %>
-            <li> <%= msg %> </li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+    <div class="col align-self-center">
+      <h2>レーベル新規登録</h2>
+      <% if @label.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= @label.errors.count %> 件のエラーがあります。</h2>
+          <ul>
+            <% @label.errors.full_messages.each do |msg| %>
+              <li> <%= msg %> </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-    <%= form_for(@label, url: admin_labels_path) do |f| %>
-      <div class="field">
-        <%= f.label :label_name, "レーベル名" %> </br>
-        <%= f.text_field :label_name, class: "form-control"%>
-      </div>
+      <%= form_for(@label, url: admin_labels_path) do |f| %>
+        <div class="field">
+          <%= f.label :label_name, "レーベル名" %> </br>
+          <%= f.text_field :label_name, class: "form-control"%>
+        </div>
 
-      <div class="action">
-        <%= f.submit "登録", class: "btn btn-default" %>
-      </div>
-    <% end %>
+        <div class="action">
+          <%= f.submit "登録", class: "btn btn-default" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 

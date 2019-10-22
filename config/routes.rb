@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
 }
 
+root to: 'end_user/products#index', as: 'end_user_products'
 get 'end_user/finish' => 'end_user/users#finish', as: 'end_user_finish'
 
 namespace :admin do
