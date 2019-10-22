@@ -1,30 +1,30 @@
-<h1>Admin::Arrivals#index</h1>
-<%= render 'admin/arrivals/list' %>
+<h1 class="text-center">入荷履歴</h1>
 
-<div>
+<div class="container">
 	<div>
-		<h2>入荷履歴</h2>
-			<table>
+
+			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>日付</th>
-						<th>タイトル</th>
-						<th>アーティスト</th>
-						<th>個数</th>
+						<th style="text-align:center;">日付</th>
+						<th style="text-align:center;">タイトル</th>
+						<th style="text-align:center;">アーティスト</th>
+						<th style="text-align:center;">個数</th>
 					</tr>
 				</thead>
 				<% @arrivals.each do |arrival| %>
 					<tbody>
 						<tr>
-							<td><%= arrival.arrival_day %></td>
-								<td><%= arrival.product.title %></td>
-								<td><%= arrival.product.artist.artist_name %></td>
-							<td><%= arrival.sheet %></td>
+							<td align="center"><%= arrival.arrival_day %></td>
+						　　<td align="center"><%= arrival.product.title %></td>
+							<td align="center"><%= arrival.product.artist.artist_name %></td>
+							<td align="center"><%= arrival.sheet %></td>
 						</tr>
 					</tbody>
 				<% end %>
 			</table>
+			<div class="row text-center">
 			<%= paginate @arrivals %>
+		</div>
 	</div>
 </div>
-<%= render 'admin/arrivals/list2' %>

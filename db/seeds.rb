@@ -43,7 +43,7 @@ if Rails.env == "development"
     Genre.create!(
       { genre_name: genre }
     )
-  end   
+  end
 
 
 
@@ -55,7 +55,7 @@ if Rails.env == "development"
   MethodOfPayment.create!(method_of_payment: "銀行振込")
   MethodOfPayment.create!(method_of_payment: "代金引換")
 
-  
+
   10.times do |i|
   Order.create!(end_user_id: i + 1,
   				method_of_payment: "1".to_i,
