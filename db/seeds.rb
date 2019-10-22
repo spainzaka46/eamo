@@ -43,7 +43,7 @@ if Rails.env == "development"
     Genre.create!(
       { genre_name: genre }
     )
-  end   
+  end
 
 
 

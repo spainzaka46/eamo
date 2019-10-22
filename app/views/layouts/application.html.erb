@@ -16,16 +16,10 @@
   <div class="panel-heading">
     <h2 class="panel-title">ジャンル別</h2>
   </div>
-  <div class="list-group">
-      <%= link_to "J-POP", "/search/genres/1",class: "list-group-item list-group-item-action" %>
-      <%= link_to "ロック/ポップ", "/search/genres/2",class: "list-group-item list-group-item-action" %>
-      <%= link_to "ソウル/クラブ", "/search/genres/3",class: "list-group-item list-group-item-action" %>
-      <%= link_to "カントリー/ブルース", "/search/genres/4",class: "list-group-item list-group-item-action" %>
-      <%= link_to "ジャズ", "/search/genres/5",class: "list-group-item list-group-item-action" %>
-      <%= link_to "ヒーリング", "/search/genres/6",class: "list-group-item list-group-item-action" %>
-      <%= link_to "K-POP", "/search/genres/7",class: "list-group-item list-group-item-action" %>
-      <%= link_to "サウンド", "/search/genres/8",class: "list-group-item list-group-item-action" %>
-      <%= link_to "アニメ/ゲーム", "/search/genres/9",class: "list-group-item list-group-item-action" %>
+    <div class="list-group">
+       <% @genres.each do |genre| %>
+         <%= link_to "#{genre.genre_name}", end_user_genre_path(genre.id),class: "list-group-item list-group-item-action" %>
+       <% end %>
   </div>
 </div>
 <div class="panel panel-success">
@@ -110,8 +104,6 @@
    </footer>
  </body>
  </html>
-
-
 
 
 

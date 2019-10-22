@@ -45,6 +45,8 @@ namespace :end_user do
 	resources :products,only: [:search, :show, :index] do
 		resources :carts,only: [:index,:destroy, :create]
 	end
+
+  get '/products/genre/:id' => 'products#genre_serch', as: 'genre'
 	resources :orders,only: [:index, :show,]
 	resources :checks,only: [:index, :new, :create,:show]
 	resources :addresses,only: [:new, :create,:edit, :update]

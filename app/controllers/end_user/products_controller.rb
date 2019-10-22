@@ -3,7 +3,8 @@ class EndUser::ProductsController < ApplicationController
   end
 
   def genre_serch
-  	@products = Products.where(genre_id:  params[:id])
+  	@products = Product.where(genre_id:  params[:id])
+    @genres = Genre.all
   end
 
   def show
@@ -20,5 +21,6 @@ class EndUser::ProductsController < ApplicationController
   end
 
   def index
+    @genres = Genre.all
   end
 end

@@ -1,0 +1,23 @@
+<div>
+	<div>
+		<h2>ジャンル別</h2>
+		<div>
+			<% @products.each do |product| %>
+				<%= attachment_image_tag product, :photo_id %>
+				<p>タイトル</p>
+				<%= product.title %>
+
+				<p>アーティスト</p>
+				<%= product.artist.artist_name %>
+
+				<p>ジャンル</p>
+				<%= product.genre.genre_name %>
+
+				<p>価格</p>
+				<%= product.price %>
+
+				<%= link_to 'カートに入れる',end_user_product_carts_path(product.id) %>
+			<% end %>
+		</div>
+	</div>
+</div>
