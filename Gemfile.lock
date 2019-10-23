@@ -292,12 +292,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
-  bootsnap (>= 1.1.0)
-  bootstrap-sass (~> 3.3.6)
-=======
   bootstrap-sass (~> 3.4.1)
->>>>>>> develop
   byebug
   capybara (>= 2.15)
   chromedriver-helper
