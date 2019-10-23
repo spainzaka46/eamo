@@ -1,31 +1,33 @@
-<h1>Admin::Arrivals#new 入荷処理</h1>
-<%= render 'admin/arrivals/list' %>
 
-<div>
+<h1 class="text-center">入荷処理</h1>
+<div class="container">
 	<div>
 		<%= form_for @arrival, url: admin_arrivals_path do |f| %>
-			<table>
+			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>日付</th>
-						<th>タイトル : アーティスト</th>
-						<th></th>
-						<th>個数</th>
+						<th style="text-align:center;">日付</th>
+						<th style="text-align:center;">タイトル : アーティスト</th>
+
+						<th style="text-align:center;">個数</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td><%= f.date_field :arrival_day %></td>
-						<td><%= f.select :product_id, @select %></td>
-						<td></td>
-						<td><%= f.number_field :sheet %></td>
+						<td align="center"><%= f.date_field :arrival_day %></td>
+						<td align="center"><%= f.select :product_id, @select %></td>
+
+						<td align="center"><%= f.number_field :sheet %></td>
 					</tr>
 				</tbody>
 			</table>
-			<%= f.submit '入荷' %>
+　　　　　　　　<div class="field">
+		　　　　<h2 class="text-center">
+		  	<%= f.submit '入荷' %></h2>
 		<% end %>
+		</div>
 	</div>
 </div>
-<%= render 'admin/arrivals/list2' %>
+
 
 
