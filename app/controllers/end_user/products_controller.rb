@@ -20,5 +20,6 @@ class EndUser::ProductsController < ApplicationController
   end
 
   def index
+    @products = Product.page(params[:page]).per(25)
   end
 end

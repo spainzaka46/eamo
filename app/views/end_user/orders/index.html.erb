@@ -1,41 +1,43 @@
-<h1>購入履歴一覧</h1>
-<table>
-  <thead>
-    <tr>
-      <th>購入日</th>
-      <th>購入額</th>
-      <th>支払い方法</th>
-      <th>送付先</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td>
-          <%= link_to end_user_user_order_path(id: order.id) do %>
-            <%= order.created_at.strftime('%m/%d') %>
+<h1 class="text-center">ユーザ購入履歴</h1>
+<div class="container">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="text-align:center;">購入日</th>
+            <th style="text-align:center;">購入額</th>
+            <th style="text-align:center;">支払い方法</th>
+            <th style="text-align:center;">送付先</th>
+            <th style="text-align:center;">ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td align="center">
+                <%= link_to end_user_user_order_path(id: order.id) do %>
+                  <%= order.created_at.strftime('%m/%d') %>
+                <% end %>
+              </td>
+              <td align="center">
+                <% total = 0 %>
+                <% order.order_details.each do |order_detail| %>
+                  <% subtotal = order_detail.price * order_detail.sheet %>
+                  <% total = total + subtotal %>
+                <% end %>
+                <%= total + order.delivery_charge %>
+              </td>
+              <td align="center">
+                <%= order.method_of_payment %>
+              </td>
+              <td align="center">
+                <%= order.address %>
+              </td>
+              <td align="center">
+                <%= order.order_status %>
+              </td>
+            </tr>
           <% end %>
-        </td>
-        <td>
-          <% total = 0 %>
-          <% order.order_details.each do |order_detail| %>
-            <% subtotal = order_detail.price * order_detail.sheet %>
-            <% total = total + subtotal %>
-          <% end %>
-          <%= total + order.delivery_charge %>
-        </td>
-        <td>
-          <%= order.method_of_payment %>
-        </td>
-        <td>
-          <%= order.address %>
-        </td>
-        <td>
-          <%= order.order_status %>
-        </td>
-      </tr>
-    <% end %>
-    <%= paginate @orders, class: "paginate" %>
-  </tbody>
-</table>
+          <%= paginate @orders, class: "paginate" %>
+        </tbody>
+      </table>
+    </div>

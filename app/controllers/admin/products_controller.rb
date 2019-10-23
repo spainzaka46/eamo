@@ -1,6 +1,7 @@
 class Admin::ProductsController < ApplicationController
-  before_action :authenticate_admin!
+
   def index
+    @products = Product.page(params[:page]).reverse_order
   end
 
   def show
@@ -50,7 +51,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def update
-    binding.pry
+
     @product = Product.find(params[:id])
     if @product.update(product_params)
       flash[:notice] = "商品情報を更新しました"

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
 }
 
+root to: 'end_user/products#index', as: 'end_user_products'
 get 'end_user/finish' => 'end_user/users#finish', as: 'end_user_finish'
 
 namespace :admin do
@@ -42,9 +43,9 @@ namespace :end_user do
     get '/orders/:id' => 'orders#show', as: 'order'
     get '/users/:id' => 'users#check', as: 'check'
   end
-	resources :products,only: [:search, :show, :index] do
-		resources :carts,only: [:index,:destroy, :create]
-	end
+	resources :products,only: [:search, :show, :index]
+
+  resources :carts,only: [:index,:destroy, :create]
 	resources :orders,only: [:index, :show,]
 	resources :checks,only: [:index, :new, :create,:show]
 	resources :addresses,only: [:new, :create,:edit, :update]
