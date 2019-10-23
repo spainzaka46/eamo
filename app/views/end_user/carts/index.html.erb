@@ -7,6 +7,7 @@
 		<div>
 			<% total = 0 %>
 			<% @end_user.product_in_carts.each do |product_in_cart| %>
+			<%= attachment_image_tag product_in_cart.product, :photo, :fill, 50, 50, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
 				<p>Title</p>
 					<%= product_in_cart.product.title %>
 				<p>アーティスト</p>

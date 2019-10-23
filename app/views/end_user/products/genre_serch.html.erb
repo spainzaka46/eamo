@@ -3,7 +3,7 @@
 		<h2>ジャンル別</h2>
 		<div>
 			<% @products.each do |product| %>
-				<%= attachment_image_tag product, :photo_id %>
+				<%= attachment_image_tag product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
 				<p>タイトル</p>
 				<%= product.title %>
 
@@ -22,9 +22,9 @@
 				<% end %>
 
 
-				<%= link_to 'カートに入れる',end_user_product_carts_path(product.id) %>
+				<!-- <%= link_to 'カートに入れる',end_user_product_carts_path(product.id) %> -->
 
-			<% end %>
+			<!-- <% end %> -->
 		</div>
 	</div>
 </div>
