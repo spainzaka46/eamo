@@ -43,6 +43,9 @@ if Rails.env == "development"
     Genre.create!(
       { genre_name: genre }
     )
+  end
+
+
 
 
   DeliveryCharge.create!(delivery_charge: "500".to_i)

@@ -18,6 +18,19 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
+
+
+
+
+// require popper
+//= require bootstrap-sprockets
+//= require_tree .
+
+
+
+
+//= require bootstrap-sprockets
+
 //= require cocoon
 //= require bootstrap-sprockets
 //= require_tree .
