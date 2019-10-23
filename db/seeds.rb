@@ -47,7 +47,6 @@ if Rails.env == "development"
 
 
 
-
   DeliveryCharge.create!(delivery_charge: "500".to_i)
 
 
@@ -69,7 +68,7 @@ if Rails.env == "development"
 
 
   10.times do |i|
-    Product.create!(genre_id: i + 1, label_id: i + 1, artist_id: i + 1,
+    Product.create!(genre_id: 1, label_id: i + 1, artist_id: i + 1,
     				title: "タイトル#{i + 1}", sales_status: "1".to_i,
     				price: "1#{i + 1}00".to_i)
   end

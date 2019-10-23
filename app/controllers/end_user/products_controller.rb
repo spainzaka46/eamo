@@ -23,5 +23,6 @@ class EndUser::ProductsController < ApplicationController
 
   def index
     @genres = Genre.all
+    @products = Product.page(params[:page]).per(25)
   end
 end
