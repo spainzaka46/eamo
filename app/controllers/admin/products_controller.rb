@@ -6,9 +6,6 @@ class Admin::ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @artist = @product.artist
-    @genre = @product.genre
-    @label = @product.label
     ordersum = 0
     arrivalsum = 0
     @product.order_details.each do |order_detail|
