@@ -1,27 +1,31 @@
 <div class="container">
   <div class="row">
-    <h2>新商品追加</h2>
-    <% if @product.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= @product.errors.count %> errors prohibited this product from being saved:</h2>
-        <ul>
-          <% @product.errors.full_messages.each do |msg| %>
-            <li> <%= msg %> </li>
-          <% end %>
-        </ul>
+    <div class="col align-self-center">
+      <h2>新商品追加</h2>
+      <% if @product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= @product.errors.count %> 件のエラーがあります。</h2>
+          <ul>
+            <% @product.errors.full_messages.each do |msg| %>
+              <li> <%= msg %> </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="action">
+        <%= link_to "アーティスト新規登録", new_admin_artist_path %> </br>
+        <%= link_to "レーベル新規登録", new_admin_label_path %>
       </div>
-    <% end %>
 
-    <div class="action">
-      <%= link_to "アーティスト新規登録", new_admin_artist_path %> </br>
-      <%= link_to "レーベル新規登録", new_admin_label_path %>
+      <div class="product-content">
+
+        <%= render 'form', product: @product %>
+
+      <%= link_to '商品一覧に戻る', admin_products_path, class: "btn btn-default" %>
+
     </div>
-
-    <div class="product-content">
-    
-      <%= render 'form', product: @product %>
-    
-
-    <%= link_to '商品一覧に戻る', admin_products_path, class: "btn btn-default" %>
+  </div>
+</div>
 
 

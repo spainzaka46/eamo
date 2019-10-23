@@ -1,71 +1,85 @@
 <div class="container">
   <div class="row">
-    <h2>商品詳細</h2>
+    <div class="col align-self-center">
+      <h2>商品詳細</h2>
 
-    <div class="field">
-      <%= attachment_image_tag @product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%> </br>
-    </div>
-    <div class="field">
-      <span>タイトル</span>
-      <%= @product.title %>
-    </div>
+      <div class="field">
+        <%= attachment_image_tag @product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%> </br>
+      </div>
+      <div class="field">
+        <span>タイトル</span>
+        <%= @product.title %>
+      </div>
 
-    <div class="field">
-      <span>アーティスト</span>
-      <%= @artist.artist_name %>
-    </div>
-    <div class="field">
-      <span>ジャンル</span>
-      <%= @genre.genre_name %>
-    </div>
-    <div class="field">
-      <span>レーベル</span>
-      <%= @label.label_name %>
-    </div>
+      <div class="field">
+        <span>アーティスト</span>
+        <%= @artist.artist_name %>
+      </div>
+      <div class="field">
+        <span>ジャンル</span>
+        <%= @genre.genre_name %>
+      </div>
+      <div class="field">
+        <span>レーベル</span>
+        <%= @label.label_name %>
+      </div>
 
-    <div class="field">
-      <span>価格</span>
-      <%= @product.price %>
-    </div>
+      <div class="field">
+        <span>価格(税込)</span>
+        <%= @product.price %> 円
+      </div>
 
-    <div>
-      <span>在庫数</span>
-      <%= @stock %>
-    </div>
+      <div>
+        <span>在庫数
+          <% if @stock == 0 %>
+            売切
+          <% else %>
+            残り <%= @stock %> 点
+          <% end %>
+        </span>
+      </div>
 
-    <div class="field">
-      <span>ステータス</span>
-      <%= @product.sales_status %>
-    </div>
+      <div class="field">
+        <span>ステータス</span>
+        <%= @product.sales_status %>
+      </div>
 
-    <div class="field">
-      <%= link_to 'カートに入れる', end_user_carts_path, class: "btn btn-info" %>
-    </div>
-
-    <div class="record-content">
-      <% @product.disks.each do |disk| %>
-        <h3>収録ディスク</h3>
-        <div id="disks">
-          <p>ディスクNo. <%= disk.disk_number %> </p>
+      <% if end_user_signed_in? %>
+        <div class="field">
+          <%= link_to 'カートに入れる', end_user_product_carts_path(@product), class: "btn btn-info" %>
         </div>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>曲名</th>
-              <th>Feeling</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% disk.record_musics.each do |record_music| %>
-              <tr>
-                <td><%= record_music.track_number %></td>
-                <td><%= record_music.song_name %></td>
-                <td><%= record_music.theme.theme %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+      <% else %>
+        <div class="field">
+          <%= link_to 'カートに入れる', new_end_user_session_path, class: "btn btn-info" %>
+        </div>
       <% end %>
+
+      <div class="record-content">
+        <% @product.disks.each do |disk| %>
+          <h3>収録ディスク</h3>
+          <div id="disks">
+            <p>ディスクNo. <%= disk.disk_number %> </p>
+          </div>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>トラックNo.</th>
+                <th>曲名</th>
+                <th>Feeling</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% disk.record_musics.each do |record_music| %>
+                <tr>
+                  <td><%= record_music.track_number %></td>
+                  <td><%= record_music.song_name %></td>
+                  <td><%= record_music.theme.theme %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
