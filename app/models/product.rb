@@ -10,6 +10,10 @@ class Product < ApplicationRecord
 	belongs_to :label, optional: true
 	belongs_to :genre, optional: true
 
+	validates :title, presence: true
+	validates :price, presence: true
+	validates :sales_status, presence: true
+
 
 	attachment :photo
 
