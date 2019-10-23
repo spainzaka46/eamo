@@ -15,32 +15,7 @@
 //= require bootstrap-sprockets
 //= require jquery
 //= require rails-ujs
-<<<<<<< HEAD
 //= require activestorage
 //= require turbolinks
 // require popper
-=======
 //= require_tree .
-//= require rails-ujs
-//= require activestorage
-//= require turbolinks
-
-
-//= require jquery
-
-
-
-// require popper
-//= require bootstrap-sprockets
-//= require_tree .
-
-
-
-
-//= require bootstrap-sprockets
-
-
->>>>>>> develop
-//= require cocoon
-
-

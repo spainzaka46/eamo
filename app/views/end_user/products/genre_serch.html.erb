@@ -1,0 +1,30 @@
+<div>
+	<div>
+		<h2>ジャンル別</h2>
+		<div>
+			<% @products.each do |product| %>
+				<%= attachment_image_tag product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+				<p>タイトル</p>
+				<%= product.title %>
+
+				<p>アーティスト</p>
+				<%= product.artist.artist_name %>
+
+				<p>ジャンル</p>
+				<%= product.genre.genre_name %>
+
+				<p>価格</p>
+				<%= product.price %>
+
+				<%= form_for @cart, url: end_user_product_carts_path(product.id) do |f| %>
+					<%= f.number_field :sheet %>
+					<%= f.submit  'カートに入れる' %>
+				<% end %>
+
+
+				<!-- <%= link_to 'カートに入れる',end_user_product_carts_path(product.id) %> -->
+
+			<!-- <% end %> -->
+		</div>
+	</div>
+</div>
