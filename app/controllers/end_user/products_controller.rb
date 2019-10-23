@@ -3,23 +3,26 @@ class EndUser::ProductsController < ApplicationController
   end
 
   def genre_serch
-  	@products = Products.where(genre_id:  params[:id])
+  	@products = Product.where(genre_id:  params[:id])
+    @genres = Genre.all
+    @cart = ProductInCart.new
   end
 
   def show
-  	@product = Product.find(params[:id])	
-    @artist = @product.artist	
-    @genre = @product.genre	
-    @label = @product.label	
+  	@product = Product.find(params[:id])
+    @artist = @product.artist
+    @genre = @product.genre
+    @label = @product.label
     order = OrderDetail.where(product_id:@product.id).group(:product_id).sum(:sheet)	
-    ordersum = order[@product.id]	
+    ordersum = order[@product.id]
     arrival = ArrivalOfGood.where(product_id:@product.id).group(:product_id).sum(:sheet)	
-    arrivalsum = arrival[@product.id]	
+    arrivalsum = arrival[@product.id]
     @stock = arrivalsum - ordersum
 
   end
 
   def index
+    @genres = Genre.all
     @products = Product.page(params[:page]).per(25)
   end
 end
