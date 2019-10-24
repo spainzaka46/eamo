@@ -1,7 +1,7 @@
 class Admin::ProductsController < ApplicationController
 
   def index
-    @products = Product.search(params[:search]).page(params[:page]).reverse_order
+    @products = Product.page(params[:page]).reverse_order
   end
 
   def show
@@ -48,6 +48,10 @@ class Admin::ProductsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def result
+    @products = Product.search(params[:search]).page(params[:page]).reverse_order
   end
 
   private

@@ -20,18 +20,8 @@ class Product < ApplicationRecord
 
 	def self.search(search)
 		if search
-#			product = Product.joins(:artist).joins(:genre).where(['title LIKE ?', "%#{search}%"])
-#			.or(Artist.where(['artist_name LIKE ?', "%#{search}%"]))
-#			.or(where(['genre_name LIKE ?', "%#{search}%"]))
-
-      product = Product.where(['title LIKE ?', "%#{search}%"])
-      artist = Product.joins(:artist).where(['artist_name LIKE ?', "%#{search}%"])
-      song = Product.joins(disks: :record_musics).where(['song_name LIKE ?', "%#{search}%"])
-      genre = Product.joins(:genre).where(['genre_name LIKE ?', "%#{search}%"])
-      label = Product.joins(:label).where(['label_name',"%#{search}%"])
-      product = product | artist | song | genre | label
-    else
-      Product.all
+			product = Product.joins(:artist).joins(:genre).joins(disks: :record_musics).joins(:label)
+			.where("(products.title like ?) or (artists.artist_name like ?) or (genres.genre_name like ?) or (record_musics.song_name like ?) or (labels.label_name like ?)", "%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%")
     end
 	end
 

@@ -23,6 +23,7 @@ root to: 'end_user/products#index', as: 'end_user_products'
 get 'end_user/finish' => 'end_user/users#finish', as: 'end_user_finish'
 
 namespace :admin do
+  get '/products/result' => 'products#result', as: 'result'
 	resources :products
 	resources :artists
   resources :labels
@@ -44,14 +45,10 @@ namespace :end_user do
     get '/users/:id' => 'users#check', as: 'check'
   end
 
-	resources :products,only: [:show, :index] do
+  get '/products/result' => 'products#result', as: 'result'
+	resources :products,only: [:index, :create, :show] do
     resources :carts,only: [:destroy, :create]
   end
-
-	resources :products,only: [:create, :index, :show] do
-    resources :carts,only: [:destroy, :create]
-  end
-
   get '/products/genre/:id' => 'products#genre_serch', as: 'genre'
 
 	resources :orders,only: [:index, :show,]

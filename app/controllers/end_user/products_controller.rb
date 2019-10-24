@@ -1,4 +1,8 @@
 class EndUser::ProductsController < ApplicationController
+  def index
+    @genres = Genre.all
+    @products = Product.page(params[:page]).reverse_order
+  end
 
   def genre_serch
   	@products = Product.where(genre_id:  params[:id])
@@ -18,12 +22,10 @@ class EndUser::ProductsController < ApplicationController
       arrivalsum = arrival_of_good.sheet + arrivalsum
     end
     @stock = arrivalsum - ordersum
-
   end
 
-  def index
-    @genres = Genre.all
-    @products = Product.page(params[:page]).per(25).search(params[:search])
-    #@products = Product.page(params[:page]).per(25)
+  def result
+    @products = Product.search(params[:search]).page(params[:page]).reverse_order
   end
+
 end
