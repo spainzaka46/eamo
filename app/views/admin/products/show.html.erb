@@ -7,26 +7,26 @@
         <%= attachment_image_tag @product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%> </br>
       </div>
       <div class="field">
-        <span>タイトル</span>
+        <span class="headind">タイトル</span>
         <%= @product.title %>
       </div>
 
       <div class="field">
-        <span>アーティスト</span>
-        <%= @artist.artist_name %>
+        <span class="headind">アーティスト</span>
+        <%= @product.artist.artist_name %>
       </div>
       <div class="field">
-        <span>ジャンル</span>
-        <%= @genre.genre_name %>
+        <span class="headind">ジャンル</span>
+        <%= @product.genre.genre_name %>
       </div>
       <div class="field">
-        <span>レーベル</span>
-        <%= @label.label_name %>
+        <span class="headind">レーベル</span>
+        <%= @product.label.label_name %>
       </div>
 
       <div class="field">
-        <span>価格(税別)</span>
-        <%= @product.price %> 円
+        <span class="headind">価格(税込)</span>
+        <%= @product.include_tax %> 円
       </div>
 
       <div>

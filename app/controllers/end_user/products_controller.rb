@@ -11,10 +11,14 @@ class EndUser::ProductsController < ApplicationController
   def show
     @cart = ProductInCart.new
   	@product = Product.find(params[:id])
-    order = OrderDetail.where(product_id:@product.id).group(:product_id).sum(:sheet)	
-    ordersum = order[@product.id]
-    arrival = ArrivalOfGood.where(product_id:@product.id).group(:product_id).sum(:sheet)	
-    arrivalsum = arrival[@product.id]
+    ordersum = 0
+    arrivalsum = 0
+    @product.order_details.each do |order_detail|
+      ordersum = order_detail.sheet + ordersum
+    end
+    @product.arrival_of_goods.each do |arrival_of_good| 
+      arrivalsum = arrival_of_good.sheet + arrivalsum
+    end
     @stock = arrivalsum - ordersum
 
   end

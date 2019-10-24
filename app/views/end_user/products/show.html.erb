@@ -53,12 +53,13 @@
 
       <% if @stock == 0 %>
         <div class="cart-btn">
-          <button type="button" class="btn btn-default" disabled="disabled"> 売切 </button>
+          <button type="button" class="btn btn-warning" disabled="disabled"> 売切 </button>
         </div>
       <% else %>
         <div class="cart-btn">
           <%= f.submit 'カートに入れる', class: "btn btn-info" %>
         </div>
+      <% end %>
       <% end %>
 
       <div class="record-content">
