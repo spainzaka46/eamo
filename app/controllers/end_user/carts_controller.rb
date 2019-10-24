@@ -1,6 +1,6 @@
-class EndUser::CartsController < ApplicationController
-  before_action :authenticate_end_user!, only: [:create]
+class EndUser::CartsController <  ApplicationController
   def index
+    # binding.pry
   	@end_user = current_end_user
   	@product_in_carts = @end_user.product_in_carts
     # @product = Product.find(params[:id])
@@ -9,18 +9,11 @@ class EndUser::CartsController < ApplicationController
   def create
   	# product_in_carts = current_end_user.product_in_cart.new(product_id: params[:id])
   	# product_in_carts.save
-    # binding.pry
-   if  ProductInCart.find_by(product_id: params[:product_id])
-      @pic = ProductInCart.find_by(product_id: params[:product_id])
-      sheet = params[:product_in_cart][:sheet].to_i +  ProductInCart.find_by(product_id: params[:product_id]).sheet
-      @pic.update(sheet: sheet)
-    else
-       @cart = ProductInCart.new(product_id: params[:product_id])
-        @cart.end_user_id = current_end_user.id
-        @cart.sheet = params[:product_in_cart][:sheet].to_i
-        @cart.save
-   end
-        redirect_to end_user_carts_path
+    @cart = ProductInCart.new(product_id: params[:product_id])
+    @cart.end_user_id = current_end_user.id
+    @cart.sheet = params[:product_in_cart][:sheet].to_i
+    @cart.save
+    redirect_to end_user_carts_path
   end
 
   def destroy
@@ -37,4 +30,3 @@ class EndUser::CartsController < ApplicationController
 
 
 end
-
