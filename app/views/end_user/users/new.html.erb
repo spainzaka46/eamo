@@ -26,7 +26,6 @@
 			<%=address.phone_number%></td>
 			<td align="center">
 			<%= link_to "この住所に送る", end_user_pay_path(address) %></td>
-		
 	        </tr>
           <%end%>
          </tbody>
@@ -35,6 +34,16 @@
 
 <h1 class="text-center">上記別住所登録</h1>
 <div class="container">
+	<% if @address.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= @address.errors.count %> 件のエラーがあります。</h2>
+		<ul>
+			<% @address.errors.full_messages.each do |msg| %>
+			<li> <%= msg %> </li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
   <%= form_for(@address, url: end_user_users_path) do |f| %>
 
   <div class="field">

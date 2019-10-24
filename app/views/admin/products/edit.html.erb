@@ -20,6 +20,8 @@
 				<% end %>
 			</div>
 
+			<%= link_to '商品を削除する', admin_product_path(@product), method: :delete,data: { confirm: '削除しますか？' }, class: "btn btn-default" %>
+
 			<%= link_to '商品詳細へ戻る', admin_product_path(@product), class: "btn btn-default" %>
 		</div>
 	</div>
