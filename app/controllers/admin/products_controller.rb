@@ -11,7 +11,7 @@ class Admin::ProductsController < ApplicationController
     @product.order_details.each do |order_detail|
       ordersum = order_detail.sheet + ordersum
     end
-    @product.arrival_of_goods.each do |arrival_of_good| 
+    @product.arrival_of_goods.each do |arrival_of_good|
       arrivalsum = arrival_of_good.sheet + arrivalsum
     end
     @stock = arrivalsum - ordersum
@@ -50,9 +50,10 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
+  def result
+    @products = Product.search(params[:search]).page(params[:page]).reverse_order
+  end
 
-
-end
   private
 
   def product_params
@@ -63,3 +64,4 @@ end
 
   end
 
+end
