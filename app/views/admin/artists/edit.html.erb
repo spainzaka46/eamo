@@ -1,7 +1,6 @@
+<h1 class="text-center">アーティスト名編集</h1>
 <div class="container">
-  <div class="row">
     <div class="col align-self-center">
-      <h2>アーティスト名編集</h2>
       <% if @artist.errors.any? %>
         <div id="error_explanation">
           <h2><%= @artist.errors.count %> 件のエラーがあります。</h2>
@@ -12,21 +11,31 @@
           </ul>
         </div>
       <% end %>
+
       <%= form_for(@artist, url: admin_artist_path) do |f| %>
-        <div class="field">
-          <%= f.label :artist_name, "アーティスト名" %> </br>
-          <%= f.text_field :artist_name, class: "form-control"%>
+       <div class="field">
+          <h2 class="text-center">アーティスト名</h2>
+          <h2 class="text-center"><%= f.text_field :artist_name%></h2>%>
         </div>
 
-        <div class="action">
+        <div class="field">
+         <h2 class="text-center">
           <%= f.submit "変更", class: "btn btn-default" %>
+          <% end %>
+         </h2>
         </div>
-      <% end %>
-    </div>
-  </div>
+     </div>
 </div>
-<div class="container">
-  <div class="row">
-    <%= link_to "一覧に戻る", admin_artists_path %>
-  </div>
-</div>
+
+      <button type="button" class="btn btn-default btn-lg center-block">
+         <div class="edit_btn">
+          <%= link_to "一覧に戻る", admin_artists_path %></button>
+        </div>
+      </button>
+
+<style>
+
+.btn{
+  margin-bottom: 20px;
+}
+</style>

@@ -1,58 +1,81 @@
-<div class="main">
-<%= form_for product, url: admin_products_path do |f| %>
-  <div class="pucture">
-   <div class="jake-field">
-    <%= f.label :photo, "ジャケット写真" %> </br>
-    <%= attachment_image_tag product, :photo, :fill, 150, 150, class: "profile-thumb", fallback: "no_image.jpg"%> </br>
-   </div>
-    <div class="jake">
-     <%= f.attachment_field :photo, class: "user-edit-form" %>
-    </div>
+ <div class="container">
+  <%= form_for product, url: admin_products_path do |f| %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th style="text-align:center;">ジャケット写真</th>
+        <th style="text-align:center;">ボタン</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td style="text-align:center;"><%= attachment_image_tag product, :photo, :fill, 50, 50,style="width: 50px;height: 50px;", fallback: "no_image.jpg"%> </td>
+        <td align="center"><%= f.attachment_field :photo, class: "user-edit-form" %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="row">
+
+   <div class="title_field">
+     <h2 class="text-left">
+      <%= f.label :"タイトル" %>
+      <%= f.text_field :title%>
+    </h2>
   </div>
 
+  <div class="field">
+    <h2 class="text-left">
+      <%= f.label :"アーティスト" %>
+      <%= f.collection_select(:artist_id, Artist.all, :id, :artist_name) %>
+    </h2>
+  </div>
 
-  <div class="profile">
-      <div class="field">
-        <%= f.label :title, "タイトル" %>
-        <%= f.text_field :title%>
-      </div>
+  <div class="field">
+    <h2 class="text-left">
+      <%= f.label :"ジャンル" %>
+      <%= f.collection_select(:genre_id, Genre.all, :id, :genre_name) %></h2>
+    </div>
 
-      <div class="field btn-group">
-        <%= f.label :artist_name, "アーティスト" %>
-        <%= f.collection_select(:artist_id, Artist.all, :id, :artist_name) %>
-      </div>
-      <div class="field">
-        <%= f.label :genre_name, "ジャンル" %>
-        <%= f.collection_select(:genre_id, Genre.all, :id, :genre_name) %>
-      </div>
-      <div class="field">
-        <%= f.label :label_name, "レーベル" %>
-        <%= f.collection_select(:label_id, Label.all, :id, :label_name) %>
-      </div>
+    <div class="field">
+     <h2 class="text-reft">
+      <%= f.label :"レーベル" %>
+      <%= f.collection_select(:label_id, Label.all, :id, :label_name) %>
+    </h2>
+  </div>
 
-      <div class="field">
-        <%= f.label :price, "価格(税別)" %>
-        <%= f.text_field :price %>
-      </div>
+  <div class="field">
+    <h2 class="text-reft">
+      <%= f.label :"価格(税別)" %>
+      <%= f.text_field :price %></h2>
+    </div>
 
-      <div class="field">
+    <div class="field">
+      <h2 class="text-reft">
         <%= f.label :sales_status, "ステータス" %>
         <%= f.radio_button :sales_status, :販売中 %> <%= f.label :sales_status, :販売中 %>
         <%= f.radio_button :sales_status, :販売停止中 %> <%= f.label :sales_status, :販売停止中 %>
-      </div>
-  </div>
-</div>
-
-  <div class="record-content">
-    <h3>収録内容</h3>
-    <div id="disks">
-      <%= f.fields_for :disks do |disk| %>
-        <%= render 'disk_fields', f: disk %>
-      <% end %>
-      <div id="links">
-        <%= link_to_add_association 'ディスク追加',f, :disks, class: "btn btn-info" %>
-      </div>
-      <%= f.submit "商品情報登録", class: "btn btn-default" %>
+      </h2>
     </div>
-<% end %>
+
+    <div class="record-content">
+      <h2 class="text-center">収録内容</h2>
+      <div id="disks">
+        <%= f.fields_for :disks do |disk| %>
+        <%= render 'disk_fields', f: disk %>
+        <% end %>
+
+        <button type="button" class="btn btn-warning btn-lg center-block">
+         <div class="add_btn">
+          <%= link_to_add_association 'ディスク追加',f, :disks %>
+        </div>
+      </button>
+
+      　　<div class="field">
+       <h2 class="text-center">
+        <%= f.submit "商品情報登録", class: "btn btn-success btn-lg btn-block" %></h2>
+      </div>
+    </div>
+    <% end %>
 
