@@ -13,9 +13,9 @@ class EndUser::ProductsController < ApplicationController
     @artist = @product.artist
     @genre = @product.genre
     @label = @product.label
-    order = OrderDetail.where(product_id:@product.id).group(:product_id).sum(:sheet)	
+    order = OrderDetail.where(product_id:@product.id).group(:product_id).sum(:sheet)
     ordersum = order[@product.id]
-    arrival = ArrivalOfGood.where(product_id:@product.id).group(:product_id).sum(:sheet)	
+    arrival = ArrivalOfGood.where(product_id:@product.id).group(:product_id).sum(:sheet)
     arrivalsum = arrival[@product.id]
     @stock = arrivalsum - ordersum
 
@@ -23,6 +23,7 @@ class EndUser::ProductsController < ApplicationController
 
   def index
     @genres = Genre.all
-    @products = Product.page(params[:page]).per(25)
+    @products = Product.page(params[:page]).per(25).search(params[:search])
+    #@products = Product.page(params[:page]).per(25)
   end
 end
