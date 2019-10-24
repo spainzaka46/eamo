@@ -3,9 +3,14 @@ class EndUser::ProductsController < ApplicationController
   end
 
   def genre_serch
-  	@products = Product.where(genre_id:  params[:id])
+  	@products = Product.where(genre_id: params[:id])
     @genres = Genre.all
     @cart = ProductInCart.new
+  end
+
+  def theme_serch
+    @products = Product.find(params[:id])
+    @themes = Theme.all
   end
 
   def show

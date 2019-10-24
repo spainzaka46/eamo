@@ -31,9 +31,7 @@
         <div>
             <p>＜支払い方法＞</p>
             <div>
-                <p><%= @order.method_of_payments %>
-                    
-                </p>
+                <p><%= @order.method_of_payment %></p>
             </div>
         </div>
         <div>
@@ -52,8 +50,8 @@
                 <tbody>
 
                     <tr>
-                        <td><%= @ product_in_carts.sheet %></td>
-                        <td><%= @ delivery_charges.delivery_charges %></td>
+                        <td><%= @total_price %></td>
+                        <td><%= @delivery_charges.delivery_charge %></td>
                         <td><%=@total %></td>
 
 

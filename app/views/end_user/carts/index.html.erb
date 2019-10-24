@@ -5,7 +5,7 @@
 		<h2>カート内一覧</h2>
 
 		<div>
-			<% total = 0 %>
+			<% total_price = 0 %>
 			<% @end_user.product_in_carts.each do |product_in_cart| %>
 			<%= attachment_image_tag product_in_cart.product, :photo, :fill, 50, 50, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
 				<p>Title</p>
@@ -22,12 +22,12 @@
 
 				<%= link_to '削除', end_user_product_cart_path(product_in_cart.product.id, product_in_cart.id), class: "btn btn-danger ", method: :delete  %>
 
-				<% total += product_in_cart.sheet * product_in_cart.product.price %>
+				<% total_price += product_in_cart.sheet * product_in_cart.product.price %>
 			<% end %>
 		</div>
 
 		<p>商品小計（税込）</p>
-		<%= total %>
+		<%= total_price %>
 
 		<%= link_to 'ショッピングを続ける',end_user_products_path %>
 

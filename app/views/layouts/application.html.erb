@@ -16,9 +16,9 @@
 
 
 
-    <div class="panel panel-primary">
-  <div class="panel-heading">
-    <h2 class="panel-title">ジャンル別</h2>
+<div class="panel panel-primary">
+<div class="panel-heading">
+  <h2 class="panel-title">ジャンル別</h2>
   </div>
     <div class="list-group">
        <% @genres.each do |genre| %>
@@ -26,10 +26,19 @@
        <% end %>
   </div>
 </div>
+
 <div class="panel panel-success">
   <div class="panel-heading">
     <h2 class="panel-title">フィーリング</h2>
+
+    <div>
+      <% @themes.each do |theme| %>
+        <%= link_to "#{theme.theme}", end_user_theme_path(theme.id),class:  "list-group-item list-group-item-action" %>
+      <% end %>
+    </div>
   </div>
+</div>
+  <!-- </div>
     <a href="#" class="list-group-item">ラブソング</a>
     <a href="#" class="list-group-item">失恋ソング</a>
     <a href="#" class="list-group-item">応援ソング</a>
@@ -39,7 +48,7 @@
     <a href="#" class="list-group-item">バラード</a>
     <a href="#" class="list-group-item">テンション</a>
     <a href="#" class="list-group-item">ドライブ</a>
-</div>
+</div> -->
 
 
 <header class="admin_header">

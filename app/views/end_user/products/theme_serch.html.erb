@@ -1,0 +1,27 @@
+<div>
+	<div>
+		<h2>フィーリング別</h2>
+		<div>
+			<% @products.each do |product| %>
+				<%= attachment_image_tag product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+				<p>テーマ</p>
+				<%= product.disk.record_music.theme.theme %>
+
+				<p>アーティスト</p>
+				<%= product.artist.artist_name %>
+
+				<p>曲名</p>
+				<%= product.disk.record_music.song_name %>
+
+				<!-- <%= form_for @theme, url: end_user_product_carts_path(product.id) do |f| %> -->
+					<!-- <%= f.number_field :sheet %> -->
+					<!-- <%= f.submit  'カートに入れる' %> -->
+			<% end %>
+
+				<%= link_to '商品詳細', end_user_product_path %>
+
+				<!-- そのままカートに入れるか、一旦商品詳細に行くか -->
+
+		</div>
+	</div>
+</div>

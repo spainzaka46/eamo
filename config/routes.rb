@@ -61,7 +61,8 @@ namespace :end_user do
   resources :pays,only: [:new, :create,:show ]
   resources :cart_addresses,only: [:new, :create,:show ]
   get '/users/:id/cart_addresses' => 'cart_addresses#show', as: 'show'
-
+  get "/pays/:address_id/new" =>"pays#new", as: "paysnew"
+  post "/checks/:address_id/new" =>"checks#create", as: "checks_new"
 end
 scope module: :end_user do
    get 'mypage', to: "users#show"

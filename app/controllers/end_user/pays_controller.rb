@@ -5,15 +5,16 @@ class EndUser::PaysController < ApplicationController
 
 	def new
   		@method_of_payments = MethodOfPayment.new
+      @address = Address.find(params[:address_id])
 	end
 
 	def create
     	@method_of_payments = MethodOfPayment.new(method_of_payments_params)
-      	@method_of_payments.end_user_id=current_end_user.id
+      	@method_of_payments.end_user_id = current_end_user.id
 	 	if  @method_of_payments.save
-  		redirect_to new_end_user_cheeck_path
+  		redirect_to new_end_user_check_path
   	 	else
-  		  render :new
+  		render :new
     	end
 	end
 
