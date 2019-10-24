@@ -10,16 +10,16 @@
 
 if Rails.env == "development"
 
-  # Admin.create!(password: "password", email: "admintest@example.com")
+  Admin.create!(password: "aaaaaa", email: "a@a")
 
-  10.times do |i|
+  30.times do |i|
     EndUser.create!(email: "test#{i + 1}@example.com",
     				password: "password", password_confirmation: "password",
     				kanzi_last_name: "秋田#{i + 1}", kanzi_first_name: "裕二#{i + 1}",
     				kana_last_name: "アキタ#{i + 1}", kana_first_name: "ユウジ#{i + 1}")
   end
 
-  10.times do |i|
+  30.times do |i|
     Address.create!(end_user_id: i + 1,
     				postal_code: "000-000#{i + 1}",
     				address: "北海道札幌市中央区モエレ沼公園1-1-#{i + 1}",
@@ -28,11 +28,11 @@ if Rails.env == "development"
   end
 
 
-  10.times do |i|
+  30.times do |i|
     Artist.create!(artist_name: "artist_#{i + 1}")
   end
 
-  10.times do |i|
+  30.times do |i|
     Label.create!(label_name: "label_#{i + 1}")
   end
 
@@ -54,7 +54,7 @@ if Rails.env == "development"
   MethodOfPayment.create!(method_of_payment: "代金引換")
 
 
-  10.times do |i|
+  30.times do |i|
   Order.create!(end_user_id: i + 1,
   				method_of_payment: "1".to_i,
     			postal_code: "000-000#{i + 1}",
@@ -66,26 +66,26 @@ if Rails.env == "development"
   end
 
 
-  10.times do |i|
+  30.times do |i|
     Product.create!(genre_id: 1, label_id: i + 1, artist_id: i + 1,
-    				title: "タイトル#{i + 1}", sales_status: "1".to_i,
+    				title: "タイトル#{i + 1}", sales_status: "0".to_i,
     				price: "1#{i + 1}00".to_i)
   end
 
-  10.times do |i|
+  30.times do |i|
     ArrivalOfGood.create!(product_id: i + 1, arrival_day: "2000-01-0#{i + 1}".to_i, sheet: "#{i + 1}00".to_i)
   end
 
-  10.times do |i|
+  30.times do |i|
     Disk.create!(product_id: i + 1, disk_number: i + 1)
   end
 
-  10.times do |i|
+  30.times do |i|
     OrderDetail.create!(order_id: i + 1, product_id: i + 1, price: "1#{i + 1}00".to_i, sheet: i + 1)
   end
 
   [
-    'ラブソング', '応援ソング', 'リラックス・癒し', 'オルゴール',
+    'ラブソング', '失恋ソング', '応援ソング', 'リラックス・癒し', 'オルゴール',
     '泣ける', 'バラード', 'テンションが上がる', 'ドライブ'
   ].each do |theme|
     Theme.create!(
@@ -93,7 +93,7 @@ if Rails.env == "development"
     )
   end
 
-  10.times do |i|
+  30.times do |i|
     RecordMusic.create!(disk_id: i + 1, track_number: i + 1, theme_id: 1,
                 song_name: "song_name#{i + 1}")
   end

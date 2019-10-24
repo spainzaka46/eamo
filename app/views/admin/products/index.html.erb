@@ -1,3 +1,4 @@
+
 <%= render "admin/search" %>
 <div class="container">
   <div class="row">
@@ -30,14 +31,14 @@
 						    stock = arrivalsum - ordersum
 						  %>
 
-	            <%= link_to admin_product_path(product) do %>
-	              <tr>
+                <tr onclick="javascript:location.href='<%= admin_product_path(product)%>'"  style="cursor:pointer">
 		              	<td align="center"><%= product.title %></td>
 		              	<td align="center"><%= product.artist.artist_name %></td>
 		              	<td align="center"><%= product.genre.genre_name %></td>
 		              	<td align="center"><%= product.include_tax %> 円 </td>
 		              	<td align="center"><%= stock %> 個</td>
 		              	<td align="center">
+
 		              		<span>
 		              			<% if stock == 0 %>
 		              			  売り切れ
@@ -48,7 +49,6 @@
 		              	</td>
 		              	<td align="center"><%= product.sales_status %></td>
 	              </tr>
-	            <% end %>
             <% end %>
         	</tbody>
         </table>

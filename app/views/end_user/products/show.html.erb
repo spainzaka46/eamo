@@ -5,7 +5,7 @@
       <h2>商品詳細</h2>
 
       <div class="field">
-        <%= attachment_image_tag @product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%> </br>
+        <%= attachment_image_tag @product, :photo, :fill, 250, 250, class: "profile-thumb", fallback: "no_image.jpg"%> </br>
       </div>
       <div class="field">
         <span class="headind">タイトル</span>
@@ -46,19 +46,17 @@
         <%= @product.sales_status %>
       </div>
 
-      <%= form_for @cart, url: end_user_product_carts_path(@product) do |f| %>
-      <div class="field">
-        <span class="headind">数量</span>
-        <%= f.number_field :sheet, min: 1, max: (@stock).to_i %><br>
-      </div>
-
       <% if @stock == 0 %>
         <div class="cart-btn">
           <button type="button" class="btn btn-warning" disabled="disabled"> 売切 </button>
         </div>
       <% else %>
         <div class="cart-btn">
-          <%= f.submit 'カートに入れる', class: "btn btn-info" %>
+          <%= form_for @cart, url: end_user_product_carts_path(@product) do |f| %>
+          <div class="field">
+            <span class="headind">数量</span>
+            <%= f.number_field :sheet, min: 1, max: (@stock).to_i %>
+            <%= f.submit 'カートに入れる', class: "btn btn-info" %>
         </div>
       <% end %>
       <% end %>
