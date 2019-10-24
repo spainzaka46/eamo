@@ -61,15 +61,14 @@
     </table>
   </div>
    <div class="btn-group btn-group-justified" role="group">
-
     <div class="btn-group" role="group">
- 	<button class="btn btn-default"><%= link_to"購入履歴", end_user_order_path(current_end_user) %></button>
+ 	    <%= link_to"購入履歴", end_user_orders_path, class:"btn btn-default" %>
     </div>
     <div class="btn-group" role="group">
- 	<button class="btn btn-default"><%= link_to"住所登録", new_end_user_address_path(current_end_user) %></button>
+ 	    <%= link_to"住所登録", new_end_user_address_path(current_end_user), class:"btn btn-default" %>
     </div>
     <div class="btn-group" role="group">
- 	<button class="btn btn-default"><%= link_to"退会", end_user_check_path(current_end_user) %>
+ 	    <%= link_to"退会", end_user_check_path(current_end_user), class:"btn btn-default" %>
     </div>
    </div>
   </div>

@@ -23,6 +23,7 @@ root to: 'end_user/products#index', as: 'end_user_products'
 get 'end_user/finish' => 'end_user/users#finish', as: 'end_user_finish'
 
 namespace :admin do
+  get '/products/result' => 'products#result', as: 'result'
 	resources :products
 	resources :artists
   resources :labels
@@ -31,30 +32,24 @@ namespace :admin do
 	end
 	resources :arrivals,only: [:index, :new, :create]
 	resources :orders,only: [:index, :show, :update]
-	resources :orderhistories,only: [:index,]
+	resources :orderhistories,only: [:index]
 	resources :tops,only: [:index,]
 	resources :user_address,only: [:edit,:update]
 	get '/disks', to: 'disks#index'
 end
 # resources :admin_sessions,only: [:destroy, :new, :create]
 namespace :end_user do
-	resources :users,only: [:index, :show, :edit, :update, :finish, :destroy, :new, :create] do
+	resources :users,only: [:index, :show, :edit, :update, :destroy, :new, :create] do
     get '/orders' => 'orders#index', as: 'orders'
     get '/orders/:id' => 'orders#show', as: 'order'
     get '/users/:id' => 'users#check', as: 'check'
   end
 
-	resources :products,only: [:create, :search, :show] do
+  get '/products/result' => 'products#result', as: 'result'
+	resources :products,only: [:index, :create, :show] do
     resources :carts,only: [:destroy, :create]
   end
-
-  resources :carts,only: [:index]
-
-
   get '/products/genre/:id' => 'products#genre_serch', as: 'genre'
-
-	resources :products,only: [:search, :show, :index]
-
 
 	resources :orders,only: [:index, :show,]
 	resources :checks,only: [:index, :new, :create,:show]

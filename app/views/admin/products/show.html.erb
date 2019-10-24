@@ -1,5 +1,7 @@
+<%= render "end_user/search" %>
 <h1 class="text-center">商品詳細</h1>
 <div class="container">
+
   <div class="col-sm-3">
 
     <div class="col align-self-center">
@@ -15,6 +17,7 @@
         <h4 class="headind">タイトル
         <%= @product.title %></h4>
       </div>
+    </div>
 
       <div class="field">
         <h4 class="headind">アーティスト
@@ -83,4 +86,14 @@
   </div>
 </div>
 
+<style>
 
+  .picture {
+  float: left;
+  }
+
+  .disk-content {
+  margin-left: 50px;
+  }
+
+</style>

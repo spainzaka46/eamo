@@ -103,22 +103,22 @@
 
         <div class="user_heder">
           <div class="btn-group btn-group-justified" role="group">
-
-           <div class="btn-group" role="group">
-           <button class="btn btn-default"><%=link_to"トップ",admin_products_path, data: {"turbolinks" => false},class:"glyphicon glyphicon-music" %></button>
-           </div>
-           <div class="btn-group" role="group">
-           <button class="btn btn-default"><%=link_to"マイページ",mypage_path, data: {"turbolinks" => false},class:"glyphicon glyphicon-home" %></button>
-           </div>
-           <div class="btn-group" role="group">
-           <button class="btn btn-default"><%=link_to"カート",end_user_carts_path, data: {"turbolinks" => false},class:"glyphicon glyphicon-lock" %></button>
+            <div class="btn-group" role="group">
+              <%=link_to"トップ",admin_products_path, data: {"turbolinks" => false},class:"glyphicon glyphicon-music btn btn-default" %>
             </div>
-           <div class="btn-group" role="group">
-           <button class="btn btn-default"><%=link_to"ログアウト",  destroy_end_user_session_path, data: {"turbolinks" => false},method: :delete,class:"glyphicon glyphicon-log-out" %></button>
+            <div class="btn-group" role="group">
+              <%=link_to"マイページ",mypage_path, data: {"turbolinks" => false},class:"glyphicon glyphicon-home btn btn-default" %>
             </div>
-          </div>
+            <div class="btn-group" role="group">
+              <%
+              #link_to"カート",end_user_product_carts_path, data: {"turbolinks" => false},class:"glyphicon glyphicon-lock btn btn-default" 
+              %>
+              </div>
+             <div class="btn-group" role="group">
+             <%=link_to"ログアウト",  destroy_end_user_session_path, data: {"turbolinks" => false},method: :delete,class:"glyphicon glyphicon-log-out btn btn-default" %>
+             </div>
+           </div>
          </div>
-
        </div>
      </header>
 
