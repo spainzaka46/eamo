@@ -9,7 +9,7 @@
   	          <th>タイトル</th>
   	          <th>アーティスト</th>
   	          <th>ジャンル</th>
-  	          <th>価格</th>
+  	          <th>価格(税込)</th>
   	          <th>個数</th>
   	          <th>在庫状況</th>
   	          <th>ステータス</th>
@@ -34,8 +34,8 @@
 		              	<td><%= product.title %></td>
 		              	<td><%= product.artist.artist_name %></td>
 		              	<td><%= product.genre.genre_name %></td>
-		              	<td><%= product.price %></td>
-		              	<td><%= stock %></td>
+		              	<td><%= product.include_tax %> 円 </td>
+		              	<td><%= stock %> 個</td>
 		              	<td>
 		              		<span>
 		              			<% if stock == 0 %>

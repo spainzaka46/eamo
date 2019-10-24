@@ -34,4 +34,15 @@ class Product < ApplicationRecord
       Product.all
     end
 	end
+
+	def tax
+		val = 0.1
+		return val
+	end
+
+	def include_tax
+		total = price * tax + price
+		return total.round
+	end
+
 end

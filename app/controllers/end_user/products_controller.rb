@@ -1,6 +1,4 @@
 class EndUser::ProductsController < ApplicationController
-  def search
-  end
 
   def genre_serch
   	@products = Product.where(genre_id:  params[:id])
@@ -9,14 +7,16 @@ class EndUser::ProductsController < ApplicationController
   end
 
   def show
+    @cart = ProductInCart.new
   	@product = Product.find(params[:id])
-    @artist = @product.artist
-    @genre = @product.genre
-    @label = @product.label
-    order = OrderDetail.where(product_id:@product.id).group(:product_id).sum(:sheet)
-    ordersum = order[@product.id]
-    arrival = ArrivalOfGood.where(product_id:@product.id).group(:product_id).sum(:sheet)
-    arrivalsum = arrival[@product.id]
+    ordersum = 0
+    arrivalsum = 0
+    @product.order_details.each do |order_detail|
+      ordersum = order_detail.sheet + ordersum
+    end
+    @product.arrival_of_goods.each do |arrival_of_good|
+      arrivalsum = arrival_of_good.sheet + arrivalsum
+    end
     @stock = arrivalsum - ordersum
 
   end

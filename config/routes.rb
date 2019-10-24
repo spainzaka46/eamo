@@ -47,9 +47,12 @@ namespace :end_user do
 	resources :products,only: [:show, :index] do
     resources :carts,only: [:destroy, :create]
   end
-  get '/products/genre/:id' => 'products#genre_serch', as: 'genre'
 
-  resources :carts,only: [:index]
+	resources :products,only: [:create, :index, :show] do
+    resources :carts,only: [:destroy, :create]
+  end
+
+  get '/products/genre/:id' => 'products#genre_serch', as: 'genre'
 
 	resources :orders,only: [:index, :show,]
 	resources :checks,only: [:index, :new, :create,:show]
