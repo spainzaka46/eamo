@@ -1,26 +1,26 @@
 <div class="container">
-  <div class="row">
-  	<div class="col align-self-center">
-      <h2>商品編集</h2>
-		  <% if @product.errors.any? %>
-		  <div id="error_explanation">
-		    <h2><%= @product.errors.count %> 件のエラーがあります。</h2>
-		    <ul>
-		      <% @product.errors.full_messages.each do |msg| %>
-		        <li> <%= msg %> </li>
-		      <% end %>
-		    </ul>
-		  </div>
-		  <% end %>
-	    <div class="product-content">
+	<div class="row">
+		<div class="col-sm-10">
+			<h2>商品編集</h2>
+			<% if @product.errors.any? %>
+			<div id="error_explanation">
+				<h2><%= @product.errors.count %> 件のエラーがあります。</h2>
+				<ul>
+					<% @product.errors.full_messages.each do |msg| %>
+					<li> <%= msg %> </li>
+					<% end %>
+				</ul>
+			</div>
+			<% end %>
+			<div class="product-content">
 				<%= form_for @product, url: {action: 'update'} do |f| %>
 
-				  <%= render 'form', product: @product, f: f %>
+				<%= render 'form', product: @product, f: f %>
 
 				<% end %>
 			</div>
 
-			  <%= link_to '商品詳細へ戻る', admin_product_path(@product), class: "btn btn-default" %>
+			<%= link_to '商品詳細へ戻る', admin_product_path(@product), class: "btn btn-default" %>
 		</div>
-  </div>
+	</div>
 </div>
