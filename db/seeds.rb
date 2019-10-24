@@ -46,7 +46,6 @@ if Rails.env == "development"
   end
 
 
-
   DeliveryCharge.create!(delivery_charge: "500".to_i)
 
 
