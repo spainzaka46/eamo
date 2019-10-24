@@ -1,28 +1,41 @@
-<div class="container">
-  <div class="row">
-    <div class="col align-self-center">
-      <h1><strong>アーティスト一覧</strong></h1>
 
-      <div class="action">
+  <div class="container">
+   <h1 class="text-center">アーティスト一覧</h1>
+　　　<div class="btn-group btn-group text" >
+      <div class="btn-group" role="group" >
+        <button class="btn btn-default">
         <%= link_to "アーティスト新規登録", new_admin_artist_path %>
+        </button>
       </div>
-        <table class="table table-striped">
+    </div>
+        <table class="table table-bordered">
   	      <thead>
   	        <tr>
-  	          <th>アーティスト名</th>
-  	        </tr>
+  	          <th style="text-align:center;">アーティスト名</th>
+              <th style="text-align:center;">ボタン</th>
+            </tr>
   	      </thead>
 
   	      <tbody>
             <% @artists.each do |artist| %>
               <tr>
-              	<td><%= artist.artist_name %></td>
-                <td><%= link_to "編集", edit_admin_artist_path(artist.id) %></td>
+              	<td align="center"><%= artist.artist_name %></td>
+                <td align="center"><%= link_to "編集", edit_admin_artist_path(artist.id) %></td>
               </tr>
             <% end %>
         	</tbody>
         </table>
+        <div class="row text-center">
         <%= paginate @artists, class: "paginate" %>
-    </div>
+        </div>
   </div>
-</div>
+
+
+<style>
+
+.text{
+  margin-bottom: 20px;
+  margin-left: 450px;
+}
+
+</style>

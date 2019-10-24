@@ -15,8 +15,7 @@
   <body>
 
 
-
-    <div class="panel panel-primary">
+ <div class="panel panel-primary">
   <div class="panel-heading">
     <h2 class="panel-title">ジャンル別</h2>
   </div>
@@ -41,13 +40,7 @@
     <a href="#" class="list-group-item">ドライブ</a>
 </div>
 
-
-<header class="admin_header">
-  <div class="list-group-item list-group-item-info">
-   <h1 class="text-center">管理者ページ</h1>
-
-   
-        <div class="admin_heder">
+  
 
 
 
@@ -98,7 +91,8 @@
       <div class="list-group-item list-group-item-info">
 
         <div class="text">
-         <h1 class="text-center">ユーザーページ</h1>
+         <h1 class="text-center"><img src="/images/01.png" alt="01" style="width: 100%;height: 300px;">
+                                 <img src="/images/02.png" alt="02" style="width: 100%;height: 300px;"></h1>
         </div>
         <div class="container test">
           <div class="row slick_div">
@@ -144,15 +138,16 @@
 
 
           <div class="text">
-           <p class="text-center">ユーザーページ</p>
-          </div>
+         <h1 class="text-center"><img src="/images/01.png" alt="01" style="width: 20%;height: 100px;">
+                                 <img src="/images/02.png" alt="02" style="width: 70%;height: 100px;"></h1>
+        </div>
           <div class="container test2">
           <div class="row slick_div">
             <ul id="aaa" class="slider" >
-                <li><a href="#"><img src="/images/image01.jpg" alt="image01" style="width: 100%;height: 300px;"></a></li>
-                <li><a href="#"><img src="/images/image02.jpg" alt="image02" style="width: 100%;height: 300px;"></a></li>
-                <li><a href="#"><img src="/images/image03.jpg" alt="image03" style="width: 100%;height: 300px;"></a></li>
-                <li><a href="#"><img src="/images/image04.jpg" alt="image04" style="width: 100%;height: 300px;"></a></li>
+                <li><a href="#"><img src="/images/image01.jpg" alt="image01" style="width: 100%;height: 350px;"></a></li>
+                <li><a href="#"><img src="/images/image02.jpg" alt="image02" style="width: 100%;height: 350px;"></a></li>
+                <li><a href="#"><img src="/images/image03.jpg" alt="image03" style="width: 100%;height: 350px;"></a></li>
+                <li><a href="#"><img src="/images/image04.jpg" alt="image04" style="width: 100%;height: 350px;"></a></li>
                    <!-- <li><a href="#"><img src="/images/05.jpg" alt="image05"></a></li>
                 <li><a href="#"><img src="/images/06.jpg" alt="image06"></a></li>
                 <li><a href="#"><img src="/images/07.jpg" alt="image07"></a></li>
@@ -161,15 +156,19 @@
             </ul>
           </div>
         </div>
-
-           <button class="btn btn-default"><%=link_to"トップ",admin_products_path,data: {"turbolinks" => false},class:"glyphicon glyphicon-music" %></button>
-           </div>
-           <div class="btn-group" role="group">
-           <button class="btn btn-default"><%=link_to"会員登録",   new_end_user_registration_path,data: {"turbolinks" => false},class:"glyphicon glyphicon-home"%></button>
-           </div>
-           <div class="btn-group" role="group">
-           <button class="btn btn-default"><%=link_to"ログイン",new_end_user_session_path,data: {"turbolinks" => false},class:"glyphicon glyphicon-log-out" %></button>
-           </div>
+              <div class="user_heder">
+                <div class="btn-group btn-group-justified" role="group">
+                   <div class="btn-group" role="group">
+                   <button class="btn btn-default"><%=link_to"トップ",admin_products_path,data: {"turbolinks" => false},class:"glyphicon glyphicon-music" %></button>
+                   </div>
+                   <div class="btn-group" role="group">
+                   <button class="btn btn-default"><%=link_to"会員登録",   new_end_user_registration_path,data: {"turbolinks" => false},class:"glyphicon glyphicon-home"%></button>
+                   </div>
+                   <div class="btn-group" role="group">
+                   <button class="btn btn-default"><%=link_to"ログイン",new_end_user_session_path,data: {"turbolinks" => false},class:"glyphicon glyphicon-log-out" %></button>
+                   </div>
+                </div>
+               </div>
           </div>
          </div>
        </div>

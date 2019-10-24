@@ -1,18 +1,15 @@
-<div class="container">
-  <div class="row">
-    <div class="col align-self-center">
-      <h1><strong>商品一覧</strong></h1>
-
-        <table class="table table-striped">
+<h1 class="text-center">商品一覧</h1>
+　<div class="container">
+　　　<table class="table table-bordered">
   	      <thead>
   	        <tr>
-  	          <th>タイトル</th>
-  	          <th>アーティスト</th>
-  	          <th>ジャンル</th>
-  	          <th>価格(税込)</th>
-  	          <th>個数</th>
-  	          <th>在庫状況</th>
-  	          <th>ステータス</th>
+  	          <th style="text-align:center;">タイトル</th>
+  	          <th style="text-align:center;">アーティスト</th>
+  	          <th style="text-align:center;">ジャンル</th>
+  	          <th style="text-align:center;">価格(税込)</th>
+  	          <th style="text-align:center;">個数</th>
+  	          <th style="text-align:center;">在庫状況</th>
+  	          <th style="text-align:center;">ステータス</th>
   	        </tr>
   	      </thead>
 
@@ -31,12 +28,12 @@
 
 	            <%= link_to admin_product_path(product) do %>
 	              <tr>
-		              	<td><%= product.title %></td>
-		              	<td><%= product.artist.artist_name %></td>
-		              	<td><%= product.genre.genre_name %></td>
-		              	<td><%= product.include_tax %> 円 </td>
-		              	<td><%= stock %> 個</td>
-		              	<td>
+		              	<td align="center"><%= product.title %></td>
+		              	<td align="center"><%= product.artist.artist_name %></td>
+		              	<td align="center"><%= product.genre.genre_name %></td>
+		              	<td align="center"><%= product.include_tax %> 円 </td>
+		              	<td align="center"><%= stock %> 個</td>
+		              	<td align="center">
 		              		<span>
 		              			<% if stock == 0 %>
 		              			  売り切れ
@@ -45,13 +42,14 @@
 		              			<% end %>
 		              		</span>
 		              	</td>
-		              	<td><%= product.sales_status %></td>
+		              	<td align="center"><%= product.sales_status %></td>
 	              </tr>
 	            <% end %>
             <% end %>
         	</tbody>
         </table>
+        <div class="row text-center">
         <%= paginate @products, class: "paginate" %>
+        </div>
     </div>
-  </div>
-</div>
+
