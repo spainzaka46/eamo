@@ -2,8 +2,8 @@
 	<h4>収録ディスク</h4>
 	<div class="form-group">
     <%= f.label :disk_number %>
-    <%= f.number_field :disk_number %><br>
-    <%= link_to_remove_association "ディスク削除 task", f, class: "btn btn-danger" %>
+    <%= f.number_field :disk_number,min: 1, max: 10 %><br>
+    <%= link_to_remove_association "ディスク削除", f, class: "btn btn-danger" %>
   </div>
 
 	<div class="record_musics">

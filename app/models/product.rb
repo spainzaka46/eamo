@@ -10,10 +10,25 @@ class Product < ApplicationRecord
 	belongs_to :label, optional: true
 	belongs_to :genre, optional: true
 
+	validates :title, presence: true
+	validates :price, presence: true
+	validates :sales_status, presence: true
+
 
 	attachment :photo
 
     acts_as_paranoid
 
 	enum sales_status: {販売中: 0, 販売停止中: 1}
+
+	def tax
+		val = 0.1
+		return val
+	end
+
+	def include_tax
+		total = price * tax + price
+		return total.round
+	end
+
 end

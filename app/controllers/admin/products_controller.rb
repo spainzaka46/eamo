@@ -1,13 +1,11 @@
 class Admin::ProductsController < ApplicationController
-  before_action :authenticate_admin!
+
   def index
+    @products = Product.page(params[:page]).reverse_order
   end
 
   def show
     @product = Product.find(params[:id])
-    @artist = @product.artist
-    @genre = @product.genre
-    @label = @product.label
     ordersum = 0
     arrivalsum = 0
     @product.order_details.each do |order_detail|
@@ -16,14 +14,6 @@ class Admin::ProductsController < ApplicationController
     @product.arrival_of_goods.each do |arrival_of_good| 
       arrivalsum = arrival_of_good.sheet + arrivalsum
     end
-    # order = OrderDetail.where(product_id:@product.id).group(:product_id).sum(:sheet)
-    # logger.debug(order)
-    # ordersum = order[@product.id]
-    # logger.debug(ordersum)
-    # arrival = ArrivalOfGood.where(product_id:@product.id).group(:product_id).sum(:sheet)
-    # logger.debug(arrival)
-    # arrivalsum = arrival[@product.id]
-    # logger.debug(arrivalsum)
     @stock = arrivalsum - ordersum
   end
 
@@ -50,7 +40,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def update
-    binding.pry
+
     @product = Product.find(params[:id])
     if @product.update(product_params)
       flash[:notice] = "商品情報を更新しました"
