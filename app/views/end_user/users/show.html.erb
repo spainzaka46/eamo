@@ -1,50 +1,51 @@
 <h1 class="text-center">マイページ</h1>
-<div class="container">
- <div class="profile">
-  <table class="table table-bordered">
+ <div class="container">
+  <div class="row">
+   <div class="profile col-sm-9">
+    <table class="table table-bordered">
 		<thead>
-		<tr>
-		    <th style="text-align:center;">名前</th>
-			<th style="text-align:center;">カナ</th>
-			<th style="text-align:center;">メールアドレス</th>
+		 <tr>
+		  <th style="text-align:center;">名前</th>
+		  <th style="text-align:center;">カナ</th>
+		  <th style="text-align:center;">メールアドレス</th>
 		</tr>
 	    </thead>
 
 	    <tbody>
-
-			<tr>
-				<td align="center">
-					<%= current_end_user.kanzi_last_name+current_end_user.kanzi_first_name %>
-				</td>
-				<td td align="center">
-					<%= current_end_user.kana_last_name+""+current_end_user.kana_first_name %>
-				</td>
-				<td align="center">
-					<%= current_end_user.email %>
-				</td>
-			</tr>
+		 <tr>
+		  <td align="center">
+			<%= current_end_user.kanzi_last_name+current_end_user.kanzi_first_name %>
+		  </td>
+		  <td td align="center">
+		    <%= current_end_user.kana_last_name+""+current_end_user.kana_first_name %>
+		  </td>
+		  <td align="center">
+			<%= current_end_user.email %>
+		  </td>
+		 </tr>
  	    </tbody>
      </table>
- </div>
+    </div>
+   </div>
 	 <button type="button" class="btn btn-default btn-lg center-block">
 	 <div class="edit_btn">
-	 	<%= link_to"マイページ編集", edit_end_user_user_path(current_end_user) %></div>
+	 	<%= link_to"登録情報編集", edit_end_user_user_path(current_end_user) %></div>
      </button>
 
 
 
 
   <h1 class="text-center">住所情報</h1>
-  <div class="profile">
+  <div class="address col-sm-9">
     <table class="table table-bordered">
 		<thead>
-		<tr>
+		　<tr>
 			<th style="text-align:center;">送り先名前</th>
 			<th style="text-align:center;">郵便番号</th>
 			<th style="text-align:center;">住所</th>
 			<th style="text-align:center;">電話番号</th>
 			<th style="text-align:center;"></th>
-		</tr>
+		　</tr>
 	    </thead>
 
 	    <tbody>
@@ -60,40 +61,26 @@
          </tbody>
     </table>
   </div>
-   <div class="btn-group btn-group-justified" role="group">
-    <div class="btn-group" role="group">
- 	    <%= link_to"購入履歴", end_user_orders_path, class:"btn btn-default" %>
-    </div>
-    <div class="btn-group" role="group">
- 	    <%= link_to"住所登録", new_end_user_address_path(current_end_user), class:"btn btn-default" %>
-    </div>
-    <div class="btn-group" role="group">
- 	    <%= link_to"退会", end_user_check_path(current_end_user), class:"btn btn-default" %>
-    </div>
+
+   <div class="btn-group">
+ 	    <button class="btn btn-default"><%= link_to"購入履歴", end_user_orders_path %></button>
+ 	    <button class="btn btn-default"><%= link_to"住所登録", new_end_user_address_path(current_end_user) %></button>
+        <button class="btn btn-default"><%= link_to"退会", end_user_check_path(current_end_user)%></button>
    </div>
-  </div>
+ </div>
 
-<script>
 
-$('.slider').slick({
-	autoplay:true,
-	autoplaySpeed:1000,
-	dots:true,
-});
-</script>
 
 <style>
-.slider{
-    margin: 100px auto;
-    width: 80%;
-}
-.slider img{
-    height: auto;
-    width: 100%;
-}
-/*slick setting*/
-.slick-prev:before,
-.slick-next:before {
-    color: #000;
-}
+.profile {
+		margin-left: 150px;
+	}
+	.address{
+		margin-left: 150px;
+	}
+	.btn-group{
+		margin-left: 470px;
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
 </style>

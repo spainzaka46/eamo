@@ -1,11 +1,8 @@
 
 <%= render "admin/search" %>
-<div class="container">
-  <div class="row">
-    <div class="col align-self-center">
-      <h1><strong>商品一覧</strong></h1>
-
-        <table class="table table-striped">
+ <div class="container">
+  <h1 class="text-center">商品一覧</h1>
+        <table class="table">
   	      <thead>
   	        <tr>
   	          <th style="text-align:center;">タイトル</th>
@@ -38,7 +35,6 @@
 		              	<td align="center"><%= product.include_tax %> 円 </td>
 		              	<td align="center"><%= stock %> 個</td>
 		              	<td align="center">
-
 		              		<span>
 		              			<% if stock == 0 %>
 		              			  売り切れ
@@ -49,11 +45,11 @@
 		              	</td>
 		              	<td align="center"><%= product.sales_status %></td>
 	              </tr>
-            <% end %>
+               <% end %>
         	</tbody>
         </table>
-        <div class="row text-center">
+      <div class="row text-center">
         <%= paginate @products, class: "paginate" %>
-        </div>
+      </div>
     </div>
 

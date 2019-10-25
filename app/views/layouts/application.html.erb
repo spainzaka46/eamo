@@ -1,42 +1,43 @@
 <!DOCTYPE html>
-<html>
+ <html>
   <head>
     <title>Eamo</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link href="/slick/slick-theme.css" rel="stylesheet" type="text/css">
-    <link href="/slick/slick.css" rel="stylesheet" type="text/css">
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     <link href="/slick/slick-theme.css" rel="stylesheet" type="text/css">
+     <link href="/slick/slick.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="/slick/slick.js"></script>
   </head>
 
   <body>
     <div class="panel panel-primary">
-  <div class="panel-heading">
-    <h2 class="panel-title">ジャンル別</h2>
-  </div>
-    <div class="list-group">
+     <div class="panel-heading">
+      <h2 class="panel-title">ジャンル別</h2>
+     </div>
+     <div class="list-group">
        <% @genres.each do |genre| %>
          <%= link_to "#{genre.genre_name}", end_user_genre_path(genre.id),class: "list-group-item list-group-item-action" %>
        <% end %>
-  </div>
-</div>
-<div class="panel panel-success">
-  <div class="panel-heading">
-    <h2 class="panel-title">フィーリング</h2>
-  </div>
-    <a href="#" class="list-group-item">ラブソング</a>
-    <a href="#" class="list-group-item">失恋ソング</a>
-    <a href="#" class="list-group-item">応援ソング</a>
-    <a href="#" class="list-group-item">リラックス/癒し</a>
-    <a href="#" class="list-group-item">オルゴール</a>
-    <a href="#" class="list-group-item">泣ける</a>
-    <a href="#" class="list-group-item">バラード</a>
-    <a href="#" class="list-group-item">テンション</a>
-    <a href="#" class="list-group-item">ドライブ</a>
-</div>
+     </div>
+   </div>
+
+    <div class="panel panel-success">
+     <div class="panel-heading">
+        <h2 class="panel-title">フィーリング</h2>
+     </div>
+        <a href="#" class="list-group-item">ラブソング</a>
+        <a href="#" class="list-group-item">失恋ソング</a>
+        <a href="#" class="list-group-item">応援ソング</a>
+        <a href="#" class="list-group-item">リラックス/癒し</a>
+        <a href="#" class="list-group-item">オルゴール</a>
+        <a href="#" class="list-group-item">泣ける</a>
+        <a href="#" class="list-group-item">バラード</a>
+        <a href="#" class="list-group-item">テンション</a>
+        <a href="#" class="list-group-item">ドライブ</a>
+    </div>
 
     <% if admin_signed_in?%>
       <header class="admin_header">
@@ -75,33 +76,40 @@
     <!-- yieldが二重になってたので一応コメントアウト -->
     <%#= yield %>
 
-  <% elsif end_user_signed_in?%>
+    <% elsif end_user_signed_in?%>
 
-    <header class="admin_header">
-      <div class="list-group-item list-group-item-info">
+      <header class="admin_header">
+        <div class="list-group-item list-group-item-info">
 
-        <div class="text">
-         <h1 class="text-center"><img src="/images/01.png" alt="01" style="width: 100%;height: 300px;">
-                                 <img src="/images/02.png" alt="02" style="width: 100%;height: 300px;"></h1>
-        </div>
-        <div class="container test">
-          <div class="row slick_div">
-            <ul class="slider">
+          <div class="text">
+           <h1 class="text-center"><img src="/images/01.png" alt="01" style="width: 20%;height: 100px;">
+                                 <img src="/images/03.png" alt="03" style="width: 70%;height: 100px;">
+           </h1>
+          </div>
+          <div class="row">
+           <div class="container col-sm-3">
+            <a href="#"><img src="/images/image05.jpg" alt="image05" style="width: 100%;height: 300px;"></a>
+           </div>
+           <div class="container col-sm-6">
+            <ul id="aaa" class="slider" >
                 <li><a href="#"><img src="/images/image01.jpg" alt="image01" style="width: 100%;height: 300px;"></a></li>
                 <li><a href="#"><img src="/images/image02.jpg" alt="image02" style="width: 100%;height: 300px;"></a></li>
                 <li><a href="#"><img src="/images/image03.jpg" alt="image03" style="width: 100%;height: 300px;"></a></li>
                 <li><a href="#"><img src="/images/image04.jpg" alt="image04" style="width: 100%;height: 300px;"></a></li>
-                   <!-- <li><a href="#"><img src="/images/05.jpg" alt="image05"></a></li>
+                <!-- <li><a href="#"><img src="/images/05.jpg" alt="image05"></a></li>
                 <li><a href="#"><img src="/images/06.jpg" alt="image06"></a></li>
                 <li><a href="#"><img src="/images/07.jpg" alt="image07"></a></li>
                 <li><a href="#"><img src="/images/08.jpg" alt="image08"></a></li>
             -->
             </ul>
+           </div>
+            <div class="container col-sm-3">
+             <a href="#"><img src="/images/image06.jpg" alt="image06" style="width: 100%;height: 300px;"></a>
+            </div>
           </div>
-        </div>
 
 
-        <div class="user_heder">
+         <div class="user_heder">
           <div class="btn-group btn-group-justified" role="group">
             <div class="btn-group" role="group">
               <%=link_to"トップ",admin_products_path, data: {"turbolinks" => false},class:"glyphicon glyphicon-music btn btn-default" %>
@@ -111,10 +119,9 @@
             </div>
             <div class="btn-group" role="group">
               <%
-              #link_to"カート",end_user_product_carts_path, data: {"turbolinks" => false},class:"glyphicon glyphicon-lock btn btn-default" 
-              %>
-              </div>
-             <div class="btn-group" role="group">
+              #link_to"カート",end_user_product_carts_path, data: {"turbolinks" => false},class:"glyphicon glyphicon-lock btn btn-default"%>
+            </div>
+            <div class="btn-group" role="group">
              <%=link_to"ログアウト",  destroy_end_user_session_path, data: {"turbolinks" => false},method: :delete,class:"glyphicon glyphicon-log-out btn btn-default" %>
              </div>
            </div>
@@ -123,16 +130,17 @@
      </header>
 
             <% else%>
-    <header class="admin_header">
+     <header class="admin_header">
       <div class="list-group-item list-group-item-info">
-
-
-          <div class="text">
+       <div class="text">
          <h1 class="text-center"><img src="/images/01.png" alt="01" style="width: 20%;height: 100px;">
-                                 <img src="/images/02.png" alt="02" style="width: 70%;height: 100px;"></h1>
-        </div>
-          <div class="container test2">
-          <div class="row slick_div">
+                                 <img src="/images/03.png" alt="03" style="width: 70%;height: 100px;"></h1>
+       </div>
+        <div class="row">
+          <div class="container col-sm-3">
+            <a href="#"><img src="/images/image05.jpg" alt="image05" style="width: 100%;height: 350px;"></a>
+          </div>
+          <div class="container col-sm-6">
             <ul id="aaa" class="slider" >
                 <li><a href="#"><img src="/images/image01.jpg" alt="image01" style="width: 100%;height: 350px;"></a></li>
                 <li><a href="#"><img src="/images/image02.jpg" alt="image02" style="width: 100%;height: 350px;"></a></li>
@@ -144,80 +152,86 @@
                 <li><a href="#"><img src="/images/08.jpg" alt="image08"></a></li>
             -->
             </ul>
-          </div>
         </div>
-              <div class="user_heder">
-                <div class="btn-group btn-group-justified" role="group">
-                   <div class="btn-group" role="group">
-                   <button class="btn btn-default"><%=link_to"トップ",admin_products_path,data: {"turbolinks" => false},class:"glyphicon glyphicon-music" %></button>
-                   </div>
-                   <div class="btn-group" role="group">
-                   <button class="btn btn-default"><%=link_to"会員登録",   new_end_user_registration_path,data: {"turbolinks" => false},class:"glyphicon glyphicon-home"%></button>
-                   </div>
-                   <div class="btn-group" role="group">
-                   <button class="btn btn-default"><%=link_to"ログイン",new_end_user_session_path,data: {"turbolinks" => false},class:"glyphicon glyphicon-log-out" %></button>
-                   </div>
-                </div>
-               </div>
+         <div class="container col-sm-3">
+            <a href="#"><img src="/images/image06.jpg" alt="image06" style="width: 100%;height: 350px;"></a>
           </div>
-         </div>
+       </div>
+          <div class="user_heder">
+            <div class="btn-group btn-group-justified" role="group">
+              <div class="btn-group" role="group">
+                <button class="btn btn-default"><%=link_to"トップ",admin_products_path,data: {"turbolinks" => false},class:"glyphicon glyphicon-music" %></button>
+              </div>
+              <div class="btn-group" role="group">
+                <button class="btn btn-default"><%=link_to"会員登録",   new_end_user_registration_path,data: {"turbolinks" => false},class:"glyphicon glyphicon-home"%></button>
+              </div>
+              <div class="btn-group" role="group">
+                  <button class="btn btn-default"><%=link_to"ログイン",new_end_user_session_path,data: {"turbolinks" => false},class:"glyphicon glyphicon-log-out" %></button>
+              </div>
+            </div>
+          </div>
        </div>
      </header>
 
-<% end %>
+   <% end %>
 
 
     <%= yield %>
       <script>
-    $('.slider').slick({
-      autoplay:true,
-      autoplaySpeed:500,
-      dots:true,
-    });
-  </script>
-  <style>
-    .slider{
-        margin: 0 auto;
-        width: 100%;
-    }
-    .slider img{
-        height: auto;
-        width: 100%;
-    }
-    /*slick setting*/
-    .slick-prev:before,
-    .slick-next:before {
-        color: #000;
-    }
+        $('.slider').slick({
+          autoplay:true,
+          autoplaySpeed:500,
+          dots:true,
+        });
+      </script>
+      <style>
+        .slider{
+            margin: 0 auto;
+            width: 100%;
+        }
+        .slider img{
+            height: auto;
+            width: 100%;
+        }
+        /*slick setting*/
+        .slick-prev:before,
+        .slick-next:before {
+            color: #000;
+        }
 
-    .text-cente{
-      font-size: 200px
-      margin-bottom :5px
-      margin-top :5px
-    }
-    .test{
-      margin-bottom : 0;
-    }
-    .test2{
-      margin-bottom : 0;
-    }
-  </style>
+        .text-cente{
+          font-size: 200px
+          margin-bottom :5px
+          margin-top :5px
+        }
+        .test{
+          margin-bottom : 0;
+        }
+        .test2{
+          margin-bottom : 0;
+        }
+      </style>
 
- <footer class="page-footer font-small teal pt-4">
+   <footer class="page-footer">
      <div class="list-group-item list-group-item-info">
       <div class="container-fluid">
 
-            <h5 class="text-center">会社情報<br>
-            会社名 （株）eamo<br>
-            住所　東京都渋谷区神南1-1-1-1<br>
-            電話番号 xxx-xxx-xxx</h5>
-          </div>
-
-            <div class="footer-copyright text-center">© 2018 nagano music Inc</div>
+      <h5 class="text-center">会社情報<br>
+        会社名 （株）eamo<br>
+        住所　東京都渋谷区神南1-1-1-1<br>
+        電話番号 xxx-xxx-xxx</h5>
+      </div>
+      <div class="footer-copyright text-center">© 2018 nagano music Inc</div>
             <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-     </div>
+      </div>
    </footer>
- </body>
+  </body>
  </html>
+
+<style>
+.container{
+margin-bottom:0px;
+}
+</style>
 
 
