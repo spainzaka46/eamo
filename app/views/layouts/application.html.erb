@@ -13,30 +13,6 @@
   </head>
 
   <body>
-    <div class="panel panel-primary">
-  <div class="panel-heading">
-    <h2 class="panel-title">ジャンル別</h2>
-  </div>
-    <div class="list-group">
-       <% @genres.each do |genre| %>
-         <%= link_to "#{genre.genre_name}", end_user_genre_path(genre.id),class: "list-group-item list-group-item-action" %>
-       <% end %>
-  </div>
-</div>
-<div class="panel panel-success">
-  <div class="panel-heading">
-    <h2 class="panel-title">フィーリング</h2>
-  </div>
-    <a href="#" class="list-group-item">ラブソング</a>
-    <a href="#" class="list-group-item">失恋ソング</a>
-    <a href="#" class="list-group-item">応援ソング</a>
-    <a href="#" class="list-group-item">リラックス/癒し</a>
-    <a href="#" class="list-group-item">オルゴール</a>
-    <a href="#" class="list-group-item">泣ける</a>
-    <a href="#" class="list-group-item">バラード</a>
-    <a href="#" class="list-group-item">テンション</a>
-    <a href="#" class="list-group-item">ドライブ</a>
-</div>
 
     <% if admin_signed_in?%>
       <header class="admin_header">
