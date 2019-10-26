@@ -1,5 +1,5 @@
 <h1 class="text-center">ユーザ購入履歴</h1>
-<div class="container">
+ <div class="container">
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @orders.each do |order| %>
+          <% @order.each do |order| %>
             <tr>
               <td align="center">
                 <%= link_to end_user_user_order_path(id: order.id) do %>
