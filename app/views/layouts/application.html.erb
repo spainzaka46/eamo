@@ -12,32 +12,6 @@
     <script type="text/javascript" src="/slick/slick.js"></script>
   </head>
 
-  <body>
-    <div class="panel panel-primary">
-     <div class="panel-heading">
-      <h2 class="panel-title">ジャンル別</h2>
-     </div>
-     <div class="list-group">
-       <% @genres.each do |genre| %>
-         <%= link_to "#{genre.genre_name}", end_user_genre_path(genre.id),class: "list-group-item list-group-item-action" %>
-       <% end %>
-     </div>
-   </div>
-
-    <div class="panel panel-success">
-     <div class="panel-heading">
-        <h2 class="panel-title">フィーリング</h2>
-     </div>
-        <a href="#" class="list-group-item">ラブソング</a>
-        <a href="#" class="list-group-item">失恋ソング</a>
-        <a href="#" class="list-group-item">応援ソング</a>
-        <a href="#" class="list-group-item">リラックス/癒し</a>
-        <a href="#" class="list-group-item">オルゴール</a>
-        <a href="#" class="list-group-item">泣ける</a>
-        <a href="#" class="list-group-item">バラード</a>
-        <a href="#" class="list-group-item">テンション</a>
-        <a href="#" class="list-group-item">ドライブ</a>
-    </div>
 
     <% if admin_signed_in?%>
       <header class="admin_header">
@@ -112,7 +86,7 @@
          <div class="user_heder">
           <div class="btn-group btn-group-justified" role="group">
             <div class="btn-group" role="group">
-              <%=link_to"トップ",admin_products_path, data: {"turbolinks" => false},class:"glyphicon glyphicon-music btn btn-default" %>
+              <%=link_to"トップ",end_user_products_path, data: {"turbolinks" => false},class:"glyphicon glyphicon-music btn btn-default" %>
             </div>
             <div class="btn-group" role="group">
               <%=link_to"マイページ",mypage_path, data: {"turbolinks" => false},class:"glyphicon glyphicon-home btn btn-default" %>
@@ -160,7 +134,7 @@
           <div class="user_heder">
             <div class="btn-group btn-group-justified" role="group">
               <div class="btn-group" role="group">
-                <button class="btn btn-default"><%=link_to"トップ",admin_products_path,data: {"turbolinks" => false},class:"glyphicon glyphicon-music" %></button>
+                <button class="btn btn-default"><%=link_to"トップ",end_user_products_path,data: {"turbolinks" => false},class:"glyphicon glyphicon-music" %></button>
               </div>
               <div class="btn-group" role="group">
                 <button class="btn btn-default"><%=link_to"会員登録",   new_end_user_registration_path,data: {"turbolinks" => false},class:"glyphicon glyphicon-home"%></button>
@@ -177,13 +151,15 @@
 
 
     <%= yield %>
+
       <script>
         $('.slider').slick({
           autoplay:true,
-          autoplaySpeed:500,
+          autoplaySpeed:400,
           dots:true,
         });
       </script>
+
       <style>
         .slider{
             margin: 0 auto;

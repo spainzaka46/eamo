@@ -21,10 +21,10 @@
 
       <div class="genre">
         <h4>ジャンル
-        <%= @product.genre.genre_name %><h4>
+        <%= @product.genre.genre_name %></h4>
       </div>
 
-      <div class="label">
+      <div class="">
         <h4>レーベル
         <%= @product.label.label_name %></h4>
       </div>
@@ -66,8 +66,9 @@
       <% end %>
     </div>
   </div>
+</div>
 
-      <div class="record-content col-sm-5">
+      <div class="record-content">
         <% @product.disks.each do |disk| %>
           <h3 class="text-center">収録ディスク</h3>
             <p class="text-center">ディスクNo. <%= disk.disk_number %> </p>
