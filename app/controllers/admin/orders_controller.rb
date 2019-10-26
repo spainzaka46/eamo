@@ -2,8 +2,7 @@ class Admin::OrdersController < ApplicationController
 	before_action :authenticate_admin!
   PER=10
   def index
-    @orders = Order.all
-    @order = Order.page(params[:page]).per(PER)
+    @orders = Order.page(params[:page]).per(10)
   end
 
   def show

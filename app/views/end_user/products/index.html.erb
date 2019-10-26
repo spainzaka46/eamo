@@ -36,7 +36,7 @@
 	      <div class="product-content" onclick="javascript:location.href='<%= admin_product_path(product)%>'"  style="cursor:pointer">
 	      	<%= link_to end_user_product_path(product) do %>
 	      	<div class="jake">
-	          <%= attachment_image_tag product, :photo, :fill, 100, 100, class: " profile-thumb", fallback: "no_image.jpg"%>
+	          <%= attachment_image_tag product, :photo, :fill, 150, 150, class: " profile-thumb", fallback: "no_image.jpg"%>
 	        </div>
 	        <% end %>
 
@@ -79,6 +79,10 @@
   .product-content {
 		border-bottom: 2px solid #f7f7f7;
 
+  }
+
+  .jake {
+  	max-width: 100%;
   }
 
 	p {
