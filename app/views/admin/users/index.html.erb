@@ -1,34 +1,36 @@
 
 <h1 class="text-center">ユーザ一覧</h1>
-<div class="container">
-	<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th style="text-align:center;">ID</th>
-				<th style="text-align:center;">名前</th>
-				<th style="text-align:center;">カナ</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @end_users.each do |end_user| %>
-				<tr>
-					   <td align="center">
-						<%= link_to end_user.id,admin_user_path(end_user.id) %>
-					    </td>
-						<td align="center">
-							<%= end_user.kanzi_last_name+end_user.kanzi_first_name %>
-						</td>
-						<td align="center">
-							<%= end_user.kana_last_name+""+end_user.kana_first_name %>
-						</td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-	<div class="row text-center">
-		<%= paginate @end_users %>
-	</div>
+ <div class="container">
+  <table class="table table-bordered">
+   <thead>
+    <tr>
+	 <th style="text-align:center;">ID</th>
+	 <th style="text-align:center;">名前</th>
+	 <th style="text-align:center;">カナ</th>
+	</tr>
+   </thead>
+   <tbody>
+   <% @end_users.each do |end_user| %>
+	<tr>
+	 <td align="center">
+	 <%= link_to end_user.id,admin_user_path(end_user.id) %>
+	 </td>
 
+	 <td align="center">
+	 <%= end_user.kanzi_last_name+end_user.kanzi_first_name %>
+	 </td>
+
+	 <td align="center">
+	 <%= end_user.kana_last_name+""+end_user.kana_first_name %>
+	 </td>
+	</tr>
+	<% end %>
+   </tbody>
+  </table>
+
+  <div class="row text-center">
+   <%= paginate @end_users %>
+  </div>
 </div>
 
 

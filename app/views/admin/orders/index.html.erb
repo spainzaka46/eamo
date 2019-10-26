@@ -1,57 +1,64 @@
 <h1 class="text-center">受注一覧</h1>
-<div class="container">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th style="text-align:center;">受注</th>
-              <th style="text-align:center;">受注日</th>
-              <th style="text-align:center;">ユーザ名</th>
-              <th style="text-align:center;">購入額</th>
-              <th style="text-align:center;">支払い方法</th>
-              <th style="text-align:center;">ステータス</th>
-              <th style="text-align:center;"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @orders.each do |order| %>
-              <tr>
-                <td align="center">
-                  <%= link_to admin_order_path(order) do %>
-                    <%= order.id %>
-                  <% end %>
-                </td>
-                <td align="center">
-                    <%= order.created_at.strftime('%Y/%m/%d') %>     <!-- ここ! -->
-                </td>
-                <td align="center">
-                  <%= order.send_name %>
-                </td>
-                <td align="center">
-                  <% totalprice = 0 %>                  <!-- ここ! -->
-                  <% order.order_details.each do |order_detail| %>
-                    <% price = order_detail.price * order_detail.sheet %>
-                    <% totalprice = totalprice + price %>
-                  <% end %>
-                  <%= totalprice + order.delivery_charge %>
-                </td>
-                <td align="center">
-                  <%= order.method_of_payment %>            <!-- ここ! -->
-                </td>
-                <td align="center">
-                  <%= form_for order, url:admin_order_path(order) do |f|%>       <!-- ここ! -->
-                    <%= f.select :order_status, Order.order_statuses.keys.to_a, {} %>
-                    <%= f.submit 'save' %>
-                  <% end %>
-                </td>
-                <td align="center">
-                  <%= link_to "詳細", admin_order_path(order) %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <div class="row text-center">
+ <div class="container">
+  <table class="table table-bordered">
+   <thead>
+    <tr>
+     <th style="text-align:center;">受注</th>
+     <th style="text-align:center;">受注日</th>
+     <th style="text-align:center;">ユーザ名</th>
+     <th style="text-align:center;">購入額</th>
+     <th style="text-align:center;">支払い方法</th>
+     <th style="text-align:center;">ステータス</th>
+     <th style="text-align:center;"></th>
+    </tr>
+    </thead>
+     <tbody>
+      <% @orders.each do |order| %>
+      <tr>
+       <td align="center">
+        <%= link_to admin_order_path(order) do %>
+        <%= order.id %>
+        <% end %>
+       </td>
+
+       <td align="center">
+        <%= order.created_at.strftime('%Y/%m/%d') %>     <!-- ここ! -->
+       </td>
+
+       <td align="center">
+        <%= order.send_name %>
+       </td>
+
+       <td align="center">
+        <% totalprice = 0 %>                  <!-- ここ! -->
+        <% order.order_details.each do |order_detail| %>
+        <% price = order_detail.price * order_detail.sheet %>
+        <% totalprice = totalprice + price %>
+        <% end %>
+        <%= totalprice + order.delivery_charge %>
+       </td>
+
+       <td align="center">
+        <%= order.method_of_payment %>            <!-- ここ! -->
+       </td>
+
+       <td align="center">
+        <%= form_for order, url:admin_order_path(order) do |f|%>       <!-- ここ! -->
+        <%= f.select :order_status, Order.order_statuses.keys.to_a, {} %>
+        <%= f.submit 'save' %>
+        <% end %>
+       </td>
+
+       <td align="center">
+        <%= link_to "詳細", admin_order_path(order) %>
+       </td>
+
+     </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="row text-center">
     <%= paginate @orders %>
   </div>
-
-      </div>
+ </div>

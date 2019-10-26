@@ -42,7 +42,7 @@ namespace :end_user do
 	resources :users,only: [:index, :show, :edit, :update, :destroy, :new, :create] do
     get '/orders' => 'orders#index', as: 'orders'
     get '/orders/:id' => 'orders#show', as: 'order'
-    get '/users/:id' => 'users#check', as: 'check'
+    get '/check' => 'users#check', as: 'check'
   end
 
   get '/products/result' => 'products#result', as: 'result'
