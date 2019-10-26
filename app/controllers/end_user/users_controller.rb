@@ -25,18 +25,13 @@ class EndUser::UsersController < ApplicationController
       render :new
     end
   end
-
-  
   def check
   end
   def destroy
     @end_user = EndUser.find(params[:id])
     @end_user.destroy
-    redirect_to end_user_finish_path 
-
-
+    redirect_to end_user_finish_path
   end
-    
   def update
     @end_user = EndUser.find(params[:id])
     if @end_user.update(end_user_params)

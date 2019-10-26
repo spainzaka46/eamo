@@ -1,61 +1,56 @@
-<%= render "end_user/search" %>
-<h1 class="text-center">商品詳細</h1>
-<div class="container">
-
-  <div class="col-sm-3">
-
-    <div class="col align-self-center">
-
-      <div class="field">
-        <%= attachment_image_tag @product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%> </br>
-      </div>
+ <h1 class="text-center">商品詳細</h1>
+  <div class="container">
+   <div class="col-sm-3">
+    <div class="field">
+      <%= attachment_image_tag @product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%> </br>
     </div>
-  </div>
+   </div>
 
     <div class="col-sm-9">
-      <div class="field">
-        <h4 class="headind">タイトル
+      <div class="title">
+        <h4>タイトル:
         <%= @product.title %></h4>
       </div>
-    </div>
 
-      <div class="field">
-        <h4 class="headind">アーティスト
+      <div class="artist">
+        <h4>アーティスト:
         <%= @product.artist.artist_name %></h4>
       </div>
 
-      <div class="field">
-        <h4 class="headind">ジャンル
+      <div class="genre">
+        <h4>ジャンル:
         <%= @product.genre.genre_name %></h4>
       </div>
 
-      <div class="field">
-        <h4 class="headind">レーベル
+      <div class="laber">
+        <h4>レーベル:
         <%= @product.label.label_name %></h4>
       </div>
 
-      <div class="field">
-        <h4 class="headind">価格(税込)
+      <div class="tax">
+        <h4>価格(税込):
         <%= @product.include_tax %> 円</h4>
       </div>
 
-      <div>
-        <span>在庫数
+      <div class="stock">
+        <span>在庫数:
           <% if @stock == 0 %>
             在庫がありません
           <% else %>
             残り <%= @stock %> 点
           <% end %>
         </span>
+
         <span>/ステータス</span>
         <%= @product.sales_status %>
       </div>
+    </div>
 
       <div class="record-content">
-        <h3>収録ディスク</h3>
-        <% @product.disks.each do |disk| %>
+        <h3 class="text-center">収録ディスク</h3>
+         <% @product.disks.each do |disk| %>
           <div id="disks">
-            <p>ディスクNo. <%= disk.disk_number %> </p>
+            <p class="text-center">ディスクNo. <%= disk.disk_number %> </p>
           </div>
           <table class="table table-bordered">
             <thead>
@@ -75,25 +70,16 @@
               <% end %>
             </tbody>
           </table>
-        <% end %>
+         <% end %>
       </div>
-    </div>
-    <button type="button" class="btn btn-default btn-lg center-block">
-         <div class="edit_btn">
+        <button type="button" class="btn btn-default btn-lg center-block">
+
           <%= link_to "商品一覧に戻る", admin_artists_path %>
-         </div>
-         </button>
+
+        </button>
   </div>
-</div>
-
 <style>
-
-  .picture {
-  float: left;
+  .btn {
+    margin-bottom:20px;
   }
-
-  .disk-content {
-  margin-left: 50px;
-  }
-
 </style>
