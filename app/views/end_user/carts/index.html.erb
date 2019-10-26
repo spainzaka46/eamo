@@ -1,11 +1,8 @@
-<h1>EndUser::Carts#index</h1>
-<p>Find me in app/views/end_user/carts/index.html.erb</p>
-<div>
-	<div>
-		<h2>カート内一覧</h2>
-
+<div class="container">
+	<div class="row">
+		<h2 class="text-center">カート内一覧</h2>
 		<div>
-			<% total = 0 %>
+			<% total_price = 0 %>
 			<% @end_user.product_in_carts.each do |product_in_cart| %>
 			<%= attachment_image_tag product_in_cart.product, :photo, :fill, 50, 50, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
 				<p>Title</p>
@@ -14,7 +11,6 @@
 					<%= product_in_cart.product.artist.artist_name %>
 				<p>個数</p>
 					<%= product_in_cart.sheet %>
-
 				<p>価格</p>
 					<%= product_in_cart.product.price %>
 				<p>小計</p>
@@ -22,15 +18,18 @@
 
 				<%= link_to '削除', end_user_product_cart_path(product_in_cart.product.id, product_in_cart.id), class: "btn btn-danger ", method: :delete  %>
 
-				<% total += product_in_cart.sheet * product_in_cart.product.price %>
+				<% total_price += product_in_cart.sheet * product_in_cart.product.price %>
 			<% end %>
 		</div>
 
 		<p>商品小計（税込）</p>
-		<%= total %>
+		<%= total_price %>
+		<button type="button" class="btn btn-default btn-lg ">
+			<%= link_to 'ショッピングを続ける',end_user_products_path %>
+		</button>
 
-		<%= link_to 'ショッピングを続ける',end_user_products_path %>
-
-		<%= link_to '購入手続きへ', new_end_user_user_path %>
+		<button type="button" class="btn btn-default btn-lg center-block">
+			<%= link_to '購入手続きへ', new_end_user_user_path %>
+		</button>
 	</div>
 </div>
