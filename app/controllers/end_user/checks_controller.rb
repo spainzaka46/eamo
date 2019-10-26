@@ -3,17 +3,17 @@ class EndUser::ChecksController < ApplicationController
   end
 
   def new
-  	@order = Order.find(params[:id])
-    @address = Address.find(params[:id])
-    @product_in_carts = Product_in_cart.find(params[:id])
-    @delivery_charges = Delivery_charge.find(params[:id])
-    @total = @total_price + @delivery_charges.delivery_charge
+    @address = Address.find(params[:address_id])
+    @order = Order.find(params[:id])
+  	#@order = Order.find(params[:id])
+    # @address = Address.find(params[:id])
+    # @product_in_carts = Product_in_cart.find(params[:id])
+    # @delivery_charges = Delivery_charge.find(params[:id])
   end
 
   def create
     @address = Address.find(params[:address_id])
     @order = Order.new(method_of_payments_params)
-
   	#address.send_name = order.send_name
   	#address.postal_code = order.address.postal_code
   	#address.id = order.send_name
@@ -30,7 +30,7 @@ class EndUser::ChecksController < ApplicationController
 
   private
   def method_of_payments_params
-      params.require(:method_of_payments).permit(:method_of_payment)
+      params.require(:method_of_payment).permit(:method_of_payment)
   end
 
 

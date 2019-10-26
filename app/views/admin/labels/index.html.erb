@@ -1,30 +1,40 @@
+
 <div class="container">
-  <div class="row">
-    <div class="col align-self-center">
-
-      <h1><strong>レーベル一覧</strong></h1>
-
-      <div class="action">
-        <%= link_to "レーベル新規登録", new_admin_label_path %>
+    <h1 class="text-center">レーベル一覧</h1>
+    <div class="btn-group btn-group text" >
+      <div class="btn-group" role="group" >
+        <button class="btn btn-default">
+        <%= link_to "レーベル新規登録", new_admin_artist_path %>
+        </button>
       </div>
-        <table class="table table-striped">
+    </div>
+        <table class="table table-bordered">
   	      <thead>
   	        <tr>
-              <th></th>
-  	          <th>レーベル名</th>
+              <th style="text-align:center;">レーベル名</th>
+  	          <th style="text-align:center;">ボタン</th>
   	        </tr>
   	      </thead>
 
   	      <tbody>
             <% @labels.each do |label| %>
               <tr>
-              	<td><%= label.label_name %></td>
-                <td><%= link_to "編集", edit_admin_label_path(label.id) %></td>
+              	<td align="center"><%= label.label_name %></td>
+                <td align="center"><%= link_to "編集", edit_admin_label_path(label.id) %></td>
               </tr>
             <% end %>
         	</tbody>
         </table>
+        <div class="row text-center">
         <%= paginate @labels, class: "paginate" %>
-    </div>
+        </div>
   </div>
-</div>
+
+<style>
+
+.text{
+  margin-bottom: 20px;
+  margin-left: 500px;
+}
+
+</style>
