@@ -39,20 +39,21 @@ namespace :admin do
 end
 # resources :admin_sessions,only: [:destroy, :new, :create]
 namespace :end_user do
-	resources :users,only: [:index, :show, :edit, :update, :destroy, :new, :create]
-    get '/orders' => 'orders#index', as: 'orders'
-    get '/orders/:id' => 'orders#show', as: 'order'
-    get '/checks' => 'users#check', as: 'check'
-    resources :cheecks, only: [:new, :create,:index]
-    get '/confirm' => 'cheecks#confirm', as: 'comfirm'
+
+	resources :users,only: [:index, :show, :edit, :update, :destroy, :new, :create] do
+    get '/check' => 'users#check', as: 'check'
+  end
+
 
   get '/products/result' => 'products#result', as: 'result'
 	resources :products,only: [:index, :create, :show] do
     resources :carts,only: [:destroy, :create]
   end
   get '/products/genre/:id' => 'products#genre_serch', as: 'genre'
-  resources :carts,only: [:index]
-	resources :orders,only: [:index, :show,]
+
+
+	resources :orders,only: [:index, :show]
+
 	resources :checks,only: [:index, :new, :create,:show]
 	resources :addresses,only: [:new, :create,:edit, :update]
   resources :pays,only: [:new, :create,:show ]
