@@ -3,32 +3,61 @@ class EndUser::CheecksController < ApplicationController
   end
 
   def new
-  	@order = Oder.find(params[:id])
-    @address = Address.find(params[:id])
-    @product_in_carts= Product_in_carts.find(params[:id])
-    @delivery_charges= Delivery_charges.find(params[:id])
-    @total=@ product_in_carts.sheet+@ delivery_charges.delivery_charges
+  	 @order = Order.new
+    @address=Address.new
   end
-end
- end
+
+  def confirm
+    @order = Order.new(confirm_order_params)
+    @order.end_user_id = current_end_user.id
+    @order.delivery_charge = 500
+
+    if params[:okurisaki].to_i < 0
+      address = Address.new(end_user_id: current_end_user.id, address: @order.address, send_name: @order.send_name, postal_code: @order.postal_code,phone_number: @order.phone_number)
+      address.save
+    else
+      address = Address.find(params[:okurisaki])
+      @order.address = address.address
+      @order.send_name = address.send_name
+      @order.postal_code = address.postal_code
+      @order.phone_number = address.phone_number
+    end
+
+    @total = 0
+    current_end_user.product_in_carts.each do |product_in_cart|
+    @total += product_in_cart.sheet * product_in_cart.product.price
+    end
+  end
+    #binding.pry
+    # binding.pry
   def create
-  	address.send_name_id=order_sand_name_id
-  	address.address.postal_code_id=order_address.postal_code_id
-  	address._id=order_sand_name_id
-  	address.phone_number_id=order_phone_number_id
-  	product_in_carts.sheet_id=order_sheet_id
-  	delivery_charges.delivery_charges_id=order_delivery_charges_id
+    @order = Order.new(order_params)
+    @order.end_user_id = current_end_user.id
+    @order.order_status = "受付"
 
-
-  	if 
-  		@order.save
-
-    redirect_to end_user_cheeck_path(@current_end_user)
-  	else
-
-  		render :new
-     end
-
-
-
-     comment.post_image_id = post_image.id
+    if @order.save
+      current_end_user.product_in_carts.each do |cart|
+        OrderDetail.create(
+          order_id: @order.id,
+          product_id: cart.product.id,
+          sheet: cart.sheet,
+          price: cart.product.price
+          )
+        cart.destroy
+      end
+      redirect_to end_user_cheecks_path
+    else
+      render :confirm
+    end
+  end
+   private
+   def confirm_order_params
+      params.require(:order).permit(:send_name, :postal_code, :address, :phone_number, :method_of_payment)
+    end
+    def order_params
+      params.require(:order).permit(:send_name, :postal_code, :address, :phone_number, :method_of_payment,:delivery_charge,:order_status)
+    end
+    # def order_details_params
+    #   params.require(:order_detail).permit(:order_id,:product_id,:sheet,:price)
+    # end
+end

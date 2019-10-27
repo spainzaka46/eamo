@@ -1,0 +1,60 @@
+
+<%= form_for(@order, url: end_user_comfirm_path, method: :GET) do |f| %>
+
+<h1 class="text-center">住所情報</h1>
+ <div class="container">
+  <h2 class="text-center"><登録先住所></h2>
+     <div class="profile">
+        <table class="table table-bordered">
+          <thead>
+           <tr>
+            <th style="text-align:center;">住所選択</th>
+            <th style="text-align:center;">送り先名前</th>
+            <th style="text-align:center;">郵便番号</th>
+            <th style="text-align:center;">住所</th>
+            <th style="text-align:center;">電話番号</th>
+           </tr>
+          </thead>
+
+          <tbody>
+           <% current_end_user.addresses.each do |address|%>
+            <tr>
+              <td align="center"><%= radio_button_tag :okurisaki, address.id%></td>
+               <td align="center"> <%=address.send_name%> </td>
+               <td align="center"> <%=address.postal_code%> </td>
+               <td align="center"> <%=address.address%></td>
+               <td align="center"> <%=address.phone_number%></td>
+            </tr>
+            <%end%>
+          </tbody>
+        </table>
+     </div>
+
+
+  <h2 class="text-center"><%= radio_button_tag :okurisaki, -1, {:checked => true}%><新しい住所></h2>
+    <h3 class="text-center">送り先名前<br>
+    <%= f.text_field :send_name %></h3>
+
+    <h3 class="text-center">郵便番号<br>
+    <%= f.number_field :postal_code %></h3>
+
+    <h3 class="text-center">住所<br>
+    <%= f.text_field :address %></h3>
+
+    <h3 class="text-center">電話番号<br>
+    <%= f.number_field :phone_number %></h3>
+
+  <h1 class="text-center">支払い方法選択</h1>
+   <h2 class="text-center">
+    <%= f.radio_button :method_of_payment, "銀行振込", {:checked => true}%>
+    <%= f.label :method_of_payment, "銀行振込"  %><br>
+    <%= f.radio_button :method_of_payment, "クレジットカード決済"%>
+    <%= f.label :method_of_payment, "クレジット払い" %><br>
+    <%= f.radio_button :method_of_payment, "代引き" %>
+    <%= f.label :method_of_payment, "代引き"  %><br>
+    <%= f.submit "購入確認" %>
+   <% end %>
+  </h2>
+</div>
+
+
