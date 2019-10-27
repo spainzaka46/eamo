@@ -1,50 +1,21 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-sm-3">
-			<div class="search">
-			<%= render "end_user/search" %>
-		  </div>
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h2 class="panel-title">ジャンル別</h2>
-				</div>
-				<div class="list-group">
-					<% @genres.each do |genre| %>
-					<%= link_to "#{genre.genre_name}", end_user_genre_path(genre.id),class: "list-group-item list-group-item-action" %>
-					<% end %>
-				</div>
-			</div>
-			<div class="panel panel-success">
-				<div class="panel-heading">
-					<h2 class="panel-title">フィーリング</h2>
-				</div>
-				<a href="#" class="list-group-item">ラブソング</a>
-				<a href="#" class="list-group-item">失恋ソング</a>
-				<a href="#" class="list-group-item">応援ソング</a>
-				<a href="#" class="list-group-item">リラックス/癒し</a>
-				<a href="#" class="list-group-item">オルゴール</a>
-				<a href="#" class="list-group-item">泣ける</a>
-				<a href="#" class="list-group-item">バラード</a>
-				<a href="#" class="list-group-item">テンション</a>
-				<a href="#" class="list-group-item">ドライブ</a>
-			</div>
 
-  	</div>
+    <%= render "side", genres: @genres %>
+
   	<div class="wrapper grid col-sm-8 col-sm-offset-1">
     	<% @products.each do |product| %>
-	      <div class="product-content" onclick="javascript:location.href='<%= admin_product_path(product)%>'"  style="cursor:pointer">
-	      	<%= link_to end_user_product_path(product) do %>
+	      <div class="product-content" onclick="javascript:location.href='<%= end_user_product_path(product)%>'"  style="cursor:pointer">
 	      	<div class="jake">
-	          <%= attachment_image_tag product, :photo, :fill, 150, 150, class: " profile-thumb", fallback: "no_image.jpg"%>
+	          <%= attachment_image_tag product, :photo, :fill, 120, 120, class: " profile-thumb", fallback: "no_image.jpg"%>
 	        </div>
-	        <% end %>
 
 	        <p> <%= product.title %></p>
 
 	        <p><%= product.artist.artist_name %></p>
 
-          <p>価格(税込)  <%= product.price %> 円</p>
+          <p>価格(税込)  <%= product.include_tax %> 円</p>
 		    </div>
 		  <% end %>
 		</div>
@@ -61,17 +32,13 @@
 
 <style>
 
-	.search {
-		padding: 50px 0 50px 40px;
-	}
-
 	.wrapper {
 		padding: 50px 0;
 	}
 
 	.grid {
 		display: grid;
-		gap: 10px;
+		gap: 15px;
 		grid-template-columns: 200px 200px 200px 200px;
 
 	}
@@ -83,6 +50,7 @@
 
   .jake {
   	max-width: 100%;
+  	margin-bottom: 10px;
   }
 
 	p {

@@ -8,7 +8,6 @@ class EndUser::ProductsController < ApplicationController
   def genre_serch
   	@products = Product.where(genre_id:  params[:id])
     @genres = Genre.all
-    @cart = ProductInCart.new
   end
 
   def show
@@ -26,7 +25,7 @@ class EndUser::ProductsController < ApplicationController
   end
 
   def result
-    @products = Product.search(params[:search]).page(params[:page]).reverse_order
+    @products = Product.where(sales_status:'販売中').search(params[:search]).page(params[:page]).per(20)
   end
 
 end

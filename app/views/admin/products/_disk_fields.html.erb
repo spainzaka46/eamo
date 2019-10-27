@@ -1,25 +1,17 @@
 <div class="nested-fields well well-compact" >
-	<h4 class="text-center">収録ディスク</h4>
-	<div class="form-group">
-    <%= f.label :disk_number %>
-    <%= f.number_field :disk_number,min: 1, max: 10 %><br>
-    <button type="button" class="btn btn-danger btn-lg center-block">
-    <div class="destroy_btn">
-    <%= link_to_remove_association "ディスク削除", f%>
-    </div>
-   </button>
-  </h3>
+  <h4 class="text-center">収録ディスク</h4>
+  <div class="form-group" align="center">
+    <%= f.label :disk_number, "ディスクNo." %>
+    <%= f.number_field :disk_number, min: 1, max: 10  %><br>
+    <%= link_to_remove_association "ディスク削除", f, class: "btn btn-danger" %>
+  </div>
 
-	<div class="record_musics">
-		<%= f.fields_for :record_musics do |record_music| %>
-	    <%= render 'record_music_fields', f: record_music %>
-  	<%end%>
-  	<button type="button" class="btn btn-info btn-lg center-block">
-     <div class="destroy_btn">
-    	<%= link_to_add_association "トラック追加", f, :record_musics %>
-  	 </div>
-   </button>
+  <div class="record_musics" align="center">
+    <%= f.fields_for :record_musics do |record_music| %>
+      <%= render 'record_music_fields', f: record_music %>
+    <% end%>
+    <div class="links">
+      <%= link_to_add_association "トラック追加", f, :record_musics, class: "btn btn-info" %>
+    </div>
   </div>
 </div>
-
-
