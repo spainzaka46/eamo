@@ -39,9 +39,11 @@ namespace :admin do
 end
 # resources :admin_sessions,only: [:destroy, :new, :create]
 namespace :end_user do
+
 	resources :users,only: [:index, :show, :edit, :update, :destroy, :new, :create] do
     get '/check' => 'users#check', as: 'check'
   end
+
 
   get '/products/result' => 'products#result', as: 'result'
 	resources :products,only: [:index, :create, :show] do
@@ -49,7 +51,9 @@ namespace :end_user do
   end
   get '/products/genre/:id' => 'products#genre_serch', as: 'genre'
 
+
 	resources :orders,only: [:index, :show]
+
 	resources :checks,only: [:index, :new, :create,:show]
 	resources :addresses,only: [:new, :create,:edit, :update]
   resources :pays,only: [:new, :create,:show ]
