@@ -12,4 +12,5 @@ class EndUser < ApplicationRecord
 	validates :kana_last_name, presence: true
 	validates :kana_first_name, presence: true
 	validates :email, presence: true
+  acts_as_paranoid
 end
