@@ -1,6 +1,5 @@
-
 <%= render "admin/search" %>
- <div class="container">
+<div class="container">
   <h1 class="text-center">商品一覧</h1>
         <table class="table">
   	      <thead>
@@ -14,7 +13,6 @@
   	          <th style="text-align:center;">ステータス</th>
   	        </tr>
   	      </thead>
-
   	      <tbody>
             <% @products.each do |product| %>
               <% ordersum = 0
@@ -27,29 +25,28 @@
 						    end
 						    stock = arrivalsum - ordersum
 						  %>
-
-                <tr onclick="javascript:location.href='<%= admin_product_path(product)%>'"  style="cursor:pointer">
-		              	<td align="center"><%= product.title %></td>
-		              	<td align="center"><%= product.artist.artist_name %></td>
-		              	<td align="center"><%= product.genre.genre_name %></td>
-		              	<td align="center"><%= product.include_tax %> 円 </td>
-		              	<td align="center"><%= stock %> 個</td>
-		              	<td align="center">
-		              		<span>
-		              			<% if stock == 0 %>
-		              			  売り切れ
-		              			<% else %>
-		              			　在庫あり
-		              			<% end %>
-		              		</span>
-		              	</td>
-		              	<td align="center"><%= product.sales_status %></td>
-	              </tr>
-               <% end %>
+            <tr onclick="javascript:location.href='<%= admin_product_path(product)%>'"  style="cursor:pointer">
+		          <td align="center"><%= product.title %></td>
+		          <td align="center"><%= product.artist.artist_name %></td>
+		          <td align="center"><%= product.genre.genre_name %></td>
+		          <td align="center"><%= product.include_tax %> 円 </td>
+		          <td align="center"><%= stock %> 個</td>
+		          <td align="center">
+		            <span>
+		              <% if stock == 0 %>
+		              		売り切れ
+		              <% else %>
+		              		在庫あり
+		              <% end %>
+		            </span>
+		          </td>
+		          <td align="center"><%= product.sales_status %></td>
+	           </tr>
+            <% end %>
         	</tbody>
         </table>
       <div class="row text-center">
-        <%= paginate @products, class: "paginate" %>
+        <%= paginate @products, class:"paginate" %>
       </div>
     </div>
 

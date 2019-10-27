@@ -1,6 +1,4 @@
 <div class="nested-fields form-inline">
-
-
   <table class="table table-bordered">
 		<thead>
 			<tr>
@@ -11,24 +9,20 @@
 			</tr>
 		</thead>
 		<tbody>
-				<tr>
-					   <td align="center">
-						<%= f.number_field :track_number, min: 1, max:30 %>
-					    </td>
-						<td align="center">
-					    <%= f.text_field :song_name %>
-						</td>
-						<td align="center">
-						<%= f.collection_select(:theme_id, Theme.all, :id, :theme) %>
-						</td>
-						<td align="center">
-							<button type="button" class="btn btn-danger center-block btn-xs">
-     <div class="destroy_btn">
-     <%= link_to_remove_association "トラック削除", f %>
-    </div>
-   </button>
-						</td>
-				</tr>
+			<tr>
+				<td align="center">
+					<%= f.number_field :track_number, min: 1, max:30 %>
+				</td>
+				<td align="center">
+					<%= f.text_field :song_name %>
+				</td>
+				<td align="center">
+					<%= f.collection_select(:theme_id, Theme.all, :id, :theme) %>
+				</td>
+				<td align="center">
+     			<%= link_to_remove_association "トラック削除", f, class:"btn btn-danger center-block btn-xs destroy_btn"%>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 </div>

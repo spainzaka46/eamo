@@ -1,4 +1,9 @@
-<%= form_tag("/end_user/products/result", method: :'get') do %>
-  <%= text_field_tag :search %>
-  <%= submit_tag '検索', :name => nil %>
-<% end %>
+<div class=”form-group”>
+  <%= form_tag("/end_user/products/result", method: :'get') do %>
+    <%= text_field_tag :search, "", class: "form-control" %>
+    <span class="form-group-btn">
+      <%= submit_tag '検索', :name => nil, class: "btn btn-default" %>
+    </span>
+  <% end %>
+</div>
+

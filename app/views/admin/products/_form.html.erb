@@ -35,11 +35,11 @@
   <div class="field">
     <h2 class="text-left">
       <%= f.label :"ジャンル" %>
-      <%= f.collection_select(:genre_id, Genre.all, :id, :genre_name) %></h2>
-    </div>
-
-    <div class="field">
-     <h2 class="text-reft">
+      <%= f.collection_select(:genre_id, Genre.all, :id, :genre_name) %>
+    </h2>
+  </div>
+  <div class="field">
+    <h2 class="text-reft">
       <%= f.label :"レーベル" %>
       <%= f.collection_select(:label_id, Label.all, :id, :label_name) %>
     </h2>
@@ -48,34 +48,29 @@
   <div class="field">
     <h2 class="text-reft">
       <%= f.label :"価格(税別)" %>
-      <%= f.text_field :price %></h2>
-    </div>
-
-    <div class="field">
-      <h2 class="text-reft">
-        <%= f.label :sales_status, "ステータス" %>
-        <%= f.radio_button :sales_status, :販売中 %> <%= f.label :sales_status, :販売中 %>
-        <%= f.radio_button :sales_status, :販売停止中 %> <%= f.label :sales_status, :販売停止中 %>
-      </h2>
-    </div>
-
-    <div class="record-content">
-      <h2 class="text-center">収録内容</h2>
+      <%= f.text_field :price %>
+    </h2>
+  </div>
+  <div class="field">
+    <h2 class="text-reft">
+      <%= f.label :sales_status, "ステータス" %>
+      <%= f.radio_button :sales_status, :販売中 %> <%= f.label :sales_status, :販売中 %>
+      <%= f.radio_button :sales_status, :販売停止中 %> <%= f.label :sales_status, :販売停止中 %>
+    </h2>
+  </div>
+  <div class="record-content">
+    <h2 class="text-center">収録内容</h2>
       <div id="disks">
         <%= f.fields_for :disks do |disk| %>
-        <%= render 'disk_fields', f: disk %>
+          <%= render 'disk_fields', f: disk %>
         <% end %>
-
-        <button type="button" class="btn btn-warning btn-lg center-block">
-         <div class="add_btn">
-          <%= link_to_add_association 'ディスク追加',f, :disks %>
+        <%= link_to_add_association 'ディスク追加',f, :disks , class:"btn btn-warning btn-lg center-block add_btn" %>
+      　<div class="field">
+          <h2 class="text-center">
+            <%= f.submit "商品情報登録", class:"btn btn-success btn-lg btn-block" %>
+          </h2>
         </div>
-      </button>
-
-      　　<div class="field">
-       <h2 class="text-center">
-        <%= f.submit "商品情報登録", class: "btn btn-success btn-lg btn-block" %></h2>
       </div>
     </div>
-    <% end %>
+  <% end %>
 

@@ -1,35 +1,38 @@
- <h1 class="text-center">商品詳細</h1>
+<h1 class="text-center">商品詳細</h1>
   <div class="container">
-   <div class="col-sm-3">
-    <div class="field">
-      <%= attachment_image_tag @product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%> </br>
+    <div class="col-sm-3">
+      <div class="field">
+        <%= attachment_image_tag @product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%> </br>
+      </div>
     </div>
-   </div>
-
     <div class="col-sm-9">
       <div class="title">
         <h4>タイトル:
-        <%= @product.title %></h4>
+          <%= @product.title %>
+        </h4>
       </div>
 
       <div class="artist">
         <h4>アーティスト:
-        <%= @product.artist.artist_name %></h4>
+          <%= @product.artist.artist_name %>
+        </h4>
       </div>
-
       <div class="genre">
         <h4>ジャンル:
-        <%= @product.genre.genre_name %></h4>
+          <%= @product.genre.genre_name %>
+        </h4>
       </div>
 
       <div class="laber">
         <h4>レーベル:
-        <%= @product.label.label_name %></h4>
+          <%= @product.label.label_name %>
+        </h4>
       </div>
 
       <div class="tax">
         <h4>価格(税込):
-        <%= @product.include_tax %> 円</h4>
+          <%= @product.include_tax %> 円
+        </h4>
       </div>
 
       <div class="stock">
@@ -46,9 +49,9 @@
       </div>
     </div>
 
-      <div class="record-content">
-        <h3 class="text-center">収録ディスク</h3>
-         <% @product.disks.each do |disk| %>
+    <div class="record-content">
+      <h3 class="text-center">収録ディスク</h3>
+        <% @product.disks.each do |disk| %>
           <div id="disks">
             <p class="text-center">ディスクNo. <%= disk.disk_number %> </p>
           </div>
@@ -70,13 +73,9 @@
               <% end %>
             </tbody>
           </table>
-         <% end %>
-      </div>
-        <button type="button" class="btn btn-default btn-lg center-block">
-
-          <%= link_to "商品一覧に戻る", admin_artists_path %>
-
-        </button>
+        <% end %>
+    </div>
+      <%= link_to "商品一覧に戻る", admin_artists_path, class:"btn btn-default btn-lg center-block" %>
   </div>
 <style>
   .btn {
