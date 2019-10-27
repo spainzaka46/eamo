@@ -17,37 +17,43 @@
 			    <h2 class="panel-title">フィーリング</h2>
 			  </div>
 			    <% @themes.each do |theme| %>
-		        <%= link_to "#{theme.theme}", end_user_theme_path(theme.id),class:  "list-group-item list-group-item-action" %>
-		      <% end %>
+		        	<%= link_to "#{theme.theme}", end_user_theme_path(theme.id),class:  "list-group-item list-group-item-action" %>
+		      	<% end %>
 			</div>
   	</div>
 
 		<h1>フィーリング別</h1>
-		<div class="col-sm-7 col-sm-offset-1">
+		<div class="col-sm-8 col-sm-offset-1">
 			<% @record_musics.each do |record_music| %>
-				<%= attachment_image_tag product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
-				<p>テーマ</p>
-				<%= record_music.theme_name %>
+			  <div class="product-content clearfix">
+			 	 <div class="p-photo">
+					<%= attachment_image_tag record_music.disk.product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+				 </div>
+				 		<div class="p-detail">
+				 			<div class="field">
+				 				<span>テーマ: </span>
+				 				<%= record_music.theme.theme %>
+				 			</div>
 
-				<p>アーティスト</p>
-				<%= record_music.disk.product.artist.artist_name %>
+				 			<div class="field">
+				 				<span>アーティスト: </span>
+				 				<%= record_music.disk.product.artist.artist_name %>
+				 			</div>
 
-				<p>曲名</p>
-				<%= record_music.song_name %>
+				 			<div class="field">
+				 				<span>曲名: </span>
+				 				<%= record_music.song_name %>
+				 			</div>
 
-				<!-- <%= form_for @theme, url: end_user_product_carts_path(product.id) do |f| %> -->
-					<!-- <%= f.number_field :sheet %> -->
-					<!-- <%= f.submit  'カートに入れる' %> -->
+								<%= link_to '商品詳細', end_user_product_path(record_music.disk.product.id) %>
+						</div>
+			  </div>
 			<% end %>
-
-				<%= link_to '商品詳細', end_user_product_path %>
-
-				<!-- そのままカートに入れるか、一旦商品詳細に行くか -->
-
 		</div>
 	</div>
-	<%= link_to "TOP", end_user_products_path(producr.id) %>
+	<%= link_to "TOP", end_user_products_path %>
 </div>
+
 <style>
 
 	.product-content {
@@ -60,6 +66,7 @@
 	.disk-content {
 	  float: right;
 	}
+
 
 </style>
 

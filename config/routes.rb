@@ -46,15 +46,13 @@ namespace :end_user do
 
 	resources :products,only: [:create, :search, :show] do
     resources :carts,only: [:destroy, :create]
-    get '/record_music/theme/id' => 'products#theme_serch', as:'theme'
   end
 
   resources :carts,only: [:index]
 
+  get '/theme/:id' => 'products#theme_serch', as:'theme'
 
   get '/products/genre/:id' => 'products#genre_serch', as: 'genre'
-
-	resources :products,only: [:search, :show, :index]
 
 
 	resources :orders,only: [:index, :show,]

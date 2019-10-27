@@ -9,6 +9,7 @@ class EndUser::ProductsController < ApplicationController
   end
 
   def theme_serch
+    @themes = Theme.all
     @record_musics = RecordMusic.where(theme_id: params[:id])
   end
 
@@ -20,7 +21,7 @@ class EndUser::ProductsController < ApplicationController
     @product.order_details.each do |order_detail|
       ordersum = order_detail.sheet + ordersum
     end
-    @product.arrival_of_goods.each do |arrival_of_good| 
+    @product.arrival_of_goods.each do |arrival_of_good|
       arrivalsum = arrival_of_good.sheet + arrivalsum
     end
     @stock = arrivalsum - ordersum
@@ -29,6 +30,7 @@ class EndUser::ProductsController < ApplicationController
 
   def index
     @genres = Genre.all
+    @themes = Theme.all
     @products = Product.page(params[:page]).per(25)
   end
 end

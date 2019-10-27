@@ -1,40 +1,41 @@
-
 <div>
   <div>
     <div>
-        <div>
-            <h2>購入する内容を確認</h2>
+      <%= form_for @order do |f| %>
+      <div>
+        <h2>購入する内容を確認</h2>
             <p>＜お届け先＞</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>名前</th>
-                        <th>郵便番号</th>
-                        <th>住所</th>
-                        <th>電話番号</th>
-                    </tr>
-                </thead>
-                <tbody>
+              <table>
+                  <thead>
+                      <tr>
+                          <th>名前</th>
+                          <th>郵便番号</th>
+                          <th>住所</th>
+                          <th>電話番号</th>
+                      </tr>
+                  </thead>
+                  <tbody>
 
-                    <tr>
-                        <td><%= @address.send_name %></td>
-                        <td><%= @address.postal_code %></td>
-                        <td><%= @address.address %></td>
-                        <td><%= @address.phone_number %></td>
+                      <tr>
+                          <td><%= f.hidden_feild adderss: , value: @address.address.send_name %></td>
+                          <td><%= f.hidden_feild adderss: , value: @address.postal_code %></td>
+                          <td><%= f.hidden_feild adderss: , value: @address.address %></td>
+                          <td><%= f.hidden_feild adderss: , value: @address.phone_number %></td>
 
-                    </tr>
+                      </tr>
 
 
-                </tbody>
-            </table>
+                  </tbody>
+              </table>
         </div>
         <div>
             <p>＜支払い方法＞</p>
             <div>
-                <p><%= @order.method_of_payment %></p>
+                <p><%=f.hidden_feild method_of_payment:, @method_of_payment.method_of_payment %></p>
             </div>
         </div>
-        <div>
+        <% end %>
+      <div>
     <div>
             <h2>購入する内容を確認</h2>
 
@@ -50,14 +51,12 @@
                 <tbody>
 
                     <tr>
-                        <td><%= @total_price %></td>
+                      <% total = 0 %>
+                        <td><%= total_price %></td>
                         <td><%= @delivery_charges.delivery_charge %></td>
-                        <td><%=@total %></td>
-
-
+                      <% total = total_price + @delivery_charges.delivery_charge %>
+                        <td><%= total %></td>
                     </tr>
-
-
                 </tbody>
             </table>
         </div>
