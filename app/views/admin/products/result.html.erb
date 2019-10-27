@@ -11,7 +11,11 @@
           <div class="product-content clearfix">
             <div class="p-photo">
               <div class="field">
+
                 <%= attachment_image_tag product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%> </br>
+
+                <%= attachment_image_tag product, :photo, :fill, 100, 100, class: "profile-thumb", fallback: "no_image.jpg"%> </br>
+
               </div>
             </div>
             <div class="p-detail">
@@ -27,18 +31,29 @@
 
               <div class="field">
                 <span>価格(税込)
+
                  <%= product.price %> 円</span>
+
+                </span>
+
               </div>
             </div>
           </div>
         <% end %>
+
         <%= paginate @products, class: "paginate" %>
+
+
         <% end %>
       <% else %>
         <p>検索内容と一致しませんでした。</p>
       <% end %>
     </div>
   </div>
+
+
+  <%= paginate @products, class: "paginate" %>
+
 
   <%= link_to "TOP", admin_products_path %>
 </div>

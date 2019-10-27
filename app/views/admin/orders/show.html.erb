@@ -1,7 +1,6 @@
 <h1 class="text-center">受注詳細</h1>
-
-<h2 class="text-center"><お届け先></h2>
-<div class="container">
+    <div class="container">
+      <h2 class="text-center">お届け先</h2>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -29,7 +28,7 @@
         </tbody>
       </table>
 
-      <h３ class="text-center">購入内容</h3>
+    <h2 class="text-center">購入内容</h2>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -43,8 +42,12 @@
           <% total_price = 0 %>                <!-- ここ! -->
           <% @order.order_details.each do |order_detail| %>
           <tr>
-            <td align="center"><%= order_detail.product.title %></td>
-            <td align="center"><%= order_detail.product.artist.artist_name %></td>
+            <td align="center">
+              <%= order_detail.product.title %>
+            </td>
+            <td align="center">
+              <%= order_detail.product.artist.artist_name %>
+            </td>
             <td align="center">
               <%= order_detail.sheet %>
             </td>
@@ -58,9 +61,8 @@
         </tbody>
       </table>
       <div class="row">
-        <div class="test">
-        
-             <table class="table-bordered col-sm-4 test">
+        <div class="col-sm-6 col-sm-offset-3">
+          <table class="table table-bordered">
             <thead>
               <tr>
                 <th style="text-align:center;">送料</th>
@@ -74,25 +76,27 @@
               </tr>
             </tbody>
           </table>
-          </div>
-      </div>
-
-      <div class="row">
-        <div class="test">
-         <table class="table-bordered col-sm-4 test">
-        <thead>
-          <tr>
-            <th style="text-align:center;">購入額（税込）</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td align="center">
-              <%= @order.delivery_charge + total_price %>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
-      </div>
+        </div>
+        <div class="col-sm-6 col-sm-offset-3">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th style="text-align:center;">購入額（税込）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center">
+                  <%= @order.delivery_charge + total_price %>円
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
     </div>
+
+
+
+  <style>
+  </style>

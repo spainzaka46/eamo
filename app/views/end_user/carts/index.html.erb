@@ -23,18 +23,17 @@
 								<tr>
 									<th>価格(税込)</th><td><%= product_in_cart.product.price %> 円 <span><%= link_to '削除', end_user_product_cart_path(product_in_cart.product.id, product_in_cart.id), class: "btn btn-danger ", method: :delete  %></span></td>
 								</tr>
-								
+
 								</table>
-								
+
 						</div>
 
 						<% total_price += product_in_cart.sheet * product_in_cart.product.price %>
 					</div>
 				</div>
-			<% end %>
-		</div>
+
 			<div class="cart-total">
-				<p>商品小計（税込）</p><%= total_price %> 円	
+				<p>商品小計（税込）</p><%= total_price %> 円
 			</div>
 
 			<div class="btn">
@@ -75,6 +74,8 @@
 		right: 0px;
 	}
 
+
 </style>
+
 
 

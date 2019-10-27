@@ -1,3 +1,4 @@
+
 <%= render "end_user/search" %>
 <div class="container">
   <div class="row">
@@ -46,12 +47,39 @@
 		           <%= product.price %> 円</span>
 		        </div>
 		      </div>
+
+
+<div class="container">
+	<div class="row">
+
+    <%= render "side", genres: @genres %>
+
+  	<div class="wrapper grid col-sm-8 col-sm-offset-1">
+    	<% @products.each do |product| %>
+	      <div class="product-content" onclick="javascript:location.href='<%= end_user_product_path(product)%>'"  style="cursor:pointer">
+	      	<div class="jake">
+	          <%= attachment_image_tag product, :photo, :fill, 120, 120, class: " profile-thumb", fallback: "no_image.jpg"%>
+	        </div>
+
+	        <p> <%= product.title %></p>
+
+	        <p><%= product.artist.artist_name %></p>
+
+          <p>価格(税込)  <%= product.include_tax %> 円</p>
+
 		    </div>
 		  <% end %>
-	    <%= paginate @products, class: "paginate" %>
-	  </div>
+		</div>
+	  <div class="row">
+	  	<div class="col-sm-4 col-sm-offset-7">
+			  <div class="paginate">
+		    <%= paginate @products, class: "paginate" %>
+		    </div>
+		  </div>
+    </div>
 	</div>
 </div>
+
 
 <style>
 
@@ -65,5 +93,39 @@
 	.disk-content {
 	  float: right;
 	}
+
+
+
+<style>
+
+	.wrapper {
+		padding: 50px 0;
+	}
+
+	.grid {
+		display: grid;
+		gap: 15px;
+		grid-template-columns: 200px 200px 200px 200px;
+
+	}
+
+  .product-content {
+		border-bottom: 2px solid #f7f7f7;
+
+  }
+
+  .jake {
+  	max-width: 100%;
+  	margin-bottom: 10px;
+  }
+
+	p {
+  font-size: 12px;
+	}
+
+	.paginate {
+  justify-content: center;
+  }
+
 
 </style>

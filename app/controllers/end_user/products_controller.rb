@@ -1,5 +1,8 @@
 class EndUser::ProductsController < ApplicationController
-  def search
+
+  def index
+    @genres = Genre.all
+    @products = Product.where(sales_status:'販売中').page(params[:page]).per(20)
   end
 
   def genre_serch
@@ -25,12 +28,17 @@ class EndUser::ProductsController < ApplicationController
       arrivalsum = arrival_of_good.sheet + arrivalsum
     end
     @stock = arrivalsum - ordersum
-
   end
+
 
   def index
     @genres = Genre.all
     @themes = Theme.all
     @products = Product.page(params[:page]).per(25)
+
+  def result
+    @products = Product.where(sales_status:'販売中').search(params[:search]).page(params[:page]).per(20)
+
   end
+
 end

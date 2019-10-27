@@ -1,8 +1,8 @@
-
- <h1 class="text-center">住所編集</h1>
+<h1 class="text-center">住所編集</h1>
   <div class="container">
   	<div class="row">
   		<% if @address.errors.any? %>
+<<<<<<< HEAD
   		<div id="error_explanation">
   			<h2><%= @address.errors.count %> 件のエラーがあります。</h2>
   			<ul>
@@ -11,31 +11,41 @@
   				<% end %>
   			</ul>
   		</div>
+=======
+  		  <div id="error_explanation">
+  			  <h2><%= @address.errors.count %> 件のエラーがあります。</h2>
+  			  <ul>
+  				  <% @address.errors.full_messages.each do |msg| %>
+  				  <li> <%= msg %> </li>
+  				  <% end %>
+  			  </ul>
+  		  </div>
+>>>>>>> develop
   		<% end %>
 		<%= form_for(@address,url:  admin_user_address_path) do |f| %>
-		<div class="field">
-		<h2 class="text-center">送り先名前</h2>
-		<h2 class="text-center"><%= f.text_field :send_name %></h2>
-		</div>
+		  <div class="field">
+		    <h2 class="text-center">送り先名前</h2>
+		    <h2 class="text-center"><%= f.text_field :send_name %></h2>
+		  </div>
 
-		<div class="field">
-		<h2 class="text-center">郵便番号</h2>
-		<h2 class="text-center"><%= f.number_field :postal_code %></h2>
-		</div>
+  		<div class="field">
+  		  <h2 class="text-center">郵便番号</h2>
+  		  <h2 class="text-center"><%= f.number_field :postal_code %></h2>
+  		</div>
 
-		<div class="field">
-		<h2 class="text-center">住所</h1>
-		<h2 class="text-center"><%= f.text_area :address %></h2>
-		</div>
+  		<div class="field">
+  		  <h2 class="text-center">住所</h1>
+  		  <h2 class="text-center"><%= f.text_area :address %></h2>
+  		</div>
 
-		<div class="field">
-		<h2 class="text-center">電話番号</h2>
-		<h2 class="text-center"><%= f.number_field :phone_number %></h2>
-		</div>
+  		<div class="field">
+  		  <h2 class="text-center">電話番号</h2>
+  		  <h2 class="text-center"><%= f.number_field :phone_number %></h2>
+  		</div>
 
-		<div class="field">
-		<h2 class="text-center"><%= f.submit "Update User"%></h2>
-		<%end%>
-		</div>
-	</div>
- </div>
+  		<div class="field">
+  		  <h2 class="text-center"><%= f.submit "Update User"%></h2>
+		  </div>
+    <%end%>
+	  </div>
+  </div>

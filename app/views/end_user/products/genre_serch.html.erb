@@ -15,16 +15,6 @@
 
 				<p>価格</p>
 				<%= product.price %>
-
-				<%= form_for @cart, url: end_user_product_carts_path(product.id) do |f| %>
-					<%= f.number_field :sheet %>
-					<%= f.submit  'カートに入れる' %>
-				<% end %>
-
-
-				<!-- <%= link_to 'カートに入れる',end_user_product_carts_path(product.id) %> -->
-
-			<!-- <% end %> -->
 		</div>
 	</div>
 </div> 

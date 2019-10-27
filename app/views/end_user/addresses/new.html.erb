@@ -1,56 +1,27 @@
 
-<h1>EndUser::Addresses#new</h1>
-<p>Find me in app/views/end_user/addresses/new.html.erb</p>
-
-	<%= form_for(@address,url: end_user_addresses_path) do |f| %>
-    <h2>送り先名前</h2>
-	<%= f.text_field :send_name %>
-
-	<h2>郵便番号</h2>
-	<%= f.number_field :postal_code %>
-
-	<h2>住所</h2>
-	<%= f.text_field :address %>
-
-	<h2>電話番号</h2>
-	<%= f.number_field :phone_number %>
-
-	<br>
-
-<%= f.submit "create address" %>
-<% end %>
-
-
-
 <h1 class="text-center">住所登録</h1>
 　<div class="container">
 　　　<%= form_for(@address,url: end_user_addresses_path) do |f| %>
-   <div class="field">
-    <h2 class="text-center">送り先名前</h2>
-    <h2 class="text-center"><%= f.text_field :send_name %></h2>
-    </div>
-
-    <div class="field">
-    <h2 class="text-center">郵便番号</h2>
-    <h2 class="text-center"><%= f.number_field :postal_code %></h2>
-    </div>
-
-    <div class="field">
-    <h2 class="text-center">住所</h2>
-    <h2 class="text-center"><%= f.text_area :address %></h2>
-    </div>
-
-    <div class="field">
-    <h2 class="text-center">電話番号</h2>
-    <h2 class="text-center"><%= f.number_field :phone_number %></h2>
-    </div>
+   <div class="name">
+    <h2 class="text-center">送り先名前</br>
+    <%= f.text_field :send_name %></h2>
 
 
-　　　　<div class="field">
-       <h2 class="text-center"><%= f.submit "登録" %></h2>
-　　　　　<% end %>
-　　　　</div>
+    <h2 class="text-center">郵便番号</br>
+    <%= f.text_field :postal_code %></h2>
+
+    <h2 class="text-center">住所</br>
+    <%= f.text_area :address %></h2>
+
+    <h2 class="text-center">電話番号</br>
+    <%= f.text_field :phone_number %></h2>
    </div>
+
+　 <div class="field">
+    <h2 class="text-center"><%= f.submit "登録" %></h2>
+　　 <% end %>
+　 </div>
+  </div>
 
 
 

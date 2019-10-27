@@ -73,7 +73,11 @@ if Rails.env == "development"
   end
 
   30.times do |i|
+
     ArrivalOfGood.create!(product_id: i + 1, arrival_day: "2000-01-0#{i + 1}".to_i, sheet: "#{i + 1}00".to_i)
+
+    ArrivalOfGood.create!(product_id: i + 1, arrival_day: "2000-01-0#{i % 5 + 1}", sheet: "#{i + 1}00".to_i)
+
   end
 
   30.times do |i|

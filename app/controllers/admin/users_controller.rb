@@ -1,9 +1,8 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
-  PER=8
+  PER=10
   def index
-  	@end_users = EndUser.page(params[:page]).per(PER)
-
+    @end_users = EndUser.with_deleted.page(params[:page]).per(PER)
   end
 
   def show
@@ -18,7 +17,6 @@ class Admin::UsersController < ApplicationController
     @end_user = EndUser.find(params[:id])
     @end_user.destroy
     redirect_to dmin_users_path
-    
   end
 
   def updatedef update
