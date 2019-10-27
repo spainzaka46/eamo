@@ -1,50 +1,51 @@
  <h1 class="text-center">商品詳細</h1>
   <div class="container">
-   <div class="col-sm-3">
-    <div class="field">
-      <%= attachment_image_tag @product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%> </br>
-    </div>
-   </div>
-
-    <div class="col-sm-9">
-      <div class="title">
-        <h4>タイトル:
-        <%= @product.title %></h4>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="field">
+          <%= attachment_image_tag @product, :photo, :fill, 180, 180, class: "pull-left profile-thumb", fallback: "no_image.jpg"%> </br>
+        </div>
       </div>
 
-      <div class="artist">
-        <h4>アーティスト:
-        <%= @product.artist.artist_name %></h4>
-      </div>
+      <div class=" title-con col-sm-9">
+        <div class="title">
+          <h4>タイトル:
+            <%= @product.title %></h4>
+        </div>
 
-      <div class="genre">
-        <h4>ジャンル:
-        <%= @product.genre.genre_name %></h4>
-      </div>
+        <div class="artist">
+          <h4>アーティスト:
+            <%= @product.artist.artist_name %></h4>
+        </div>
 
-      <div class="laber">
-        <h4>レーベル:
-        <%= @product.label.label_name %></h4>
-      </div>
+        <div class="genre">
+          <h4>ジャンル:
+            <%= @product.genre.genre_name %></h4>
+        </div>
 
-      <div class="tax">
-        <h4>価格(税込):
-        <%= @product.include_tax %> 円</h4>
-      </div>
+        <div class="laber">
+          <h4>レーベル:
+            <%= @product.label.label_name %></h4>
+        </div>
 
-      <div class="stock">
-        <span>在庫数:
-          <% if @stock == 0 %>
-            在庫がありません
-          <% else %>
-            残り <%= @stock %> 点
-          <% end %>
-        </span>
+        <div class="tax">
+          <h4>価格(税込):
+            <%= @product.include_tax %> 円</h4>
+        </div>
 
-        <span>/ステータス</span>
-        <%= @product.sales_status %>
+        <div class="stock">
+          <span>在庫数:
+            <% if @stock == 0 %>
+              在庫がありません
+            <% else %>
+              残り <%= @stock %> 点
+            <% end %>
+          </span>
+
+          <span> / ステータス</span>
+          <%= @product.sales_status %>
+        </div>
       </div>
-    </div>
 
       <div class="record-content">
         <h3 class="text-center">収録ディスク</h3>
@@ -72,14 +73,71 @@
           </table>
          <% end %>
       </div>
-        <button type="button" class="btn btn-default btn-lg center-block">
 
-          <%= link_to "商品一覧に戻る", admin_artists_path %>
+      <div class="arrival-content">
+        <h3 class="text-center arrival-title">入荷履歴</h3>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th style="text-align:center;">入荷日</th>
+                <th style="text-align:center;">入荷数</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @product.arrival_of_goods.each do |arrival| %>
+                <tr>
+                  <td align="center"><%= arrival.arrival_day.strftime("%Y年%m月%d日") %></td>
+                  <td align="center"><%= arrival.sheet %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+      </div>
 
-        </button>
+      <div class="edit_btn" align="center">
+        <%= link_to "商品編集", edit_admin_product_path(@product) , class: "btn btn-success btn-lg" %>
+      </div>
+
+      <div class="index_btn" align="center">
+        <%= link_to "商品一覧に戻る", admin_products_path, class: "btn btn-default btn-lg" %>
+      </div>
+    </div>
   </div>
+
+
 <style>
+
+  #disks {
+  margin-top: 38px;
+  }
+
+  h1 {
+    margin-bottom: 80px;
+  }
+
   .btn {
     margin-bottom:20px;
   }
+
+  .title-con {
+    margin-bottom: 80px;
+  }
+
+  .record-content {
+    margin-bottom: 80px;
+  }
+
+  .arrival-content {
+    margin-bottom: 80px;
+  }
+
+  .arrival-title {
+    margin-bottom: 30px;
+  }
+
+  table {
+   table-layout: fixed;
+   width: 100%;
+　}
+
 </style>

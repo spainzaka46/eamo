@@ -1,75 +1,64 @@
-<%= render "end_user/search" %>
+
 <div class="container">
-  <div class="row">
-  	<div class="col-sm-3">
-  		   <div class="panel panel-primary">
-  <div class="panel-heading">
-    <h2 class="panel-title">ジャンル別</h2>
-  </div>
-    <div class="list-group">
-       <% @genres.each do |genre| %>
-         <%= link_to "#{genre.genre_name}", end_user_genre_path(genre.id),class: "list-group-item list-group-item-action" %>
-       <% end %>
-  </div>
-</div>
-<div class="panel panel-success">
-  <div class="panel-heading">
-    <h2 class="panel-title">フィーリング</h2>
-  </div>
-    <a href="#" class="list-group-item">ラブソング</a>
-    <a href="#" class="list-group-item">失恋ソング</a>
-    <a href="#" class="list-group-item">応援ソング</a>
-    <a href="#" class="list-group-item">リラックス/癒し</a>
-    <a href="#" class="list-group-item">オルゴール</a>
-    <a href="#" class="list-group-item">泣ける</a>
-    <a href="#" class="list-group-item">バラード</a>
-    <a href="#" class="list-group-item">テンション</a>
-    <a href="#" class="list-group-item">ドライブ</a>
-</div>
+	<div class="row">
 
-  	</div>
-  	<div class="col-sm-8 col-sm-offset-1">
+    <%= render "side", genres: @genres %>
+
+  	<div class="wrapper grid col-sm-8 col-sm-offset-1">
     	<% @products.each do |product| %>
-	      <div class="product-content clearfix">
-	      	<div class="p-photo">
-			      	<%= link_to end_user_product_path(product) do %>
-			          <%= attachment_image_tag product, :photo, :fill, 100, 100, class: " profile-thumb", fallback: "no_image.jpg"%>
-			        <% end %>
-			    </div>
-			    <div class="p-detail">
-			      <div class="field">
-			        <span>タイトル</span>
-			        <%= product.title %>
-			      </div>
+	      <div class="product-content" onclick="javascript:location.href='<%= end_user_product_path(product)%>'"  style="cursor:pointer">
+	      	<div class="jake">
+	          <%= attachment_image_tag product, :photo, :fill, 120, 120, class: " profile-thumb", fallback: "no_image.jpg"%>
+	        </div>
 
-			      <div class="field">
-			        <span>アーティスト</span>
-			        <%= product.artist.artist_name %>
-			      </div>
+	        <p> <%= product.title %></p>
 
-			      <div class="field">
-		          <span>価格(税込)
-		           <%= product.price %> 円</span>
-		        </div>
-		      </div>
+	        <p><%= product.artist.artist_name %></p>
+
+          <p>価格(税込)  <%= product.include_tax %> 円</p>
 		    </div>
 		  <% end %>
-	    <%= paginate @products, class: "paginate" %>
-	  </div>
+		</div>
+	  <div class="row">
+	  	<div class="col-sm-4 col-sm-offset-7">
+			  <div class="paginate">
+		    <%= paginate @products, class: "paginate" %>
+		    </div>
+		  </div>
+    </div>
 	</div>
 </div>
 
+
 <style>
 
-	.product-content {
-	  width: 200px;
-	  padding: 20px;
-		border-bottom: 2px solid #f7f7f7;
-		float: left;
+	.wrapper {
+		padding: 50px 0;
 	}
 
-	.disk-content {
-	  float: right;
+	.grid {
+		display: grid;
+		gap: 15px;
+		grid-template-columns: 200px 200px 200px 200px;
+
 	}
+
+  .product-content {
+		border-bottom: 2px solid #f7f7f7;
+
+  }
+
+  .jake {
+  	max-width: 100%;
+  	margin-bottom: 10px;
+  }
+
+	p {
+  font-size: 12px;
+	}
+
+	.paginate {
+  justify-content: center;
+  }
 
 </style>
