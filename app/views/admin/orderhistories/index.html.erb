@@ -1,46 +1,46 @@
 <h1 class="text-center">ユーザ購入履歴</h1>
 <div class="container">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th style="text-align:center;">購入者</th>
-            <th style="text-align:center;">購入日</th>
-            <th style="text-align:center;">タイトル</th>
-            <th style="text-align:center;">枚数</th>
-            <th style="text-align:center;">小計</th>
-            <th style="text-align:center;">送付先</th>
-            <th style="text-align:center;">ステータス</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <% @orders.each do |order| %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th style="text-align:center;">購入者</th>
+        <th style="text-align:center;">購入日</th>
+        <th style="text-align:center;">タイトル</th>
+        <th style="text-align:center;">枚数</th>
+        <th style="text-align:center;">小計</th>
+        <th style="text-align:center;">送付先</th>
+        <th style="text-align:center;">ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @orders.each do |order| %>
+          <td align="center">
+            <%= order.send_name %>
+          </td>
+          <td align="center">
+            <%= order.created_at.strftime('%m/%d') %>
+          </td>
+            <% order.order_details.each do |detail| %>
               <td align="center">
-                <%= order.send_name %>
+                <%= detail.product.title %>
               </td>
               <td align="center">
-                <%= order.created_at.strftime('%m/%d') %>
+                <%= detail.sheet %>
               </td>
-                <% order.order_details.each do |detail| %>
-                  <td align="center">
-                    <%= detail.product.title %>
-                  </td>
-                  <td align="center">
-                    <%= detail.sheet %>
-                  </td>
-                  <td align="center">
-                    <%= detail.price * detail.sheet %>
-                  </td>
-                  <td align="center">
-                    <%= detail.order.address %>
-                  </td>
-                <% end %>
               <td align="center">
-                <%= order.order_status %>
+                <%= detail.price * detail.sheet %>
+              </td>
+              <td align="center">
+                <%= detail.order.address %>
               </td>
             <% end %>
-          <%= paginate @orders, class: "paginate" %>
-          </tr>
-        </tbody>
-      </table>
-</div>>
+          <td align="center">
+            <%= order.order_status %>
+          </td>
+        <% end %>
+      <%= paginate @orders, class: "paginate" %>
+      </tr>
+    </tbody>
+  </table>
+</div>

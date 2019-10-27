@@ -5,12 +5,14 @@
 		<%= form_for(@address,url:  end_user_address_path) do |f| %>
 		<div class="address">
 		<h2 class="text-center">送り先名前</br>
-		<%= f.text_field :send_name %></h2>
+		<%= f.text_field :send_name %>
+		</h2>
 		</div>
 
 		<div class="field">
 		<h2 class="text-center">郵便番号</br>
-		<%= f.number_field :postal_code %></h2>
+		<%= f.number_field :postal_code %>
+		</h2>
 		</div>
 
 		<div class="field">
@@ -20,7 +22,8 @@
 
 		<div class="field">
 		<h2 class="text-center">電話番号</br>
-		<%= f.number_field :phone_number %></h2>
+		<%= f.number_field :phone_number %>
+		</h2>
 		</div>
 
 		<h2 class="text-center"><%= f.submit "登録"%></h2>

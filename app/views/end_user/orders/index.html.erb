@@ -11,10 +11,10 @@
           </tr>
         </thead>
         <tbody>
-          <% @order.each do |order| %>
+          <% @orders.each do |order| %>
             <tr>
               <td align="center">
-                <%= link_to end_user_user_order_path(id: order.id) do %>
+                <%= link_to end_user_order_path(order) do %>
                   <%= order.created_at.strftime('%m/%d') %>
                 <% end %>
               </td>
