@@ -1,77 +1,79 @@
-<h1 class="text-center">商品詳細</h1>
-  <div class="container">
-    <div class="row">
+<div class="container">
+  <div class="row">
     <%= render "side", genres: @genres %>
-      <div class="container">
-        <div class="row">
-          <div class=" col-sm-8 col-sm-offset-1">
-            <div class="field">
-            <%= attachment_image_tag @product, :photo, :fill, 250, 250, class: "profile-thumb", fallback: "no_image.jpg"%> </br>
-            </div>
-          </div>
-          <div class="title">
-            <h4>タイトル
-            <%= @product.title %></h4>
-          </div>
 
-          <div class="artist">
-              <h4>アーティスト
-              <%= @product.artist.artist_name %></h4>
-          </div>
-
-          <div class="genre">
-              <h4>ジャンル
-              <%= @product.genre.genre_name %></h4>
-          </div>
-
-          <div class="">
-              <h4>レーベル
-              <%= @product.label.label_name %></h4>
-          </div>
-
-          <div class="tax">
-            <h4>価格(税込)
-            <%= @product.include_tax %> 円</h4>
-          </div>
-
-          <h4>
-            <span class="headind">在庫状況</span>
-            <span>
-            <% if @stock == 0 %>
-            売切
-            <% else %>
-            在庫あり
-            <% end %>
-            </span>
-          </h4>
-
-          <h4>
-            <span class="headind">ステータス</span>
-            <%= @product.sales_status %>
-          </h4>
-
-          <% if @stock == 0 %>
-          <div class="cart-btn">
-            <button type="button" class="btn btn-warning" disabled="disabled"> 売切 </button>
-          </div>
-          <% else %>
-          <div class="cart-btn">
-            <%= form_for @cart, url: end_user_product_carts_path(@product) do |f| %>
-            <div class="field">
-              <span class="headind">数量</span>
-              <%= f.number_field :sheet, min: 1, max: (@stock).to_i %>
-              <%= f.submit 'カートに入れる', class: "btn btn-info" %>
-            </div>
-            <% end %>
-            <% end %>
-          </div>
-        </div>
+    <h1 class="text-center pro-show">商品詳細</h1>
+    <div class=" col-sm-8 col-sm-offset-1">
+      <div class="photo">
+        <%= attachment_image_tag @product, :photo, :fill, 250, 250, class: "pull-left profile-thumb", fallback: "no_image.jpg"%>
       </div>
 
+      <div class="title-con">
+        <div class="title">
+          <h4>タイトル:
+          <%= @product.title %></h4>
+        </div>
+
+        <div class="title">
+            <h4>アーティスト:
+            <%= @product.artist.artist_name %></h4>
+        </div>
+
+        <div class="title">
+            <h4>ジャンル:
+            <%= @product.genre.genre_name %></h4>
+        </div>
+
+        <div class="title">
+            <h4>レーベル:
+            <%= @product.label.label_name %></h4>
+        </div>
+
+        <div class="title">
+          <h4>価格(税込)
+          <%= @product.include_tax %> 円</h4>
+        </div>
+
+
+        <div class="title">
+          <h4>在庫状況:
+          <span>
+            <% if @stock == 0 %>
+              売切
+            <% else %>
+              在庫あり
+            <% end %>
+          </span>
+          </h4>
+        </div>
+
+        <div class="title">
+          <h4>
+            <span class="title">ステータス:</span>
+            <%= @product.sales_status %>
+          </h4>
+        </div>
+
+        <% if @stock == 0 %>
+          <div class="cart-btn">
+            <button type="button" class="btn btn-warning btn-lg" disabled="disabled"> 売切 </button>
+          </div>
+        <% else %>
+          <div class="cart-btn">
+            <%= form_for @cart, url: end_user_product_carts_path(@product) do |f| %>
+              <div class="field">
+                <span class="headind">数量</span>
+                <%= f.number_field :sheet, min: 1, max: (@stock).to_i %>
+                <%= f.submit 'カートに入れる', class: "btn btn-info" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
       <div class="record-content">
         <% @product.disks.each do |disk| %>
-        <h3 class="text-center">収録ディスク</h3>
-          <p class="text-center">ディスクNo. <%= disk.disk_number %> </p>
+          <h3 class="text-center">収録ディスク</h3>
+            <p class="text-center">ディスクNo. <%= disk.disk_number %> </p>
 
             <table class="table table-bordered">
               <thead>
@@ -82,39 +84,55 @@
                 </tr>
               </thead>
               <tbody>
-               <% disk.record_musics.each do |record_music| %>
-                <tr>
-                  <td align="center"><%= record_music.track_number %></td>
-                  <td align="center"><%= record_music.song_name %></td>
-                  <td align="center"><%= record_music.theme.theme %></td>
-                </tr>
+                <% disk.record_musics.each do |record_music| %>
+                  <tr>
+                    <td align="center"><%= record_music.track_number %></td>
+                    <td align="center"><%= record_music.song_name %></td>
+                    <td align="center"><%= record_music.theme.theme %></td>
+                  </tr>
                 <% end %>
               </tbody>
             </table>
-            <% end %>
+        <% end %>
       </div>
 
       <div class="index_btn" align="center">
         <%= link_to "商品一覧に戻る", admin_products_path, class: "btn btn-default btn-lg" %>
       </div>
+
     </div>
   </div>
 </div>
 
+
 <style>
-    #disks {
-  margin-top: 38px;
+  #disks {
+    margin-top: 38px;
   }
 
-  h1 {
-    margin-bottom: 80px;
+  .pro-show {
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+
+  .photo {
+    margin-top: 7px;
   }
 
   .btn {
     margin-bottom:20px;
   }
 
+  .title {
+    margin-bottom: 20px;
+  }
+
+  .cart-btn {
+    margin-top: 10px;
+  }
+
   .title-con {
+    margin-left: 350px;
     margin-bottom: 80px;
   }
 
