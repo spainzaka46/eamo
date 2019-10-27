@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1 class="text-center">新商品追加</h1>
   <div class="container">
     <div class="col align-self-center">
@@ -11,25 +12,29 @@
           </ul>
         </div>
       <% end %>
-      <div class="artist_btn">
-        <%= link_to "アーティスト新規登録", new_admin_artist_path, class:"btn btn-default btn-lg left-block" %>
+      <div class="artist_btn btn btn-default btn-lg left-block">
+        <%= link_to "アーティスト新規登録", new_admin_artist_path %>
       </div>
-      <div class="label_btn">
-        <%= link_to "レーベル新規登録", new_admin_label_path, class:"btn btn-default btn-lg left-block" %>
+      <div class="label_btn btn btn-default btn-lg left-block">
+        <%= link_to "レーベル新規登録", new_admin_label_path %>
       </div>
       <div class="product-content">
         <%= render 'form', product: @product %>
-        <%= link_to "商品一覧に戻る", admin_artists_path, class:"btn btn-default btn-lg center-block" %>
+      </div>
+      <div class="edit_btn btn btn-default btn-lg left-block" align="center">
+        <%= link_to "商品一覧に戻る", admin_products_path %>
       </div>
     </div>
   </div>
 
-
 <style>
 
+.product-content {
+  padding: 20px 0;
+}
+
 .btn{
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 </style>
-

@@ -16,13 +16,13 @@
 					<%= product_in_cart.sheet %>
 
 				<p>価格</p>
-					<%= product_in_cart.product.price %>
+					<%= product_in_cart.product.include_tax %>
 				<p>小計</p>
-					<%= product_in_cart.sheet * product_in_cart.product.price %>
+					<%= product_in_cart.sheet * product_in_cart.product.include_tax %>
 
 				<%= link_to '削除', end_user_product_cart_path(product_in_cart.product.id, product_in_cart.id), class: "btn btn-danger ", method: :delete  %>
 
-				<% total += product_in_cart.sheet * product_in_cart.product.price %>
+				<% total += product_in_cart.sheet * product_in_cart.product.include_tax %>
 			<% end %>
 		</div>
 
