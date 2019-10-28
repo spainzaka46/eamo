@@ -25,7 +25,7 @@ class EndUser::CheecksController < ApplicationController
 
     @total = 0
     current_end_user.product_in_carts.each do |product_in_cart|
-    @total += product_in_cart.sheet * product_in_cart.product.price
+    @total += product_in_cart.sheet * product_in_cart.product.include_tax
     end
   end
     #binding.pry

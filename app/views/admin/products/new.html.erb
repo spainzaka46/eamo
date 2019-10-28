@@ -1,4 +1,4 @@
-<h1 class="text-center">新商品追加</h1>
+<<h1 class="text-center">新商品追加</h1>
   <div class="container">
     <div class="col align-self-center">
       <% if @product.errors.any? %>
@@ -18,24 +18,25 @@
         <%= link_to "レーベル新規登録", new_admin_label_path %>
       </div>
       <div class="product-content">
-        <%= form_for product, url: admin_products_path do |f| %>
-          <%= render 'form', product: @product, f: f %>
-        <% end %>
+        <%= render 'form', product: @product %>
       </div>
       <div class="edit_btn btn btn-default btn-lg left-block" align="center">
         <%= link_to "商品一覧に戻る", admin_products_path %>
       </div>
     </div>
   </div>
-
+​
 <style>
-
+​
 .product-content {
   padding: 20px 0;
 }
-
+​
 .btn{
   margin-bottom: 40px;
 }
-
+​
 </style>
+
+
+

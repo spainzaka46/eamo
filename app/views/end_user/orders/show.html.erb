@@ -53,7 +53,7 @@
       <tr >
         <th style="text-align:center;">価格（税込）</th>
         <td align="center">
-          <%= subtotal = order_detail.price * order_detail.sheet %>
+          <%= subtotal = include_tax(order_detail.price) * order_detail.sheet %>
         </td>
           <% @total = @total + subtotal %>
       </tr>
