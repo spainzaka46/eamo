@@ -101,8 +101,7 @@
               <%=link_to"マイページ",mypage_path, data: {"turbolinks" => false},class:"glyphicon glyphicon-home btn btn-default" %>
             </div>
             <div class="btn-group" role="group">
-              <%
-              #link_to"カート",end_user_product_carts_path, data: {"turbolinks" => false},class:"glyphicon glyphicon-lock btn btn-default"%>
+              <%= link_to"カート",end_user_carts_path, data: {"turbolinks" => false},class:"glyphicon glyphicon-lock btn btn-default"%>
             </div>
             <div class="btn-group" role="group">
              <%=link_to"ログアウト",  destroy_end_user_session_path, data: {"turbolinks" => false},method: :delete,class:"glyphicon glyphicon-log-out btn btn-default" %>
