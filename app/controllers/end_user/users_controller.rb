@@ -1,12 +1,7 @@
 class EndUser::UsersController < ApplicationController
-  def show
-  end
 
   def edit
       @end_user = EndUser.find(params[:id])
-  end
-
-  def finish
   end
 
   def new
@@ -22,8 +17,7 @@ class EndUser::UsersController < ApplicationController
       render :new
     end
   end
-  def check
-  end
+
   def destroy
     @end_user = EndUser.find(params[:id])
     @end_user.destroy

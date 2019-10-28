@@ -56,10 +56,6 @@ namespace :end_user do
   get '/products/genre/:id' => 'products#genre_serch', as: 'genre'
 
 
-	resources :orders,only: [:index, :show,]
-
-  get '/products/genre/:id' => 'products#genre_serch', as: 'genre'
-
 	resources :orders,only: [:index, :show]
 
 	resources :checks,only: [:index, :new, :create,:show]

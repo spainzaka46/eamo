@@ -1,30 +1,7 @@
 <div class="container">
 	<div class="row">
-		<div class="col-sm-3">
-  		<div class="panel panel-primary">
-			  <div class="panel-heading">
-			    <h2 class="panel-title">ジャンル別</h2>
-			  </div>
-			    <div class="list-group">
-			       <% @genres.each do |genre| %>
-			         <%= link_to "#{genre.genre_name}", end_user_genre_path(genre.id),class: "list-group-item list-group-item-action" %>
-			       <% end %>
-			  	</div>
-			</div>
-
-			<div class="panel panel-success">
-			  <div class="panel-heading">
-			    <h2 class="panel-title">フィーリング</h2>
-			  </div>
-			    <% @themes.each do |theme| %>
-
-		        	<%= link_to "#{theme.theme}", end_user_theme_path(theme.id),class:  "list-group-item list-group-item-action" %>
-		      	<% end %>
-			</div>
-  	</div>
-
+		<%= render "side", genres: @genres, themes: @themes %>
 		<h1>フィーリング別</h1>
-
 		<div class="col-sm-8 col-sm-offset-1">
 			<% @record_musics.each do |record_music| %>
 			  <div class="product-content clearfix">
@@ -47,7 +24,7 @@
 				 				<%= record_music.song_name %>
 				 			</div>
 
-								<%= link_to '商品詳細', end_user_product_path(record_music.disk.product.id) %>
+							<%= link_to '商品詳細', end_user_product_path(record_music.disk.product.id) %>
 						</div>
 			  </div>
 			<% end %>

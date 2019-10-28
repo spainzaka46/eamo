@@ -1,14 +1,17 @@
 class EndUser::ProductsController < ApplicationController
 
   def index
-    @genres = Genre.all
     @products = Product.where(sales_status:'販売中').page(params[:page]).per(20)
+    @themes = Theme.all
+    @genres = Genre.all
   end
 
   def genre_serch
+    @themes = Theme.all
   	@products = Product.where(genre_id: params[:id])
-    @genres = Genre.page(params[:page]).per(2).reverse_order
+    @genres = Genre.page(params[:page]).per(20).reverse_order
     @cart = ProductInCart.new
+
   end
 
   def theme_serch
@@ -29,12 +32,6 @@ class EndUser::ProductsController < ApplicationController
     end
     @stock = arrivalsum - ordersum
   end
-
-
-  def index
-    @genres = Genre.all
-    @themes = Theme.all
-    @products = Product.page(params[:page]).per(25)
 
   def result
     @products = Product.where(sales_status:'販売中').search(params[:search]).page(params[:page]).per(20)
