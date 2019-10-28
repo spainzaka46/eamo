@@ -1,8 +1,11 @@
+<div class="search">
+  <div class="search-title">検 索</div>
+  <div class="search-form">
+    <%= render "admin/search" %>
+  </div>
+</div>
 <div class="container">
   <div class="row">
-
-    <%= render "admin/search" %>
-
     <h3>検 索 結 果</h3>
     <div class="wrapper grid col-sm-8 col-sm-offset-2">
       <% if @products.any? %>
@@ -32,9 +35,11 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-4 col-sm-offset-4">
-      <%= link_to "TOP", admin_products_path %>
-    </div>
+  </div>
+</div>
+<div class="top">
+  <div class="btn btn-group">
+    <%= link_to "TOP", admin_products_path,class:"btn btn-default" %>
   </div>
 </div>
 
@@ -72,6 +77,31 @@
 
   .paginate {
   justify-content: center;
+  text-align: center;
+  }
+  .search {
+    width: 20%;
+    border: solid 2px #fdeff2;
+    border-radius: 5px;
+    height: 100px;
+    margin-top: 3em;
+    margin-left: 10em;
+  }
+  .search .search-title {
+    font-size: 18px;
+    background: #fdeff2;
+    padding: 4px 0 4px 15px;
+    color: #606060;
+    letter-spacing: 0.05em;
+  }
+  .search-form {
+    padding-top: 20px;
+    padding-left: 50px;
+  }
+
+  .top {
+    text-align: center;
+    margin-bottom: 50px;
   }
 
 </style>
