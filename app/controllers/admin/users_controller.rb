@@ -19,7 +19,7 @@ class Admin::UsersController < ApplicationController
     redirect_to dmin_users_path
   end
 
-  def updatedef update
+  def update
     @end_user = EndUser.find(params[:id])
     if @end_user.update(end_user_params)
     redirect_to admin_user_path(@end_user.id)
