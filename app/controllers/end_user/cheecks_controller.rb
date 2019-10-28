@@ -3,7 +3,7 @@ class EndUser::CheecksController < ApplicationController
   end
 
   def new
-  	 @order = Order.new
+     @order = Order.new
     @address=Address.new
   end
 
