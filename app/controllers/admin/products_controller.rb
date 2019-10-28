@@ -2,11 +2,11 @@ class Admin::ProductsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @products = Product.page(params[:page]).reverse_order
+    @products = Product.with_deleted.page(params[:page]).reverse_order
   end
 
   def show
-    @product = Product.find(params[:id])
+    @product = Product.with_deleted.find(params[:id])
     ordersum = 0
     arrivalsum = 0
     @product.order_details.each do |order_detail|
@@ -15,6 +15,7 @@ class Admin::ProductsController < ApplicationController
     @product.arrival_of_goods.each do |arrival_of_good|
       arrivalsum = arrival_of_good.sheet + arrivalsum
     end
+    @disks = Disk.with_deleted.where(product_id: @product.id)
     @stock = arrivalsum - ordersum
   end
 
@@ -40,8 +41,13 @@ class Admin::ProductsController < ApplicationController
     # @record_music = @disk.record_musics.build
   end
 
-  def update
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to admin_products_path
+  end
 
+  def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
       flash[:notice] = "商品情報を更新しました"

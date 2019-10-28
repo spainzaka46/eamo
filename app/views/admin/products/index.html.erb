@@ -16,6 +16,7 @@
         <th style="text-align:center;">個数</th>
         <th style="text-align:center;">在庫状況</th>
         <th style="text-align:center;">ステータス</th>
+        <th style="text-align:center;">削除確認</th>
       </tr>
     </thead>
 
@@ -48,6 +49,12 @@
             		</span>
             	</td>
             	<td align="center"><%= product.sales_status %></td>
+              <td align="center">
+                <% if product.deleted_at.nil? %>
+                <% else %>
+                  削除済み
+                <% end %>
+              </td>
           </tr>
         <% end %>
   	</tbody>
