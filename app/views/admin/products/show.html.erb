@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <%= render "end_user/search" %>
 <h1 class="text-center">商品詳細</h1>
@@ -13,10 +14,17 @@
   <div class="row">
     <div class="col-sm-3">
 
+=======
+<h1 class="text-center pro-show">商品詳細</h1>
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-3 col-sm-offset-1">
+>>>>>>> 828383caf3ce7c70a10e03707ea6731b5f58254a
       <div class="field">
-        <%= attachment_image_tag @product, :photo, :fill, 180, 180, class: "pull-left profile-thumb", fallback: "no_image.jpg"%> </br>
+        <%= attachment_image_tag @product, :photo, :fill, 250, 250, class: "pull-left profile-thumb", fallback: "no_image.jpg"%> </br>
       </div>
     </div>
+<<<<<<< HEAD
 
   </div>
 
@@ -26,6 +34,9 @@
         <%= @product.title %></h4>
 
     <div class="title-con col-sm-9">
+=======
+    <div class="title-con col-sm-8">
+>>>>>>> 828383caf3ce7c70a10e03707ea6731b5f58254a
       <div class="title">
         <h4>タイトル:
           <%= @product.title %>
@@ -167,11 +178,11 @@
 <style>
 
   #disks {
-  margin-top: 38px;
+   margin-top: 38px;
   }
 
-  h1 {
-    margin-bottom: 80px;
+  .pro-show {
+    margin-bottom: 60px;
   }
 
   .btn {
@@ -179,7 +190,8 @@
   }
 
   .title-con {
-    margin-bottom: 80px;
+    padding-left: 80px;
+    margin-bottom: 150px;
   }
 
   .record-content {

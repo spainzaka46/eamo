@@ -14,7 +14,9 @@
           <% @orders.each do |order| %>
             <tr>
               <td align="center">
+
                 <%= link_to end_user_order_path(order) do %>
+
                   <%= order.created_at.strftime('%m/%d') %>
                 <% end %>
               </td>
