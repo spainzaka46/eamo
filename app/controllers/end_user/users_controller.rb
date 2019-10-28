@@ -32,7 +32,7 @@ class EndUser::UsersController < ApplicationController
   def update
     @end_user = EndUser.find(params[:id])
     if @end_user.update(end_user_params)
-    redirect_to admin_user_path(@end_user.id)
+    redirect_to mypage_path(@end_user.id)
     else
     render "edit"
     end

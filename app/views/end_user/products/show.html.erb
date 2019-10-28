@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
     <%= render "side", genres: @genres %>
-
     <h1 class="text-center pro-show">商品詳細</h1>
     <div class=" col-sm-8 col-sm-offset-1">
       <div class="photo">
@@ -67,9 +66,10 @@
                 <%= f.submit 'カートに入れる', class: "btn btn-info" %>
               </div>
             <% end %>
-          </div>
+           </div>
         <% end %>
       </div>
+
       <div class="record-content">
         <h3 class="text-center">収録ディスク</h3>
           <% @product.disks.each do |disk| %>
@@ -97,8 +97,9 @@
         <% end %>
       </div>
 
-      <div class="index_btn" align="center">
-        <%= link_to "商品一覧に戻る", admin_products_path, class: "btn btn-default btn-lg" %>
+        <div class="index_btn" align="center">
+          <%= link_to "商品一覧に戻る", end_user_products_path, class: "btn btn-default btn-lg" %>
+        </div>
       </div>
 
     </div>
