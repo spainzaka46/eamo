@@ -6,8 +6,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
-  	@end_user=EndUser.find(params[:id])
-
+  	@end_user=EndUser.with_deleted.find(params[:id])
   end
 
   def edit
@@ -16,7 +15,7 @@ class Admin::UsersController < ApplicationController
   def destroy
     @end_user = EndUser.find(params[:id])
     @end_user.destroy
-    redirect_to dmin_users_path
+    redirect_to admin_users_path
   end
 
   def updatedef update
