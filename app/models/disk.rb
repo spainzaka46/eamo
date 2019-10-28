@@ -4,5 +4,6 @@ class Disk < ApplicationRecord
 	accepts_nested_attributes_for :record_musics, reject_if: :all_blank, allow_destroy: true
 
 	validates :disk_number, presence: true, numericality: true
+  acts_as_paranoid
 
 end

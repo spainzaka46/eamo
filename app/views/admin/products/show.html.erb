@@ -1,3 +1,9 @@
+<div class="search">
+  <div class="search-title">検 索</div>
+  <div class="search-form">
+    <%= render "admin/search" %>
+  </div>
+</div>
 <h1 class="text-center pro-show">商品詳細</h1>
   <div class="container">
   <div class="row">
@@ -50,7 +56,7 @@
     </div>
     <div class="record-content">
       <h3 class="text-center">収録ディスク</h3>
-        <% @product.disks.each do |disk| %>
+        <% @disks.each do |disk| %>
           <div id="disks">
             <p class="text-center">ディスクNo. <%= disk.disk_number %> </p>
           </div>
@@ -63,7 +69,7 @@
               </tr>
             </thead>
             <tbody>
-              <% disk.record_musics.each do |record_music| %>
+              <% RecordMusic.with_deleted.where(disk_id: disk).each do |record_music| %>
                 <tr>
                   <td align="center"><%= record_music.track_number %></td>
                   <td align="center"><%= record_music.song_name %></td>
@@ -100,7 +106,9 @@
       <div class="edit_btn" align="center">
         <%= link_to "商品削除", admin_product_path(@product), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-lg btn-block" %>
       </div>
-
+      <div class="edi_btn" align="center">
+        <%= link_to "商品削除", admin_product_path(@product), method: :delete, class: "btn btn-danger btn-lg" %>
+      </div>
       <div class="index_btn" align="center">
         <%= link_to "商品一覧に戻る", admin_products_path, class: "btn btn-default btn-lg btn-block" %>
       </div>
@@ -143,5 +151,25 @@
    table-layout: fixed;
    width: 100%;
 　}
+
+  .search {
+    width: 20%;
+    border: solid 2px #fdeff2;
+    border-radius: 5px;
+    height: 100px;
+    margin-top: 3em;
+    margin-left: 10em;
+  }
+  .search .search-title {
+    font-size: 18px;
+    background: #fdeff2;
+    padding: 4px 0 4px 15px;
+    color: #606060;
+    letter-spacing: 0.05em;
+  }
+  .search-form {
+    padding-top: 20px;
+    padding-left: 50px;
+  }
 
 </style>

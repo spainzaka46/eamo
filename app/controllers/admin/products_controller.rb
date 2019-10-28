@@ -3,11 +3,11 @@ class Admin::ProductsController < ApplicationController
   # protect_from_forgery except: :update
 
   def index
-    @products = Product.page(params[:page]).reverse_order
+    @products = Product.with_deleted.page(params[:page]).reverse_order
   end
 
   def show
-    @product = Product.find(params[:id])
+    @product = Product.with_deleted.find(params[:id])
     ordersum = 0
     arrivalsum = 0
     @product.order_details.each do |order_detail|
@@ -16,6 +16,7 @@ class Admin::ProductsController < ApplicationController
     @product.arrival_of_goods.each do |arrival_of_good|
       arrivalsum = arrival_of_good.sheet + arrivalsum
     end
+    @disks = Disk.with_deleted.where(product_id: @product.id)
     @stock = arrivalsum - ordersum
   end
 
@@ -37,6 +38,12 @@ class Admin::ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to admin_products_path
   end
 
   def update
