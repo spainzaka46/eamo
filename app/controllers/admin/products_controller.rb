@@ -26,7 +26,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    binding.pry
     @product = Product.new(product_params)
     if @product.save
       flash[:notice] = "商品を追加しました"
@@ -43,7 +42,6 @@ class Admin::ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-              binding.pry
       flash[:notice] = "商品情報を更新しました"
       redirect_to admin_product_path(@product)
     else
