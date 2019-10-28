@@ -18,7 +18,9 @@
         <%= link_to "レーベル新規登録", new_admin_label_path %>
       </div>
       <div class="product-content">
-        <%= render 'form', product: @product %>
+        <%= form_for product, url: admin_products_path do |f| %>
+          <%= render 'form', product: @product, f: f %>
+        <% end %>
       </div>
       <div class="edit_btn btn btn-default btn-lg left-block" align="center">
         <%= link_to "商品一覧に戻る", admin_products_path %>
