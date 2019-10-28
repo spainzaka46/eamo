@@ -1,5 +1,5 @@
-<h1 class="text-center">新商品追加</h1>
 
+<<h1 class="text-center">新商品追加</h1>
   <div class="container">
 
     <div class="col align-self-center">
@@ -14,54 +14,36 @@
         </div>
       <% end %>
 
-
-      <button type="button" class="btn btn-default btn-lg left-block">
-       <div class="artist_btn">
-       <%= link_to "アーティスト新規登録", new_admin_artist_path %>
-        </div>
-      </button>
-
-      <button type="button" class="btn btn-default btn-lg left-block">
-       <div class="label_btn">
-       <%= link_to "レーベル新規登録", new_admin_label_path %>
-       </div>
-      </button>
-
-
-      <div class="artist_btn btn btn-default btn-lg left-block">
-        <%= link_to "アーティスト新規登録", new_admin_artist_path %>
-      </div>
-      <div class="label_btn btn btn-default btn-lg left-block">
-        <%= link_to "レーベル新規登録", new_admin_label_path %>
+      <div class="btn btn-group">
+        <%= link_to "アーティスト新規登録", new_admin_artist_path, class:"artist_btn btn btn-default btn-lg left-block" %>
+        <%= link_to "レーベル新規登録", new_admin_label_path, class:"label_btn btn btn-default btn-lg left-block" %>
       </div>
 
       <div class="product-content">
-        <%= form_for product, url: admin_products_path do |f| %>
+        <%= form_for @product, url: admin_products_path do |f| %>
           <%= render 'form', product: @product, f: f %>
+          <div class="submit">
+            <%= f.submit "商品情報登録", class: "btn btn-success btn-lg btn-block" %>
+          </div>
         <% end %>
       </div>
-      <div class="edit_btn btn btn-default btn-lg left-block" align="center">
+      <div class="edit_btn btn btn-default btn-lg btn-block">
         <%= link_to "商品一覧に戻る", admin_products_path %>
       </div>
 
     </div>
   </div>
-
+​
 <style>
-
-
-.btn{
-  margin-bottom: 20px;
-}
-
-</style>
-
 .product-content {
   padding: 20px 0;
 }
-
+​
 .btn{
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
-
+​
 </style>
+
+
+
