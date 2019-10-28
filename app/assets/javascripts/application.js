@@ -17,6 +17,5 @@
 //= require cocoon
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 // require popper
 //= require_tree .
