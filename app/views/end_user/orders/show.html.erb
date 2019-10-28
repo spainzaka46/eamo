@@ -53,7 +53,7 @@
       <tr >
         <th style="text-align:center;">価格（税込）</th>
         <td align="center">
-          <%= subtotal = include_tax(order_detail.price) * order_detail.sheet %>
+          <%= subtotal = include_tax(order_detail.price) * order_detail.sheet %>円
         </td>
           <% @total = @total + subtotal %>
       </tr>
@@ -64,13 +64,13 @@
       <tr>
         <th style="text-align:center;">送料</th>
         <td align="center">
-          <%= @order.delivery_charge %>
+          <%= @order.delivery_charge %>円
         </td>
       </tr>
       <tr>
         <th style="text-align:center;">購入額（税込）</th>
         <td align="center">
-          <%= @total + @order.delivery_charge %>
+          <%= @total + @order.delivery_charge %>円
         </td>
       </tr>
   </table>

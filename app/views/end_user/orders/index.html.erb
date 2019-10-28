@@ -26,7 +26,7 @@
                   <% subtotal = include_tax(order_detail.price) * order_detail.sheet %>
                   <% total = total + subtotal %>
                 <% end %>
-                <%= total + order.delivery_charge %>
+                <%= total + order.delivery_charge %>円
               </td>
               <td align="center">
                 <%= order.method_of_payment %>
