@@ -1,45 +1,109 @@
-<h1>検索結果</h1>
-
+<div class="search">
+  <div class="search-title">検 索</div>
+  <div class="search-form">
+    <%= render "admin/search" %>
+  </div>
+</div>
 <div class="container">
   <div class="row">
-    <div class="col-sm-2">
-    </div>
-    <div class="col-sm-9 col-sm-offset-1">
-      <% if @products.any? %>
-        <% @products.each do |product| %>
-        <%= link_to admin_product_path(product) do %>
-          <div class="product-content clearfix">
-            <div class="p-photo">
-              <div class="field">
-                <%= attachment_image_tag product, :photo, :fill, 100, 100, class: "profile-thumb", fallback: "no_image.jpg"%> </br>
-              </div>
+    <h3>検 索 結 果</h3>
+    <% if @products.any? %>
+      <div class="wrapper grid col-sm-8 col-sm-offset-2">
+          <% @products.each do |product| %>
+          <div class="product-content" onclick="javascript:location.href='<%= admin_product_path(product)%>'"  style="cursor:pointer">
+            <div class="jake">
+              <%= attachment_image_tag product, :photo, :fill, 120, 120, class: " profile-thumb", fallback: "no_image.jpg"%>
             </div>
-            <div class="p-detail">
-              <div class="field">
-                <span>タイトル</span>
-                <%= product.title %>
-              </div>
 
-              <div class="field">
-                <span>アーティスト</span>
-                <%= product.artist.artist_name %>
-              </div>
+            <p> <%= product.title %></p>
 
-              <div class="field">
-                <span>価格(税込)
-                 <%= product.price %> 円
-                </span>
-              </div>
-            </div>
+            <p><%= product.artist.artist_name %></p>
+
+            <p>価格(税込)  <%= product.include_tax %> 円</p>
           </div>
-        <% end %>
-        <% end %>
-      <% else %>
-        <p>検索内容と一致しませんでした。</p>
-      <% end %>
+          <% end %>
+      </div>
+    <% else %>
+      <p id="nul">検索内容と一致しませんでした。</p>
+    <% end %>
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+        <div class="paginate">
+        <%= paginate @products, class: "paginate" %>
+        </div>
+      </div>
     </div>
   </div>
-  <%= paginate @products, class: "paginate" %>
-
-  <%= link_to "TOP", admin_products_path %>
 </div>
+<div class="top">
+  <div class="btn btn-group">
+    <%= link_to "TOP", admin_products_path,class:"btn btn-default" %>
+  </div>
+</div>
+
+<style>
+  h3 {
+    text-align: center;
+    padding-top: 20px;
+  }
+  #nul {
+    text-align: center;
+    font-size: 30px;
+    margin: 20px 0;
+  }
+
+  .wrapper {
+    padding: 50px 0;
+  }
+
+  .grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 200px 200px 200px 200px;
+
+  }
+
+  .product-content {
+    border-bottom: 2px solid #f7f7f7;
+
+  }
+
+  .jake {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  p {
+  font-size: 12px;
+  }
+
+  .paginate {
+  justify-content: center;
+  text-align: center;
+  }
+  .search {
+    width: 20%;
+    border: solid 2px #fdeff2;
+    border-radius: 5px;
+    height: 100px;
+    margin-top: 3em;
+    margin-left: 10em;
+  }
+  .search .search-title {
+    font-size: 18px;
+    background: #fdeff2;
+    padding: 4px 0 4px 15px;
+    color: #606060;
+    letter-spacing: 0.05em;
+  }
+  .search-form {
+    padding-top: 20px;
+    padding-left: 50px;
+  }
+
+  .top {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+</style>

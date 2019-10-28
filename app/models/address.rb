@@ -4,4 +4,5 @@ class Address < ApplicationRecord
 	validates :address, presence: true
 	validates :phone_number, presence: true
 	validates :send_name, presence: true
+  acts_as_paranoid
 end

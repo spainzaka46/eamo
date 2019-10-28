@@ -28,30 +28,26 @@
       </tr>
   </table>
 
-<h2>購入内容</h2>
+<h2 class="text-center">購入内容</h2>
   <table class="table table-bordered">
     <% @total = 0 %>
     <% @order_details.each do |order_detail| %>
       <tr>
         <th style="text-align:center;">タイトル</th>
+        <th style="text-align:center;">アーティスト</th>
+        <th style="text-align:center;">個数</th>
+        <th style="text-align:center;">価格（税込）</th>
+      </tr>
+      <tr>
         <td align="center">
           <%= order_detail.product.title %>
         </td>
-      </tr>
-      <tr>
-        <th style="text-align:center;">アーティスト</th>
         <td align="center">
           <%= order_detail.product.artist.artist_name %>
         </td>
-      </tr>
-      <tr>
-        <th style="text-align:center;">個数</th>
         <td align="center">
           <%= order_detail.sheet %>
         </td>
-      </tr>
-      <tr >
-        <th style="text-align:center;">価格（税込）</th>
         <td align="center">
           <%= subtotal = include_tax(order_detail.price) * order_detail.sheet %>円
         </td>

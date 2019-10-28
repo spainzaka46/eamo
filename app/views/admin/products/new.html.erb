@@ -11,18 +11,16 @@
           </ul>
         </div>
       <% end %>
-      <div class="artist_btn btn btn-default btn-lg left-block">
-        <%= link_to "アーティスト新規登録", new_admin_artist_path %>
-      </div>
-      <div class="label_btn btn btn-default btn-lg left-block">
-        <%= link_to "レーベル新規登録", new_admin_label_path %>
+      <div class="btn btn-group">
+        <%= link_to "アーティスト新規登録", new_admin_artist_path, class:"artist_btn btn btn-default btn-lg left-block" %>
+        <%= link_to "レーベル新規登録", new_admin_label_path, class:"label_btn btn btn-default btn-lg left-block" %>
       </div>
       <div class="product-content">
         <%= render 'form', product: @product %>
       </div>
-      <div class="edit_btn btn btn-default btn-lg left-block" align="center">
-        <%= link_to "商品一覧に戻る", admin_products_path %>
-      </div>
+      <span  align="center">
+        <%= link_to "商品一覧に戻る", admin_products_path, class:"edit_btn btn btn-default btn-lg left-block" %>
+      </span>
     </div>
   </div>
 ​
