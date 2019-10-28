@@ -36,13 +36,13 @@
     <%= f.text_field :send_name %></h3>
 
     <h3 class="text-center">郵便番号<br>
-    <%= f.number_field :postal_code %></h3>
+    <%= f.text_field :postal_code %></h3>
 
     <h3 class="text-center">住所<br>
     <%= f.text_field :address %></h3>
 
     <h3 class="text-center">電話番号<br>
-    <%= f.number_field :phone_number %></h3>
+    <%= f.text_field :phone_number %></h3>
 
   <h1 class="text-center">支払い方法選択</h1>
    <h2 class="text-center">
@@ -50,8 +50,8 @@
     <%= f.label :method_of_payment, "銀行振込"  %><br>
     <%= f.radio_button :method_of_payment, "クレジットカード決済"%>
     <%= f.label :method_of_payment, "クレジット払い" %><br>
-    <%= f.radio_button :method_of_payment, "代引き" %>
-    <%= f.label :method_of_payment, "代引き"  %><br>
+    <%= f.radio_button :method_of_payment, "代金引換" %>
+    <%= f.label :method_of_payment, "代金引換"  %><br>
     <%= f.submit "購入確認" %>
    <% end %>
   </h2>
