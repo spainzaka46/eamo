@@ -35,12 +35,12 @@
                 <%= detail.order.address %>
               </td>
             <% end %>
-          <td align="center">
+            <td align="center">
             <%= order.order_status %>
           </td>
-        <% end %>
-      <%= paginate @orders, class: "paginate" %>
-      </tr>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </div>
+      <%= paginate @orders, class: "paginate" %>
