@@ -15,7 +15,9 @@ class Product < ApplicationRecord
 	validates :sales_status, presence: true
 
 	attachment :photo
-	acts_as_paranoid
+
+	acts_as_paranoid without_default_scope: true
+
 	enum sales_status: {販売中: 0, 販売停止中: 1}
 
 	def self.search(search)

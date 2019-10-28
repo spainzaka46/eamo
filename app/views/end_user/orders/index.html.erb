@@ -23,10 +23,10 @@
               <td align="center">
                 <% total = 0 %>
                 <% order.order_details.each do |order_detail| %>
-                  <% subtotal = order_detail.price * order_detail.sheet %>
+                  <% subtotal = include_tax(order_detail.price) * order_detail.sheet %>
                   <% total = total + subtotal %>
                 <% end %>
-                <%= total + order.delivery_charge %>
+                <%= total + order.delivery_charge %>円
               </td>
               <td align="center">
                 <%= order.method_of_payment %>

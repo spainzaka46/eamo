@@ -1,5 +1,6 @@
 class Admin::ProductsController < ApplicationController
   before_action :authenticate_admin!
+  # protect_from_forgery except: :update
 
   def index
     @products = Product.with_deleted.page(params[:page]).reverse_order
@@ -37,8 +38,6 @@ class Admin::ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    # @disk = @product.disks.build
-    # @record_music = @disk.record_musics.build
   end
 
   def destroy
@@ -55,6 +54,12 @@ class Admin::ProductsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to admin_products_path
   end
 
   def result
