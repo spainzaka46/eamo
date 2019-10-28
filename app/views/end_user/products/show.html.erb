@@ -62,7 +62,7 @@
             <%= form_for @cart, url: end_user_product_carts_path(@product) do |f| %>
               <div class="field">
                 <span class="headind">数量</span>
-                <%= f.number_field :sheet, min: 1, max: (@stock).to_i %>
+                <%= f.number_field :sheet, value: 1, min: 1, max: (@stock).to_i %>
                 <%= f.submit 'カートに入れる', class: "btn btn-info" %>
               </div>
             <% end %>

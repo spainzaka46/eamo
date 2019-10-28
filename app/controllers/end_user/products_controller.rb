@@ -2,7 +2,7 @@ class EndUser::ProductsController < ApplicationController
 
   def index
     @genres = Genre.all
-    @products = Product.where(sales_status:'販売中').page(params[:page]).per(20)
+    @products = Product.where(sales_status:'販売中').page(params[:page]).per(20).reverse_order
   end
 
   def genre_serch
