@@ -1,5 +1,6 @@
 class Admin::ProductsController < ApplicationController
   before_action :authenticate_admin!
+  # protect_from_forgery except: :update
 
   def index
     @products = Product.page(params[:page]).reverse_order
@@ -36,14 +37,12 @@ class Admin::ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    # @disk = @product.disks.build
-    # @record_music = @disk.record_musics.build
   end
 
   def update
-
     @product = Product.find(params[:id])
     if @product.update(product_params)
+              binding.pry
       flash[:notice] = "商品情報を更新しました"
       redirect_to admin_product_path(@product)
     else
