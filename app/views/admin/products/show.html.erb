@@ -1,6 +1,6 @@
 <div class="search">
   <div class="search-title">検 索</div>
-  <div class="search-form">
+  <div class="search-form" align="center">
     <%= render "admin/search" %>
   </div>
 </div>
@@ -56,7 +56,7 @@
     </div>
     <div class="record-content">
       <h3 class="text-center">収録ディスク</h3>
-        <% @disks.each do |disk| %>
+        <% Disk.with_deleted.where(product_id: @product).each do |disk| %>
           <div id="disks">
             <p class="text-center">ディスクNo. <%= disk.disk_number %> </p>
           </div>
@@ -90,7 +90,7 @@
               </tr>
             </thead>
             <tbody>
-              <% @product.arrival_of_goods.each do |arrival| %>
+              <% ArrivalOfGood.with_deleted.where(product_id: @product).each do |arrival| %>
                 <tr>
                   <td align="center"><%= arrival.arrival_day.strftime("%Y年%m月%d日") %></td>
                   <td align="center"><%= arrival.sheet %></td>
@@ -99,13 +99,14 @@
             </tbody>
           </table>
       </div>
-      <div class="edit_btn" align="center">
-        <%= link_to "商品編集", edit_admin_product_path(@product), class: "btn btn-success btn-lg" %>
-      </div>
-
-      <div class="edit_btn" align="center">
-        <%= link_to "商品削除", admin_product_path(@product), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-lg" %>
-      </div>
+      <% if @product.deleted_at.nil? %>
+        <div class="edit_btn" align="center">
+          <%= link_to "商品編集", edit_admin_product_path(@product), class: "btn btn-success btn-lg" %>
+        </div>
+        <div class="delete_btn" align="center">
+          <%= link_to "商品削除", admin_product_path(@product), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-lg" %>
+        </div>
+      <% end %>
       <div class="index_btn" align="center">
         <%= link_to "商品一覧に戻る", admin_products_path, class: "btn btn-default btn-lg btn-block" %>
       </div>
@@ -141,7 +142,7 @@
    width: 100%;
 　}
   .search {
-    width: 20%;
+    width: 25%;
     border: solid 2px #fdeff2;
     border-radius: 5px;
     height: 100px;
@@ -156,7 +157,9 @@
     letter-spacing: 0.05em;
   }
   .search-form {
-    padding-top: 20px;
-    padding-left: 50px;
+    padding-top: 5px;
+  }
+  .search-btn {
+    margin-top: 10px;
   }
 </style>
