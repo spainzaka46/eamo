@@ -50,7 +50,7 @@
               </td>
               <td align="center"><%= product.sales_status %></td>
               <td align="center">
-                <% if product.deleted_at.nil? %>
+                <% unless product.deleted_at.nil? %>
                   削除済み
                 <% end %>
               </td>

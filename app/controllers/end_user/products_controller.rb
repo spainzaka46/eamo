@@ -1,7 +1,7 @@
 class EndUser::ProductsController < ApplicationController
 
  def index
-   @products = Product.where(sales_status:'販売中').page(params[:page]).per(20)
+   @products = Product.where(sales_status:'販売中').page(params[:page]).per(20).reverse_order
    @themes = Theme.all
    @genres = Genre.all
  end
@@ -35,6 +35,7 @@ class EndUser::ProductsController < ApplicationController
 
  def result
    @products = Product.where(sales_status:'販売中').search(params[:search]).page(params[:page]).per(20).reverse_order
+   @themes = Theme.all #追加しました。
  end
 
 end
