@@ -16,30 +16,11 @@
         <%= f.text_field :kanzi_last_name %>
       </h2>
 
-<<<<<<< HEAD
-<h1 class="text-center">マイページ編集</h1>
-<div class="container">
-   <div class="row">
-     <% if @end_user.errors.any? %>
-     <div id="error_explanation">
-          <h2><%= @end_user.errors.count %> 件のエラーがあります。</h2>
-          <ul>
-               <% @end_user.errors.full_messages.each do |msg| %>
-               <li> <%= msg %> </li>
-               <% end %>
-          </ul>
-     </div>
-     <% end %>
-     <%= form_for(@end_user,url:end_user_user_path) do |f| %>
-     <div class="field">
-          <h2 class="text-center">姓</h2>
-          <h2 class="text-center"><%= f.text_field :kanzi_last_name %></h2>
-     </div>
-=======
+
       <h2 class="text-center"><名></br>
         <%= f.text_field :kanzi_first_name %>
       </h2>
->>>>>>> develop
+
 
       <h2 class="text-center"><セイ></br>
         <%= f.text_field :kana_last_name %>
