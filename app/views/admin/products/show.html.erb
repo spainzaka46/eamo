@@ -106,9 +106,7 @@
       <div class="edit_btn" align="center">
         <%= link_to "商品削除", admin_product_path(@product), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-lg btn-block" %>
       </div>
-      <div class="edi_btn" align="center">
-        <%= link_to "商品削除", admin_product_path(@product), method: :delete, class: "btn btn-danger btn-lg" %>
-      </div>
+  
       <div class="index_btn" align="center">
         <%= link_to "商品一覧に戻る", admin_products_path, class: "btn btn-default btn-lg btn-block" %>
       </div>
@@ -117,41 +115,32 @@
 
 
 <style>
-
   #disks {
    margin-top: 38px;
   }
-
   .pro-show {
     margin-bottom: 60px;
   }
-
   .btn {
     margin-bottom:20px;
   }
-
   .title-con {
     padding-left: 80px;
     margin-bottom: 150px;
   }
-
   .record-content {
     margin-bottom: 80px;
   }
-
   .arrival-content {
     margin-bottom: 80px;
   }
-
   .arrival-title {
     margin-bottom: 30px;
   }
-
   table {
    table-layout: fixed;
    width: 100%;
 　}
-
   .search {
     width: 20%;
     border: solid 2px #fdeff2;
@@ -171,5 +160,4 @@
     padding-top: 20px;
     padding-left: 50px;
   }
-
 </style>

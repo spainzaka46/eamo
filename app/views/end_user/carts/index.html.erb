@@ -1,36 +1,88 @@
-<h1>EndUser::Carts#index</h1>
-<p>Find me in app/views/end_user/carts/index.html.erb</p>
-<div>
-	<div>
-		<h2>カート内一覧</h2>
-
-		<div>
-			<% total = 0 %>
+<div class="container">
+		<h1 class="text-center">カート内一覧</h1>
+		<% if @product_in_carts.empty? %>
+			<h2 class="text-center">商品はございません。</h2>
+			<% else %>
+			<% total_price = 0 %>
 			<% @end_user.product_in_carts.each do |product_in_cart| %>
-			<%= attachment_image_tag product_in_cart.product, :photo, :fill, 50, 50, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
-				<p>Title</p>
-					<%= product_in_cart.product.title %>
-				<p>アーティスト</p>
-					<%= product_in_cart.product.artist.artist_name %>
-				<p>個数</p>
-					<%= product_in_cart.sheet %>
+				<div class="product-content clearfix">
+					<div class="cart">
+						<div class="photo">
+							<%= attachment_image_tag product_in_cart.product, :photo, :fill, 250, 250, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg", size: "250x250" %>
+						</div>
+						<div class="tab">
+						　<table class="table">
+								<tr>
+									<th>Title</th><td><%= product_in_cart.product.title %></td>
+								</tr>
 
-				<p>価格</p>
-					<%= product_in_cart.product.include_tax %>
-				<p>小計</p>
-					<%= product_in_cart.sheet * product_in_cart.product.include_tax %>
+								<tr>
+									<th>アーティスト</th><td><%= product_in_cart.product.artist.artist_name %></td>
+								</tr>
+								<tr>
+									<th>個数</th><td><%= product_in_cart.sheet %></td>
+								</tr>
+								<tr>
+									<th>価格(税込)</th><td><%= product_in_cart.product.price %> 円 </td>
+								</tr>
+							</table>
+						</div>
+						<div class="cart2">
+							<span><%= link_to '削除', end_user_product_cart_path(product_in_cart.product.id, product_in_cart.id), class: "btn btn-danger ", method: :delete  %></span>
+						</div>
+						<% total_price += product_in_cart.sheet * product_in_cart.product.price %>
+					</div>
+				</div>
+				<% end %>
+				<div class="product-content clearfix">
+					<div class="cart-total">
+						<p>商品小計（税込）</p><%= total_price %> 円
+					</div>
+				</div>
+		<% end %>
+			<div class="text-center">
+				<%= link_to 'ショッピングを続ける',end_user_products_path , class: "btn btn-default btn-lg center-block" %>
+			</div>
 
-				<%= link_to '削除', end_user_product_cart_path(product_in_cart.product.id, product_in_cart.id), class: "btn btn-danger ", method: :delete  %>
 
-				<% total += product_in_cart.sheet * product_in_cart.product.include_tax %>
-			<% end %>
-		</div>
-
-		<p>商品小計（税込）</p>
-		<%= total %>
-
-		<%= link_to 'ショッピングを続ける',end_user_products_path %>
-
-		<%= link_to '購入手続きへ', new_end_user_cheeck_path %>
-	</div>
+			<div class="text-center">
+				<%= link_to '購入手続きへ', new_end_user_user_path,class: "btn btn-default btn-lg center-block" %>
+			</div>
 </div>
+
+<style>
+	.cart {
+		margin-top: 50px;
+	}
+
+	.tab {
+		float: left;
+		margin-left: 150px;
+		text-align: center;
+		position: relative;
+	}
+
+	.cart-total {
+		padding-top: 50px;
+		padding-bottom: 50px;
+		float: right;
+		font-size: 30px;
+	}
+
+	th, td {
+		width: 300px;
+		font-size: 30px;
+	}
+	
+	.cart2 {
+		position: relative;
+	}
+
+	span {
+		position: absolute;
+		bottom: -250px;
+		right: 0px;
+	}
+
+
+</style>

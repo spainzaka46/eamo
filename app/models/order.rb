@@ -4,4 +4,5 @@ class Order < ApplicationRecord
   enum order_status:{受付: 0, 出荷済: 1, 配送: 2, キャンセル: 3}
   enum method_of_payment:{クレジットカード決済: 0, 銀行振込: 1, 代金引換: 2}
   acts_as_paranoid
+
 end

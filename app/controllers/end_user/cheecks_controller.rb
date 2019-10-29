@@ -1,4 +1,5 @@
 class EndUser::CheecksController < ApplicationController
+
   def show
   end
 

@@ -1,0 +1,51 @@
+<div class="container">
+	<div class="row">
+		<%= render "side", genres: @genres, themes: @themes %>
+		<h1>フィーリング別</h1>
+		<div class="col-sm-8 col-sm-offset-1">
+			<% @record_musics.each do |record_music| %>
+			  <div class="product-content clearfix">
+			  	<%= link_to (end_user_product_path(record_music.disk.product.id)) do %>
+				 	 <div class="p-photo">
+						<%= attachment_image_tag record_music.disk.product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+					 </div>
+					 		<div class="p-detail">
+					 			<div class="field">
+					 				<span>テーマ: </span>
+					 				<%= record_music.theme.theme %>
+					 			</div>
+
+					 			<div class="field">
+					 				<span>アーティスト: </span>
+					 				<%= record_music.disk.product.artist.artist_name %>
+					 			</div>
+
+					 			<div class="field">
+					 				<span>曲名: </span>
+					 				<%= record_music.song_name %>
+					 			</div>
+							</div>
+					<% end %>
+			  </div>
+			<% end %>
+		</div>
+	</div>
+	<%= link_to "TOP", end_user_products_path %>
+</div>
+
+<style>
+
+	.product-content {
+	  width: 200px;
+	  padding: 20px;
+		border-bottom: 2px solid #f7f7f7;
+		float: left;
+	}
+
+	.disk-content {
+	  float: right;
+	}
+
+</style>
+
+

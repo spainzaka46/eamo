@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
 
-    <%= render "side", genres: @genres %>
+    <%= render "side", genres: @genres themes: @themes%>
 
     <h3>検 索 結 果</h3>
     <div class="wrapper grid col-sm-8 col-sm-offset-1">
@@ -20,10 +20,17 @@
         </div>
         <% end %>
 
+
       <% else %>
         <p>検索内容と一致しませんでした。</p>
       <% end %>
     </div>
+
+  </div>
+
+  <%= link_to "TOP", end_user_products_path %>
+</div>
+
 
     <div class="row">
       <div class="col-sm-4 col-sm-offset-7">
@@ -72,3 +79,4 @@
   }
 
 </style>
+
