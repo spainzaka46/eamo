@@ -39,21 +39,25 @@
 		 			</tr>
 	    	</thead>
 	    	<tbody>
-	     	<% @end_user.addresses.each do |address|%>
+	     	<% Address.with_deleted.where(end_user_id: @end_user).each do |address|%>
 	      	<tr>
 	       		<td align="center"> <%=address.send_name%> </td>
 		   			<td align="center"> <%=address.postal_code%> </td>
 		   			<td align="center"> <%=address.address%></td>
 		   			<td align="center"> <%=address.phone_number%></td>
+		   		<% if address.deleted_at.nil? %>
 		   			<td align="center"><%= link_to "編集", edit_admin_user_address_path(address) %></td>
+		   		<% end %>
 	      	</tr>
          <%end%>
       	</tbody>
     	</table>
       </div>
       <div class="btn btn-group">
+      <% if @end_user.deleted_at.nil? %>
 			  <%= link_to"削除", admin_user_path(@end_user),method: :delete, class:"btn btn-default" %>
 				<%= link_to"マイページ編集", edit_admin_user_path(@end_user), class:"btn btn-default" %>
+			<% end %>
  				<%= link_to"購入履歴", admin_user_orderhistories_path(@end_user.id), class:"btn btn-default" %>
       </div>
   </div>
