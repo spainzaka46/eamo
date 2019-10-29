@@ -3,7 +3,7 @@
 		<h2>ジャンル別</h2>
 		<div>
 			<% @products.each do |product| %>
-				<%= attachment_image_tag product, :photo, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+				<%= attachment_image_tag product, :photo, :fill, 100, 100, class: "	pull-left profile-thumb", fallback: "no_image.png",size:'100x100'%>
 				<p>タイトル</p>
 				<%= product.title %>
 
@@ -15,6 +15,7 @@
 
 				<p>価格</p>
 				<%= product.price %>
+			<% end %>
 		</div>
 	</div>
 </div>

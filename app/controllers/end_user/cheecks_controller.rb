@@ -13,8 +13,10 @@ class EndUser::CheecksController < ApplicationController
     @order.delivery_charge = 500
 
     if params[:okurisaki].to_i < 0
-      address = Address.new(end_user_id: current_end_user.id, address: @order.address, send_name: @order.send_name, postal_code: @order.postal_code,phone_number: @order.phone_number)
-      address.save
+      @address = Address.new(end_user_id: current_end_user.id, address: @order.address, send_name: @order.send_name, postal_code: @order.postal_code,phone_number: @order.phone_number)
+      unless @address.save
+        render "new"
+      end
     else
       address = Address.find(params[:okurisaki])
       @order.address = address.address

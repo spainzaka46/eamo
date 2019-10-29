@@ -73,3 +73,4 @@ gem "refile-mini_magick"
 gem 'ransack'
 gem 'cocoon'
 gem 'pry-rails'
+gem 'rails-i18n'

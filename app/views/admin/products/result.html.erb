@@ -12,7 +12,7 @@
           <% @products.each do |product| %>
           <div class="product-content" onclick="javascript:location.href='<%= admin_product_path(product)%>'"  style="cursor:pointer">
             <div class="jake">
-              <%= attachment_image_tag product, :photo, :fill, 120, 120, class: " profile-thumb", fallback: "no_image.jpg"%>
+              <%= attachment_image_tag product, :photo, :fill, 120, 120, class: " profile-thumb", fallback: "no_image.png", size:'120x120'%>
             </div>
 
             <p> <%= product.title %></p>
