@@ -1,38 +1,51 @@
 <div class="container">
 	<div class="row">
-		<%= render "side", genres: @genres ,themes: @themes %>
-		<h1>ジャンル別</h1>
+		<%= render "side", genres: @genres ,themes: @themes %></br>
+		<h1 class="text-center">ジャンル別</h1>
 		<div class="wrapper grid col-sm-8 col-sm-offset-1">
 			<% @products.each do |product| %>
 			 <div class="product-content" onclick="javascript:location.href='<%= end_user_product_path(product)%>'"  style="cursor:pointer">
-					<div class="p-photo">
-						<div class="field">
-							<%= attachment_image_tag product, :photo, :fill, 100, 100, class: "pull-left profile-thumb", fallback: "no_image.png",size:'100x100' %>
-						</div>
-					</div>
-					<div class="p-detail">
-						<div class="field">
-							<span>タイトル</span>
-							<%= product.title %>
-						</div>
-
-						<div class="field">
-							<span>アーティスト</span>
-							<%= product.artist.artist_name %>
-						</div>
-
-						<div class="field">
-							<span>ジャンル</span>
-							<%= product.genre.genre_name %>
-						</div>
-						<div class="field">
-							<span>価格</span>
-							<%= product.price %>
-						</div>
-					</div>
+				<div class="jake">
+				  <%= attachment_image_tag product, :photo, :fill, 120, 120, class: " profile-thumb", fallback: "no_image.png", size:'120x120' %>
 				</div>
-				<%= paginate @genres, class: "paginate" %>
+				<p> <%= product.genre.genre_name %></p>
+				<p> <%= product.title %></p>
+				<p><%= product.artist.artist_name %></p>
+				<p>価格(税込)  <%= product.include_tax %> 円</p>
+			</div>
 			<% end %>
 		</div>
-	</div>
+		<div class="row">
+      <div class="col-sm-4 col-sm-offset-7">
+        <div class="paginate">
+          <%= paginate @products, class: "paginate" %>
+        </div>
+      </div>
+   	</div>
+  </div>
 </div>
+
+
+<style>
+  .wrapper {
+    padding: 50px 0;
+  }
+  .grid {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 200px 200px 200px 200px;
+  }
+  .product-content {
+    border-bottom: 2px solid #f7f7f7;
+  }
+  .jake {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 12px;
+  }
+  .paginate {
+    justify-content: center;
+  }
+</style>
