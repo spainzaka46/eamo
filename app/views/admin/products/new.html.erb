@@ -1,47 +1,43 @@
-<h1 class="text-center">新商品追加</h1>
-  <div class="container">
-
-    <div class="col align-self-center">
-      <% if @product.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= @product.errors.count %> 件のエラーがあります。</h2>
-          <ul>
-            <% @product.errors.full_messages.each do |msg| %>
-              <li> <%= msg %> </li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-      <div class="btn btn-group">
-        <%= link_to "アーティスト新規登録", new_admin_artist_path, class: "artist_btn btn btn-default btn-lg left-block" %>
-        <%= link_to "レーベル新規登録", new_admin_label_path, class: "label_btn btn btn-default btn-lg left-block" %>
-      </div>
-
-      <div class="product-content">
-        <%= form_for @product, url: admin_products_path do |f| %>
-          <%= render 'form', product: @product, f: f %>
-          <div class="submit">
-            <%= f.submit "商品情報登録", class: "btn btn-success btn-lg btn-block" %>
-          </div>
+<div class="container">
+  <h1 class="text-center">新商品追加</h1>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @product.errors.count %> 件のエラーがあります。</h2>
+      <ul>
+        <% @product.errors.full_messages.each do |msg| %>
+          <li> <%= msg %> </li>
         <% end %>
-      </div>
-      <div class="edit_btn btn btn-default btn-lg btn-block">
-        <%= link_to "商品一覧に戻る", admin_products_path %>
-      </div>
-
+      </ul>
     </div>
+  <% end %>
+  <div class="btn btn-group">
+    <%= link_to "アーティスト新規登録", new_admin_artist_path, class: "artist_btn btn btn-default btn-lg left-block" %>
+    <%= link_to "レーベル新規登録", new_admin_label_path, class: "label_btn btn btn-default btn-lg left-block" %>
   </div>
+  <div class="product-content">
+    <%= form_for @product, url: admin_products_path do |f| %>
+      <%= render 'form', product: @product, f: f %>
+      <div class="submit">
+        <%= f.submit "商品情報登録", class: "btn btn-success btn-lg btn-block" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="back-btn">
+    <%= link_to "商品一覧に戻る", admin_products_path, class: "btn btn-default btn-lg btn-block" %>
+  </div>
+</div>
 ​
+
 <style>
-.product-content {
-  padding: 20px 0;
-}
 ​
-.btn{
-  margin-bottom: 30px;
-}
-​
+  .product-content {
+    padding: 20px 0;
+  }
+
+  .btn{
+    margin-bottom: 20px;
+  }
+  ​
 </style>
 
 

@@ -1,16 +1,10 @@
-
 <%= form_tag("/end_user/products/result", method: :'get') do %>
-  <%= text_field_tag :search %>
-  <%= submit_tag '検索', :name => nil %>
+ <%= text_field_tag :search, nil,:placeholder => "商品名を入力" %>
+ <%= submit_tag '検索', :name => nil %>
 <% end %>
-
-
 <style>
-
-  input[type="text"] {
-        width: 160px;
-        height: 25px;
-  }
-
+ input[type="text"] {
+       width: 160px;
+       height: 25px;
+ }
 </style>
-

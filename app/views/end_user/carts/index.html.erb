@@ -9,14 +9,13 @@
 				<div class="product-content clearfix">
 					<div class="cart">
 						<div class="photo">
-							<%= attachment_image_tag product_in_cart.product, :photo, :fill, 250, 250, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg", size: "250x250" %>
+							<%= attachment_image_tag product_in_cart.product, :photo, :fill, 50, 50, class: "pull-left profile-thumb", fallback: "no_image.png", size: "50x50" %>
 						</div>
 						<div class="tab">
 						　<table class="table">
 								<tr>
 									<th>Title</th><td><%= product_in_cart.product.title %></td>
 								</tr>
-
 								<tr>
 									<th>アーティスト</th><td><%= product_in_cart.product.artist.artist_name %></td>
 								</tr>

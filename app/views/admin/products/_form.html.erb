@@ -1,15 +1,16 @@
-    <div class="field">
+<div class="main-con">
+  <div class="field img-con"></br>
     <%= f.label :photo, "ジャケット写真" %> </br>
     <img id="img_prev" src="#" class='hidden' />
     <% if product.photo.present? %>
-      <%= attachment_image_tag product, :photo, :fill, 180, 180, class: "pull-left profile-thumb jak_present_img"%>
+      <%= attachment_image_tag product, :photo, :fill, 180, 180, class: "profile-thumb jak_present_img"%>
     <% else %>
-      <%= image_tag 'no_image.jpg', :size => '180x180', class: 'pull-left jak_present_img' %>
+      <%= image_tag 'no_image.png', :size => '180x180', class: 'jak_present_img' %>
     <% end %>
     <div class="photo">
       <%= f.attachment_field :photo, id: 'post_img', class: "user-edit-form" %></br>
     </div>
-    <img id="img1" style="width:200px; height:200px; display:none;" />
+    <img id="img1" style="width:180px; height:180px; display:none;" />
   </div>
 
   <div class="title-con">
@@ -43,67 +44,72 @@
       <%= f.radio_button :sales_status, :販売中 %> <%= f.label :sales_status, :販売中 %>
       <%= f.radio_button :sales_status, :販売停止中 %> <%= f.label :sales_status, :販売停止中 %>
     </div>
-
   </div>
+</div>
 ​
-  <div class="record-content">
-    <h2 style="text-align:center;">収録内容</h2>
-    <div id="disks">
-      <%= f.fields_for :disks do |disk| %>
-        <%= render 'disk_fields', f: disk %>
-      <% end %>
-      <div id="links" align="center">
-        <%= link_to_add_association 'ディスク追加',f, :disks, class: "btn btn-warning btn-lg" %>
-      </div>
-      <div class="submit">
-        <%= f.submit "商品情報登録", class: "btn btn-success btn-lg btn-block" %>
-      </div>
+<div class="record-content">
+  <h2 style="text-align:center;">収録内容</h2>
+  <div id="disks">
+    <%= f.fields_for :disks do |disk| %>
+      <%= render 'disk_fields', f: disk %>
+    <% end %>
+    <div id="links" align="center">
+      <%= link_to_add_association 'ディスク追加',f, :disks, class: "btn btn-warning btn-lg" %>
     </div>
   </div>
+</div>
 
 
 <style>
+  .main-con {
+    display: flex;
+  }
+
+  .img-con {
+    margin-top: 30px;
+    margin-left: 180px;
+  }
+
   .photo {
     margin-top: 10px;
   }
+
   .field {
     margin-bottom: 10px;
     font-size: 18px;
   }
 
   .title-con {
-    margin-left: 350px;
-    margin-bottom: 80px;
+    margin: 5em 20px;
   }
 </style>
 
 
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
-$(function(){
-  $('#post_img').change(function(e){
-    //ファイルオブジェクトを取得する
-    var file = e.target.files[0];
-    var reader = new FileReader();
-     console.log(file);
+  $(function(){
+    $('#post_img').change(function(e){
+      //ファイルオブジェクトを取得する
+      var file = e.target.files[0];
+      var reader = new FileReader();
+       console.log(file);
 
-    //画像でない場合は処理終了
-    if(file.type.indexOf("image") < 0){
-      alert("画像ファイルを指定してください。");
-      return false;
-    }
-    $('#img1').show();
-    //アップロードした画像を設定する
-    reader.onload = (function(file){
-      return function(e){
-        console.log(e.target.result);
-        $("#img1").attr("src", e.target.result);
-        $("#img1").attr("title", file.name);
-      };
-    })(file);
-    reader.readAsDataURL(file);
- 
+      //画像でない場合は処理終了
+      if(file.type.indexOf("image") < 0){
+        alert("画像ファイルを指定してください。");
+        return false;
+      }
+      $('#img1').show();
+      //アップロードした画像を設定する
+      reader.onload = (function(file){
+        return function(e){
+          console.log(e.target.result);
+          $("#img1").attr("src", e.target.result);
+          $("#img1").attr("title", file.name);
+        };
+      })(file);
+      reader.readAsDataURL(file);
+    });
   });
-});
 </script>
 

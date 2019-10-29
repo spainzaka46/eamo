@@ -1,19 +1,23 @@
 class EndUser::ProductsController < ApplicationController
+
  def index
-   @products = Product.where(sales_status:'販売中').page(params[:page]).per(20)
+   @products = Product.where(sales_status:'販売中').page(params[:page]).per(20).reverse_order
    @themes = Theme.all
    @genres = Genre.all
  end
+
  def genre_serch
    @themes = Theme.all
-     @products = Product.where(genre_id: params[:id])
-   @genres = Genre.page(params[:page]).per(20).reverse_order
+   @products = Product.where(genre_id: params[:id]).page(params[:page]).per(20).reverse_order
+   @genres = Genre.all
    @cart = ProductInCart.new
  end
+
  def theme_serch
    @themes = Theme.all
-   @record_musics = RecordMusic.where(theme_id: params[:id])
+   @record_musics = RecordMusic.where(theme_id: params[:id]).page(params[:page]).per(20).reverse_order
  end
+
  def show
    @themes = Theme.all #追加しました。
    @cart = ProductInCart.new
@@ -28,7 +32,10 @@ class EndUser::ProductsController < ApplicationController
    end
    @stock = arrivalsum - ordersum
  end
+
  def result
-   @products = Product.where(sales_status:'販売中').search(params[:search]).page(params[:page]).per(20)
+   @products = Product.where(sales_status:'販売中').search(params[:search]).page(params[:page]).per(20).reverse_order
+   @themes = Theme.all #追加しました。
  end
+
 end
