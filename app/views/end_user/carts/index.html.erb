@@ -1,4 +1,5 @@
 <div class="container">
+	<div class=row>
 		<h1 class="text-center">カート内一覧</h1>
 		<% if @product_in_carts.empty? %>
 			<h2 class="text-center">商品はございません。</h2>
@@ -33,21 +34,26 @@
 					</div>
 				</div>
 				<% end %>
-				<div class="product-content clearfix">
-					<div class="cart-total">
-						<p>商品小計（税込）</p><%= total_price %> 円
-					</div>
+				<div class="col-sm-7">
+				<table class="table table-bordered ">
+					<tr>
+						<th style="text-align:center;">商品小計（税込)
+						</th>
+						<td align="center">
+						<%= total_price %> 円
+						</td>
+					</table>
 				</div>
-		<% end %>
-			<div class="text-center">
-				<%= link_to 'ショッピングを続ける',end_user_products_path , class: "btn btn-default btn-lg center-block" %>
+				<% end %>
+				<div class="itame1 col-sm-3">
+					<%= link_to 'ショッピングを続ける',	end_user_products_path , class:"btn btn-default btn-lg center-block" %>
+				</div>
+				<div class="itame1 col-sm-3">
+					<%= link_to '購入手続きへ', new_end_user_cheeck_path,class:"btn btn-default btn-lg center-block" %>
+				</div>
 			</div>
-
-
-			<div class="text-center">
-				<%= link_to '購入手続きへ', new_end_user_user_path,class: "btn btn-default btn-lg center-block" %>
-			</div>
-</div>
+		</div>
+	</div>
 
 <style>
 	.cart {
@@ -72,7 +78,7 @@
 		width: 300px;
 		font-size: 30px;
 	}
-	
+
 	.cart2 {
 		position: relative;
 	}
@@ -82,6 +88,16 @@
 		bottom: -250px;
 		right: 0px;
 	}
+	.col-sm-7{
+		margin-top: 50px;
+		margin-left: 280px;
+	}
+	.itame1{
+		    width: 50%;
+		   margin-left: 300px;
+			margin-top: 20px;
+	 	    margin-bottom: 20px;
+	 }
 
 
 </style>
