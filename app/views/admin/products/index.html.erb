@@ -27,28 +27,28 @@
            product.order_details.each do |order_detail|
            ordersum = order_detail.sheet + ordersum
           end
-			    product.arrival_of_goods.each do |arrival_of_good|
-			      arrivalsum = arrival_of_good.sheet + arrivalsum
-			    end
-			    stock = arrivalsum - ordersum
-			  %>
+          product.arrival_of_goods.each do |arrival_of_good|
+            arrivalsum = arrival_of_good.sheet + arrivalsum
+          end
+          stock = arrivalsum - ordersum
+        %>
 
           <tr onclick="javascript:location.href='<%= admin_product_path(product)%>'"  style="cursor:pointer">
-            	<td align="center"><%= product.title %></td>
-            	<td align="center"><%= product.artist.artist_name %></td>
-            	<td align="center"><%= product.genre.genre_name %></td>
-            	<td align="center"><%= product.include_tax %> 円 </td>
-            	<td align="center"><%= stock %> 個</td>
-            	<td align="center">
-            		<span>
-            			<% if stock == 0 %>
-            			  売り切れ
-            			<% else %>
-            			　在庫あり
-            			<% end %>
-            		</span>
-            	</td>
-            	<td align="center"><%= product.sales_status %></td>
+              <td align="center"><%= product.title %></td>
+              <td align="center"><%= product.artist.artist_name %></td>
+              <td align="center"><%= product.genre.genre_name %></td>
+              <td align="center"><%= product.include_tax %> 円 </td>
+              <td align="center"><%= stock %> 個</td>
+              <td align="center">
+                <span>
+                  <% if stock == 0 %>
+                    売り切れ
+                  <% else %>
+                  　在庫あり
+                  <% end %>
+                </span>
+              </td>
+              <td align="center"><%= product.sales_status %></td>
               <td align="center">
                 <% if product.deleted_at.nil? %>
                   削除済み
@@ -56,7 +56,7 @@
               </td>
           </tr>
         <% end %>
-  	</tbody>
+    </tbody>
   </table>
   <div class="row text-center">
     <%= paginate @products, class: "paginate" %>
@@ -64,7 +64,6 @@
 </div>
 
 <style>
-
   .search {
     width: 25%;
     border: solid 2px #fdeff2;
@@ -83,5 +82,5 @@
   .search-form {
     padding-top: 15px;
   }
-
 </style>
+

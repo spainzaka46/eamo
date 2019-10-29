@@ -1,0 +1,725 @@
+[33mcommit fb2f3ff930230a09cfe4549f2dfc14d82b84bdc2[m[33m ([m[1;36mHEAD -> [m[1;32mcheck[m[33m, [m[1;31morigin/check[m[33m)[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Thu Oct 24 03:33:58 2019 +0000
+
+    merge
+
+[33mcommit c67cbf3eb0f706d2128ff126f7c7bcff52ef0bbc[m
+Merge: 5fb23a2 714b788
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Thu Oct 24 03:27:11 2019 +0000
+
+    Merge branch 'develop' of https://github.com/spainzaka46/eamo into develop
+
+[33mcommit 5fb23a2daeee983739b8c995e5364e4b791c3ea6[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Thu Oct 24 03:26:29 2019 +0000
+
+    merge
+
+[33mcommit 714b7887ba0aac2807649d9698fae3c37b6b232a[m
+Merge: a56759a aa7b3d9
+Author: Aoyagi-kozue <54733523+Aoyagi-kozue@users.noreply.github.com>
+Date:   Thu Oct 24 12:17:23 2019 +0900
+
+    Merge pull request #24 from spainzaka46/product_index
+    
+    Product index
+
+[33mcommit aa7b3d97808360631693a49d9c41bde0b31d56fe[m
+Author: Aoyagi-kozue <sbrn.chtsk@icloud.com>
+Date:   Thu Oct 24 03:10:22 2019 +0000
+
+    [modify] 商品詳細修正(売切表示
+
+[33mcommit aa8619f5f907cf2f2ff10eefa54cba48527ff152[m
+Author: Aoyagi-kozue <sbrn.chtsk@icloud.com>
+Date:   Wed Oct 23 11:01:47 2019 +0000
+
+    [modify] 商品詳細修正
+
+[33mcommit a56759a4ebb7e2f1f4ed24e2290ca276bc711e8a[m[33m ([m[1;32mproduct-in-carts[m[33m)[m
+Merge: 445d084 1542187
+Author: takeshi1201 <54338340+takeshi1201@users.noreply.github.com>
+Date:   Wed Oct 23 13:26:59 2019 +0900
+
+    Merge pull request #23 from spainzaka46/product-in-carts
+    
+    Product in carts
+
+[33mcommit 154218789eef4321d3815349c02bb4f4927bedb0[m[33m ([m[1;31morigin/product-in-carts[m[33m)[m
+Merge: 11708e7 ec09c59
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Wed Oct 23 04:08:41 2019 +0000
+
+    コンフリクト解消
+
+[33mcommit ec09c59d66715236ef3c205f0f950a37ba523c2e[m
+Merge: 6cfdc3e 445d084
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Wed Oct 23 04:03:12 2019 +0000
+
+    Merge branch 'develop' of https://github.com/spainzaka46/eamo into develop
+
+[33mcommit 11708e7d1a81ec95fb87247d38ff80b2acf61d59[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Wed Oct 23 04:02:18 2019 +0000
+
+    コミット
+
+[33mcommit 445d0848185a77f6630562b751c9e6bc82cc85cc[m
+Merge: 8c73ae9 86a2078
+Author: Aoyagi-kozue <54733523+Aoyagi-kozue@users.noreply.github.com>
+Date:   Wed Oct 23 12:57:38 2019 +0900
+
+    Merge pull request #22 from spainzaka46/product_index
+    
+    Product index
+
+[33mcommit 632015988d5b2e87d7d1efed0ce0ffb51ae6d351[m
+Merge: 8b25b3b 6cfdc3e
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Wed Oct 23 03:39:52 2019 +0000
+
+    コンフリクト解消
+
+[33mcommit 86a2078ce152bc081eb18cd8f9cc9f0871ec77b0[m
+Merge: 107bba7 8c73ae9
+Author: Aoyagi-kozue <sbrn.chtsk@icloud.com>
+Date:   Wed Oct 23 03:25:36 2019 +0000
+
+    [modify] seedコンフリクト解消
+
+[33mcommit 6cfdc3e322ed660e39163cf1e3c7fbf44e949c62[m
+Merge: ec50bbf 8c73ae9
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Wed Oct 23 03:24:46 2019 +0000
+
+    Merge branch 'develop' of https://github.com/spainzaka46/eamo into develop
+
+[33mcommit 8b25b3b066cf95b158ee47acbbe498a64adc82f7[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Wed Oct 23 03:23:25 2019 +0000
+
+    コミット
+
+[33mcommit 8c73ae9c0cc29e9a3f3dfe4fd3b72a576836f062[m
+Merge: 695bf2a b1a3a1a
+Author: kenmakonao <54791460+kenmakonao@users.noreply.github.com>
+Date:   Tue Oct 22 21:51:54 2019 +0900
+
+    Merge pull request #21 from spainzaka46/productd
+    
+    Productd
+
+[33mcommit b1a3a1ac25b4c9a9a55a8b9099287d11daf366d8[m
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Tue Oct 22 12:36:02 2019 +0000
+
+    詳細レイアウト変更
+
+[33mcommit 4ab781d8a211511c202fe3e152f100c2c43bf097[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Tue Oct 22 12:29:43 2019 +0000
+
+    カート内一覧　完成
+
+[33mcommit 107bba7ae8366c05486b0371e50ee9a98c452eb2[m
+Author: Aoyagi-kozue <sbrn.chtsk@icloud.com>
+Date:   Tue Oct 22 12:25:33 2019 +0000
+
+    [modify] 商品一覧
+
+[33mcommit 246e53763d3d1d3254da36f4865d703c97854441[m
+Merge: 2cbff83 695bf2a
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Tue Oct 22 09:25:33 2019 +0000
+
+    Merge branch 'develop' into productd
+
+[33mcommit 2cbff8351ccea24f4dc0e13cd8e6c4be5fb32365[m
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Tue Oct 22 09:24:22 2019 +0000
+
+    ヘッター編集
+
+[33mcommit 5d3e2f3110c3d9289c9c4b9c12d93b653e3b9131[m
+Merge: 430b77c 525485a
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Tue Oct 22 08:27:12 2019 +0000
+
+    コンフリクト解消
+
+[33mcommit ec50bbf5b961af21ce87db35a8c15c9bd6af5170[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Tue Oct 22 08:12:47 2019 +0000
+
+    とりあえずのコミット
+
+[33mcommit 695bf2ae75770ef78d4ab9313094a523e3a288ef[m
+Merge: 66cdde6 469caf4
+Author: kenmakonao <54791460+kenmakonao@users.noreply.github.com>
+Date:   Tue Oct 22 16:35:33 2019 +0900
+
+    Merge pull request #20 from spainzaka46/productd
+    
+    bootstrap3
+
+[33mcommit 469caf46221f9a468085d3ad88dd2207bc069bda[m
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Tue Oct 22 07:31:25 2019 +0000
+
+    bootstrap3
+
+[33mcommit 430b77c0509c871f82107b04d030a4266c61f203[m
+Merge: 79dbedc f5be273
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Tue Oct 22 07:23:06 2019 +0000
+
+    カート内一覧未完成
+
+[33mcommit 66cdde6cc7bd92ccbfd4d3200cf7684d3e751e5e[m
+Merge: 35a62fc 8920e34
+Author: kenmakonao <54791460+kenmakonao@users.noreply.github.com>
+Date:   Tue Oct 22 14:39:17 2019 +0900
+
+    Merge pull request #19 from spainzaka46/ken
+    
+    エラー解消
+
+[33mcommit 8920e34954d89d3da33bd261101e61a1bb3ba080[m
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Tue Oct 22 05:36:46 2019 +0000
+
+    エラー解消
+
+[33mcommit 35a62fc656eee3ce497c486e6e95fa56725a204b[m
+Merge: ae3e5f1 525485a
+Author: Aoyagi-kozue <54733523+Aoyagi-kozue@users.noreply.github.com>
+Date:   Tue Oct 22 12:35:34 2019 +0900
+
+    Merge pull request #18 from spainzaka46/product-in-carts
+    
+    Product in carts
+
+[33mcommit 525485a0b257695e24f7f233a5966d4a54d62cd9[m
+Merge: 4ebfedf ae3e5f1
+Author: takeshi1201 <54338340+takeshi1201@users.noreply.github.com>
+Date:   Mon Oct 21 19:25:33 2019 +0900
+
+    Merge branch 'develop' into product-in-carts
+
+[33mcommit 79dbedc145b7ad7d1c4eb7a846526de0df98e938[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Mon Oct 21 10:17:57 2019 +0000
+
+    コンフリクト修正
+
+[33mcommit f5be273f1c72233a640b016753a9e6140f064e15[m
+Merge: 52d71e0 ae3e5f1
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Mon Oct 21 10:16:44 2019 +0000
+
+    Merge branch 'develop' of https://github.com/spainzaka46/eamo into develop
+
+[33mcommit 0751d12d4f19c79748fe0c2e7feb631b009b5e90[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Mon Oct 21 10:14:22 2019 +0000
+
+    コンフリクト修正
+
+[33mcommit 4ebfedfcbd67013eaf41b238f836a73b29fcdfcf[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Mon Oct 21 09:52:47 2019 +0000
+
+    コンフリクト修正
+
+[33mcommit ae3e5f12d9474661d35d78625b268d497991b4ce[m
+Merge: 0536284 7621529
+Author: kenmakonao <54791460+kenmakonao@users.noreply.github.com>
+Date:   Mon Oct 21 17:51:00 2019 +0900
+
+    Merge pull request #16 from spainzaka46/layout
+    
+    Layout
+
+[33mcommit 76215291a2a118656d0c258dbd2d393501d0d20a[m
+Merge: 01ff4a6 18d584b
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Mon Oct 21 08:45:02 2019 +0000
+
+    developとマージ
+
+[33mcommit 0536284d477322e7e048933f8fe4b23865d33848[m
+Merge: 18d584b f9af618
+Author: kenmakonao <54791460+kenmakonao@users.noreply.github.com>
+Date:   Mon Oct 21 17:38:04 2019 +0900
+
+    Merge pull request #15 from spainzaka46/user_order
+    
+    User order
+
+[33mcommit 01ff4a6646e50e9f9c9561696064f366252da7f7[m
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Mon Oct 21 08:29:00 2019 +0000
+
+    kaminari レイアウト変更
+
+[33mcommit f9af618d3f26be8c960eec07acaa8be6c7887fb3[m
+Merge: ba93c0a 18d584b
+Author: Ryousuke4976 <53642109+Ryousuke4976@users.noreply.github.com>
+Date:   Mon Oct 21 17:14:54 2019 +0900
+
+    Merge branch 'develop' into user_order
+
+[33mcommit 52d71e0472fa33fde2e8e355740e6e8d5f9b2e30[m
+Merge: dc75579 18d584b
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Mon Oct 21 07:54:57 2019 +0000
+
+    Merge branch 'develop' of https://github.com/spainzaka46/eamo into develop
+
+[33mcommit 18d584bc60a85d101ff31cd1eefd00254d94e973[m
+Merge: 06cdff1 ec162dc
+Author: takeshi1201 <54338340+takeshi1201@users.noreply.github.com>
+Date:   Mon Oct 21 16:53:30 2019 +0900
+
+    Merge pull request #14 from spainzaka46/product-in-carts
+    
+    Product in carts
+
+[33mcommit ec162dc8b5407d0c9560e4d3fc971d5c5be9091f[m
+Merge: 7c1f0af 06cdff1
+Author: takeshi1201 <54338340+takeshi1201@users.noreply.github.com>
+Date:   Mon Oct 21 16:53:16 2019 +0900
+
+    Merge branch 'develop' into product-in-carts
+
+[33mcommit ba93c0afaf32e48e7a15f0bbf472368a9af991f8[m
+Merge: 180d2ea 0010791
+Author: Ryousuke4976 <satou.ryousuke0503@gmail.com>
+Date:   Mon Oct 21 07:45:16 2019 +0000
+
+    マージしたら出てきたファイル
+
+[33mcommit 06cdff17a1ff7796b932b3f2d61050715a08d2c3[m
+Merge: 0010791 da1b0df
+Author: Aoyagi-kozue <54733523+Aoyagi-kozue@users.noreply.github.com>
+Date:   Mon Oct 21 16:40:48 2019 +0900
+
+    Merge pull request #12 from spainzaka46/new_product
+    
+    New product
+
+[33mcommit da1b0dff269f1124edef73b237cd0d24b1f028b6[m
+Merge: b3555c1 0010791
+Author: Aoyagi-kozue <54733523+Aoyagi-kozue@users.noreply.github.com>
+Date:   Mon Oct 21 16:40:29 2019 +0900
+
+    Merge branch 'develop' into new_product
+
+[33mcommit 0010791452f84ce87f990a43d27ba8dd5888b248[m
+Merge: 96fff7c 84cdb43
+Author: Ryousuke4976 <53642109+Ryousuke4976@users.noreply.github.com>
+Date:   Mon Oct 21 16:34:11 2019 +0900
+
+    Merge pull request #13 from spainzaka46/orderhistory
+    
+    Orderhistory
+
+[33mcommit 84cdb439467d6a16021626f6ee3f47602690d760[m
+Merge: 1464714 96fff7c
+Author: Ryousuke4976 <53642109+Ryousuke4976@users.noreply.github.com>
+Date:   Mon Oct 21 16:05:18 2019 +0900
+
+    Merge branch 'develop' into orderhistory
+
+[33mcommit 7c1f0afa3bd7652c69382e2408bb706e9eeb2c97[m
+Merge: 42b5ef6 96fff7c
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Mon Oct 21 07:04:33 2019 +0000
+
+    修正
+
+[33mcommit b3555c1869b446f345921c84810b425302874c5f[m
+Author: Aoyagi-kozue <sbrn.chtsk@icloud.com>
+Date:   Mon Oct 21 06:49:45 2019 +0000
+
+    [modify]新商品追加、編集機能
+
+[33mcommit fa735e1094a400cc7d756ba857b476415543557e[m
+Merge: c9cc60e 96fff7c
+Author: Aoyagi-kozue <sbrn.chtsk@icloud.com>
+Date:   Mon Oct 21 04:13:44 2019 +0000
+
+    [modify]Productの機能
+
+[33mcommit 96fff7c2a84e24d617b36485a258c70435f6cb9d[m
+Merge: 8e3d2e1 5099847
+Author: Aoyagi-kozue <54733523+Aoyagi-kozue@users.noreply.github.com>
+Date:   Mon Oct 21 13:07:10 2019 +0900
+
+    Merge pull request #10 from spainzaka46/order
+    
+    Order
+
+[33mcommit dc755795235e218d8e42cf9d9fc1e2d89c6d4ac7[m
+Merge: be67fcb 8e3d2e1
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Mon Oct 21 04:05:37 2019 +0000
+
+    Merge branch 'develop' of https://github.com/spainzaka46/eamo into develop
+
+[33mcommit c9cc60ef4b1bd3f14515168a1675007f9ec331b5[m
+Author: Aoyagi-kozue <sbrn.chtsk@icloud.com>
+Date:   Mon Oct 21 04:05:16 2019 +0000
+
+    [Add]Productの機能
+
+[33mcommit 42b5ef6330c6ae4f6ea284de9cdbf8a643a67e13[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Mon Oct 21 03:56:50 2019 +0000
+
+    多数変更あり
+
+[33mcommit 5099847e5d10a1f9ad978dfdc17a5e378e201555[m
+Merge: 6926f89 8e3d2e1
+Author: Ryousuke4976 <53642109+Ryousuke4976@users.noreply.github.com>
+Date:   Sun Oct 20 21:00:35 2019 +0900
+
+    Merge branch 'develop' into order
+
+[33mcommit 6926f8949b6af5374b9a08376f509914c5309ab5[m
+Author: Ryousuke4976 <satou.ryousuke0503@gmail.com>
+Date:   Sun Oct 20 11:23:55 2019 +0000
+
+    [Modify] データベースのカラム変更
+
+[33mcommit 8e3d2e1a2e0dae43ee626bd8ecda1a7f425062e9[m
+Merge: 022a0b0 3974ee7
+Author: kenmakonao <54791460+kenmakonao@users.noreply.github.com>
+Date:   Sun Oct 20 19:16:07 2019 +0900
+
+    Merge pull request #9 from spainzaka46/layout
+    
+    レイアウト変更
+
+[33mcommit 3974ee75a86ccf64f9a27fc598488ff9885fca14[m
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Sun Oct 20 09:58:44 2019 +0000
+
+    レイアウト変更
+
+[33mcommit f9fe938d82c2044c9816a83854a6a18309e8e36e[m
+Author: Ryousuke4976 <satou.ryousuke0503@gmail.com>
+Date:   Sun Oct 20 07:35:58 2019 +0000
+
+    [modify] ステータス保存機能追加
+
+[33mcommit 180d2ea954b591d7719ab46cb4b79ea48773e159[m
+Merge: e505c4a 022a0b0
+Author: Ryousuke4976 <satou.ryousuke0503@gmail.com>
+Date:   Sun Oct 20 05:30:29 2019 +0000
+
+    Merge branch 'develop' into user_order
+
+[33mcommit e505c4a318551d43b5d99adcddab684230ec72f1[m
+Author: Ryousuke4976 <satou.ryousuke0503@gmail.com>
+Date:   Sun Oct 20 05:06:19 2019 +0000
+
+    [Add] 制限機能追加
+
+[33mcommit 42ec2c7c3af0cf2fbd0e2024b2c887401afe539b[m
+Author: Ryousuke4976 <satou.ryousuke0503@gmail.com>
+Date:   Sat Oct 19 18:50:38 2019 +0900
+
+    fix ssl conection
+
+[33mcommit ba0b7b892eb959498215e5de7899d247cc3af660[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Sat Oct 19 09:46:12 2019 +0000
+
+    競合を解決
+
+[33mcommit 05b7ef6dfc95ce9a5bd76ae4eabbbea0c62d427f[m
+Author: Ryousuke4976 <satou.ryousuke0503@gmail.com>
+Date:   Sat Oct 19 09:36:49 2019 +0000
+
+    emergency commit
+
+[33mcommit 7cabdee71c98bf90aa38aeb1c6962b813fc03d04[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Sat Oct 19 09:29:34 2019 +0000
+
+    競合を解決
+
+[33mcommit 95d7a08fac5c30d353483c29fcfca1cc50541be1[m
+Merge: a5a6fab be67fcb
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Sat Oct 19 09:12:19 2019 +0000
+
+    Update
+
+[33mcommit a5a6fab72a9d0606369467a74b83eada9a519e89[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Sat Oct 19 08:52:33 2019 +0000
+
+    meger
+
+[33mcommit be67fcb407d5cd01f4a2cec2aed6b27a62117d4c[m
+Merge: eee2f64 022a0b0
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Sat Oct 19 08:26:59 2019 +0000
+
+    Merge branch 'develop' of https://github.com/spainzaka46/eamo into develop
+
+[33mcommit 022a0b089f228e9652d8da50c1e36cd0129b4ebe[m
+Merge: 97fe1f4 76cc025
+Author: kenmakonao <54791460+kenmakonao@users.noreply.github.com>
+Date:   Sat Oct 19 17:16:16 2019 +0900
+
+    Merge pull request #8 from spainzaka46/mypage
+    
+    Mypage
+
+[33mcommit 76cc0250e4c84e1b8967f9c33ff908b241a4d9ae[m
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Sat Oct 19 08:11:27 2019 +0000
+
+    マイページ編集
+
+[33mcommit 9ed97e6338b5560b2f1337ef4ec72d3c6f9201de[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Sat Oct 19 07:47:30 2019 +0000
+
+    Update
+
+[33mcommit 1464714981d8f267891ffaa7fd9008822dde0aa9[m
+Author: Ryousuke4976 <satou.ryousuke0503@gmail.com>
+Date:   Sat Oct 19 05:40:08 2019 +0000
+
+    [Add] ユーザ購入履歴ページを追加
+
+[33mcommit f39f4c34e3be63b242b10146d680e00986f1f0ea[m
+Author: Ryousuke4976 <satou.ryousuke0503@gmail.com>
+Date:   Sat Oct 19 05:38:56 2019 +0000
+
+    [Modify] 値とスペースの修正
+
+[33mcommit 0ab957daebb3612714523ba0c97dbb7e46bd629e[m
+Author: Ryousuke4976 <satou.ryousuke0503@gmail.com>
+Date:   Sat Oct 19 05:34:56 2019 +0000
+
+    [Modify] ルーティング修正
+
+[33mcommit 703ed008a02ec6078f1bf0784aec02ff62ab9deb[m
+Author: Ryousuke4976 <satou.ryousuke0503@gmail.com>
+Date:   Sat Oct 19 05:33:58 2019 +0000
+
+    [Modify] enum修正
+
+[33mcommit 53b5bbd386ce33d688d978cd9fc36c9bd0f5eb34[m
+Author: Ryousuke4976 <satou.ryousuke0503@gmail.com>
+Date:   Sat Oct 19 05:31:59 2019 +0000
+
+    [Modify] 誤字訂正
+
+[33mcommit 4c30e0be5bf61209dbbf3abf4a48f7a73b544173[m[33m ([m[1;31morigin/arrival-history[m[33m)[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Fri Oct 18 05:56:08 2019 +0000
+
+    入荷履歴完了
+
+[33mcommit 77d985a0e0627352f64e459d0a7ce753fa44e5f5[m[33m ([m[1;31morigin/arrival-processing[m[33m)[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Thu Oct 17 10:31:36 2019 +0000
+
+    Updata
+
+[33mcommit 187fa94d8229830cb4fb59d5455f6763741f1573[m
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Thu Oct 17 09:38:05 2019 +0000
+
+    マイページ編集/管理者側マイページ編集
+
+[33mcommit 40dd4d2019b524c140b3ddfa2a3b9a4a1ba3ba1b[m
+Author: Ryousuke4976 <satou.ryousuke0503@gmail.com>
+Date:   Thu Oct 17 08:40:20 2019 +0000
+
+    [完成] 受注一覧と受注詳細
+
+[33mcommit d2ec02b76598b90ca0da5b899aea180c786b4654[m
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Wed Oct 16 10:27:22 2019 +0000
+
+    mypage作成
+
+[33mcommit eee2f648598f53ba8fa48f46b6067fed2df4a219[m
+Merge: ddb54a6 97fe1f4
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Wed Oct 16 10:03:35 2019 +0000
+
+    merge
+
+[33mcommit e99f7a9b0c9d9d6527bc7036a140e0c163c2adbd[m
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Wed Oct 16 09:56:36 2019 +0000
+
+    githubからpull
+
+[33mcommit 97fe1f48a540ae4682db7f64c4b9d8d66f2cd4a3[m
+Merge: c9427b6 f13ac5d
+Author: Aoyagi-kozue <54733523+Aoyagi-kozue@users.noreply.github.com>
+Date:   Wed Oct 16 18:28:09 2019 +0900
+
+    Merge pull request #7 from spainzaka46/seeds
+    
+    10modify (seeds)
+
+[33mcommit f13ac5ddbbde77540675f43e555672d42d8d7b0c[m
+Author: Aoyagi-kozue <sbrn.chtsk@icloud.com>
+Date:   Wed Oct 16 09:14:24 2019 +0000
+
+    10modify (seeds)
+
+[33mcommit ddb54a653686de2c4e3b834bde3634d9c836ae49[m
+Merge: 59f64c0 c9427b6
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Wed Oct 16 07:50:34 2019 +0000
+
+    Merge branch 'develop' of https://github.com/spainzaka46/eamo into develop
+
+[33mcommit c9427b6149b977d905035f44a224086cd6aa7110[m
+Merge: 0fc6ef8 e276baf
+Author: takeshi1201 <54338340+takeshi1201@users.noreply.github.com>
+Date:   Wed Oct 16 16:14:23 2019 +0900
+
+    Merge pull request #6 from spainzaka46/takeshi
+    
+    Takeshi
+
+[33mcommit e276baf220d09bf4db3256dde689096aa00f673a[m
+Merge: 23941e6 0fc6ef8
+Author: Aoyagi-kozue <54733523+Aoyagi-kozue@users.noreply.github.com>
+Date:   Wed Oct 16 16:13:19 2019 +0900
+
+    Merge branch 'develop' into takeshi
+
+[33mcommit 0fc6ef8e644c0a48eff7e352c09271535beefed7[m
+Merge: 1b703e3 dd78f9f
+Author: Aoyagi-kozue <54733523+Aoyagi-kozue@users.noreply.github.com>
+Date:   Wed Oct 16 16:07:08 2019 +0900
+
+    Merge pull request #5 from spainzaka46/kozue
+    
+    2new-file, 7modify
+
+[33mcommit 1b703e336ae1175b92f12773687d5846468455e3[m
+Merge: 954d4cc ce1753c
+Author: Ryousuke4976 <53642109+Ryousuke4976@users.noreply.github.com>
+Date:   Wed Oct 16 16:02:42 2019 +0900
+
+    Merge pull request #4 from spainzaka46/ryousuke
+    
+    [機能無し]受注一覧と受注詳細の作成
+
+[33mcommit 954d4cc8d77cc705b68716b81356911a16c2fd75[m
+Merge: 2a11419 c3e5a21
+Author: takeshi1201 <54338340+takeshi1201@users.noreply.github.com>
+Date:   Wed Oct 16 15:53:40 2019 +0900
+
+    Merge pull request #3 from spainzaka46/kento
+    
+    データベースの更新・変更/deviseの変更
+
+[33mcommit c3e5a21043c1a38741a6a3f5a495baa91ebad048[m
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Wed Oct 16 06:26:55 2019 +0000
+
+    データベースの更新・変更/deviseの変更
+
+[33mcommit dd78f9f32e863e994824b63d2363bdf6cac9808a[m
+Author: Aoyagi-kozue <sbrn.chtsk@icloud.com>
+Date:   Wed Oct 16 06:01:34 2019 +0000
+
+    2new-file, 7modify
+
+[33mcommit 23941e652ab11e8f87dad521a1924388ed9e5a5a[m[33m ([m[1;31morigin/takeshi[m[33m)[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Wed Oct 16 05:58:18 2019 +0000
+
+    Update
+
+[33mcommit ce1753c661d3a6b0c5fb3470eeb0cfa95e48aee3[m
+Author: Ryousuke4976 <satou.ryousuke0503@gmail.com>
+Date:   Wed Oct 16 05:29:39 2019 +0000
+
+    [機能無し]受注一覧と受注詳細の作成
+
+[33mcommit 25a5f963c213ddd074b72e860627c1cf2413c811[m
+Merge: ae098e0 2a11419
+Author: Ryousuke4976 <satou.ryousuke0503@gmail.com>
+Date:   Tue Oct 15 10:44:35 2019 +0000
+
+    Merge branch 'develop' of https://github.com/spainzaka46/eamo into develop
+
+[33mcommit 2a11419f7ebd6c0cb44a77b3ad408397a3d546a9[m
+Merge: 287366e 28f2f9d
+Author: takeshi1201 <54338340+takeshi1201@users.noreply.github.com>
+Date:   Tue Oct 15 19:28:28 2019 +0900
+
+    Merge pull request #2 from spainzaka46/kento
+    
+    Kento
+
+[33mcommit 28f2f9d22712f587c9e29858a142de61701527ba[m
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Tue Oct 15 10:23:18 2019 +0000
+
+    かラムの変更
+
+[33mcommit 59f64c0a0b0c176220e93b5f45497d99138a4ee0[m
+Merge: 5fc16c9 2a11419
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Tue Oct 15 10:19:58 2019 +0000
+
+    Merge branch 'develop' of https://github.com/spainzaka46/eamo into develop
+
+[33mcommit 287366ed36703a90e32d027982369dfa6e98b454[m
+Author: Aoyagi-kozue <sbrn.chtsk@icloud.com>
+Date:   Tue Oct 15 02:46:56 2019 +0000
+
+    first commit
+
+[33mcommit ae098e063a08ac1ce1ed896f9e68ad702d1af591[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 0510cb5 237587c
+Author: kenmakonao <54791460+kenmakonao@users.noreply.github.com>
+Date:   Mon Oct 14 19:09:30 2019 +0900
+
+    Merge pull request #1 from spainzaka46/kento
+    
+    first commit
+
+[33mcommit be2c4e56c74a89c55052e9eac12d75d6846a0ca9[m
+Author: Aoyagi-kozue <sbrn.chtsk@icloud.com>
+Date:   Mon Oct 14 09:59:14 2019 +0000
+
+    first commit
+
+[33mcommit 237587c465e718280787a1d43924e05d0906bacd[m
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Mon Oct 14 09:59:04 2019 +0000
+
+    first commit
+
+[33mcommit 5fc16c95c743bd6792d16c373c06a05dfdbd9a5c[m
+Author: takeshi1201 <kodama19961201@gmail.com>
+Date:   Mon Oct 14 09:58:41 2019 +0000
+
+    first commit
+
+[33mcommit 0510cb53733ca484edf3e5e3f934327738f828d7[m
+Author: kenmakonao <wearekenchan@gmail.com>
+Date:   Mon Oct 14 09:47:52 2019 +0000
+
+    first commit
