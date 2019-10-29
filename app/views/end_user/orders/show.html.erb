@@ -30,14 +30,14 @@
 
 <h2 class="text-center">購入内容</h2>
   <table class="table table-bordered">
-    <% @total = 0 %>
-    <% @order_details.each do |order_detail| %>
-      <tr>
+    <tr>
         <th style="text-align:center;">タイトル</th>
         <th style="text-align:center;">アーティスト</th>
         <th style="text-align:center;">個数</th>
         <th style="text-align:center;">価格（税込）</th>
       </tr>
+    <% @total = 0 %>
+    <% @order_details.each do |order_detail| %>
       <tr>
         <td align="center">
           <%= order_detail.product.title %>

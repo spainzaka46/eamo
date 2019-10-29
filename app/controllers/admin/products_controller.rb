@@ -10,13 +10,12 @@ class Admin::ProductsController < ApplicationController
     @product = Product.with_deleted.find(params[:id])
     ordersum = 0
     arrivalsum = 0
-    @product.order_details.each do |order_detail|
+    @product.order_details.with_deleted.each do |order_detail|
       ordersum = order_detail.sheet + ordersum
     end
-    @product.arrival_of_goods.each do |arrival_of_good|
+    @product.arrival_of_goods.with_deleted.each do |arrival_of_good|
       arrivalsum = arrival_of_good.sheet + arrivalsum
     end
-    @disks = Disk.with_deleted.where(product_id: @product.id)
     @stock = arrivalsum - ordersum
   end
 

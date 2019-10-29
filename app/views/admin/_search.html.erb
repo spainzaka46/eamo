@@ -2,7 +2,7 @@
   <%= form_tag("/admin/products/result", method: :'get') do %>
     <%= text_field_tag :search %>
     <span class="form-group-btn">
-      <%= submit_tag '検索', :name => nil, class: "btn btn-default" %>
+      <%= submit_tag '検索', :name => nil, class: "btn btn-default search-btn" %>
     </span>
   <% end %>
 </div>
