@@ -1,3 +1,24 @@
+
+
+<%= render "admin/search" %>
+<div class="container">
+  <div class="row">
+    <div class="col align-self-center">
+      <h1><strong>商品一覧</strong></h1>
+
+        <table class="table table-striped">
+  	      <thead>
+  	        <tr>
+  	          <th style="text-align:center;">タイトル</th>
+  	          <th style="text-align:center;">アーティスト</th>
+  	          <th style="text-align:center;">ジャンル</th>
+  	          <th style="text-align:center;">価格(税込)</th>
+  	          <th style="text-align:center;">個数</th>
+  	          <th style="text-align:center;">在庫状況</th>
+  	          <th style="text-align:center;">ステータス</th>
+  	        </tr>
+  	      </thead>
+
 <div class="search">
   <div class="search-title">検 索</div>
   <div class="search-form" align="center">
@@ -20,6 +41,7 @@
       </tr>
     </thead>
 
+
     <tbody>
       <% @products.each do |product| %>
         <% ordersum = 0
@@ -32,6 +54,34 @@
 			    end
 			    stock = arrivalsum - ordersum
 			  %>
+
+
+                <tr onclick="javascript:location.href='<%= admin_product_path(product)%>'"  style="cursor:pointer">
+		              	<td align="center"><%= product.title %></td>
+		              	<td align="center"><%= product.artist.artist_name %></td>
+		              	<td align="center"><%= product.genre.genre_name %></td>
+		              	<td align="center"><%= product.include_tax %> 円 </td>
+		              	<td align="center"><%= stock %> 個</td>
+		              	<td align="center">
+
+		              		<span>
+		              			<% if stock == 0 %>
+		              			  売り切れ
+		              			<% else %>
+		              			　在庫あり
+		              			<% end %>
+		              		</span>
+		              	</td>
+		              	<td align="center"><%= product.sales_status %></td>
+	              </tr>
+            <% end %>
+        	</tbody>
+        </table>
+        <div class="row text-center">
+        <%= paginate @products, class: "paginate" %>
+        </div>
+    </div>
+
 
           <tr onclick="javascript:location.href='<%= admin_product_path(product)%>'"  style="cursor:pointer">
             	<td align="center"><%= product.title %></td>
@@ -86,3 +136,4 @@
   }
 
 </style>
+>>>>>>> develop

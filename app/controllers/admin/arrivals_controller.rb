@@ -20,7 +20,7 @@ class Admin::ArrivalsController < ApplicationController
 
   def index
     # @arrivals = ArrivalOfGood.all.order(arrival_day: "desc") #新しい入荷順番です。
-     @arrivals = ArrivalOfGood.page(params[:page]).per(4).reverse_order
+     @arrivals = ArrivalOfGood.page(params[:page]).per(10).reverse_order
   end
 
   private

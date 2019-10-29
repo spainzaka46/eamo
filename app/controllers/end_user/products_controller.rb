@@ -1,13 +1,22 @@
 class EndUser::ProductsController < ApplicationController
 
   def index
+    @products = Product.where(sales_status:'販売中').page(params[:page]).per(20)
+    @themes = Theme.all
     @genres = Genre.all
-    @products = Product.where(sales_status:'販売中').page(params[:page]).per(20).reverse_order
   end
 
   def genre_serch
-  	@products = Product.where(genre_id:  params[:id])
-    @genres = Genre.all
+    @themes = Theme.all
+  	@products = Product.where(genre_id: params[:id])
+    @genres = Genre.page(params[:page]).per(20).reverse_order
+    @cart = ProductInCart.new
+
+  end
+
+  def theme_serch
+    @themes = Theme.all
+    @record_musics = RecordMusic.where(theme_id: params[:id])
   end
 
   def show
@@ -26,6 +35,7 @@ class EndUser::ProductsController < ApplicationController
 
   def result
     @products = Product.where(sales_status:'販売中').search(params[:search]).page(params[:page]).per(20)
+
   end
 
 end

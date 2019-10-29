@@ -1,20 +1,37 @@
-<div>
-	<div>
-		<h2>ジャンル別</h2>
-		<div>
+<div class="container">
+	<div class="row">
+		<%= render "side", genres: @genres ,themes: @themes %>
+		<h1>ジャンル別</h1>
+		<div class="wrapper grid col-sm-8 col-sm-offset-1">
 			<% @products.each do |product| %>
-				<%= attachment_image_tag product, :photo, :fill, 100, 100, class: "	pull-left profile-thumb", fallback: "no_image.png",size:'100x100'%>
-				<p>タイトル</p>
-				<%= product.title %>
+			 <div class="product-content" onclick="javascript:location.href='<%= end_user_product_path(product)%>'"  style="cursor:pointer">
+					<div class="p-photo">
+						<div class="field">
+							<%= attachment_image_tag product, :photo, :fill, 100, 100, class: "pull-left profile-thumb", fallback: "no_image.png",size:'100x100' %>
+						</div>
+					</div>
+					<div class="p-detail">
+						<div class="field">
+							<span>タイトル</span>
+							<%= product.title %>
+						</div>
 
-				<p>アーティスト</p>
-				<%= product.artist.artist_name %>
+						<div class="field">
+							<span>アーティスト</span>
+							<%= product.artist.artist_name %>
+						</div>
 
-				<p>ジャンル</p>
-				<%= product.genre.genre_name %>
-
-				<p>価格</p>
-				<%= product.price %>
+						<div class="field">
+							<span>ジャンル</span>
+							<%= product.genre.genre_name %>
+						</div>
+						<div class="field">
+							<span>価格</span>
+							<%= product.price %>
+						</div>
+					</div>
+				</div>
+				<%= paginate @genres, class: "paginate" %>
 			<% end %>
 		</div>
 	</div>

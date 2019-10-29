@@ -50,15 +50,23 @@ namespace :end_user do
   resources :products,only: [:index, :create, :show] do
     resources :carts,only: [:destroy, :create]
   end
-  get '/products/genre/:id' => 'products#genre_serch', as: 'genre'
+
+
   resources :carts,only: [:index]
+
+  get '/theme/:id' => 'products#theme_serch', as:'theme'
+
+  get '/products/genre/:id' => 'products#genre_serch', as: 'genre'
+
   resources :orders,only: [:index, :show,]
   resources :checks,only: [:index, :new, :create,:show]
   resources :addresses,only: [:new, :create,:edit, :update]
+
   resources :pays,only: [:new, :create,:show ]
   resources :cart_addresses,only: [:new, :create,:show ]
   get '/users/:id/cart_addresses' => 'cart_addresses#show', as: 'show'
-
+  get "/pays/:address_id/new" =>"pays#new", as: "paysnew"
+  post "/checks/:address_id/new" =>"checks#create", as: "checks_new"
 end
 scope module: :end_user do
    get 'mypage', to: "users#show"

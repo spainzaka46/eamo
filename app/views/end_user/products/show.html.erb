@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <%= render "side", genres: @genres %>
+    <%= render "side", genres: @genres , themes: @themes %>
     <h1 class="text-center pro-show">商品詳細</h1>
     <div class=" col-sm-8 col-sm-offset-1">
       <div class="photo">
@@ -66,9 +66,10 @@
                 <%= f.submit 'カートに入れる', class: "btn btn-info" %>
               </div>
             <% end %>
-           </div>
+          </div>
         <% end %>
       </div>
+
 
       <div class="record-content">
         <h3 class="text-center">収録ディスク</h3>
