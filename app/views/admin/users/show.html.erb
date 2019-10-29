@@ -52,7 +52,7 @@
     	</table>
       </div>
       <div class="btn btn-group">
-			  <%= link_to"削除", admin_users_path(@end_user),method: :delete, class:"btn btn-default" %>
+			  <%= link_to"削除", admin_user_path(@end_user),method: :delete, class:"btn btn-default" %>
 				<%= link_to"マイページ編集", edit_admin_user_path(@end_user), class:"btn btn-default" %>
  				<%= link_to"購入履歴", admin_user_orderhistories_path(@end_user.id), class:"btn btn-default" %>
       </div>

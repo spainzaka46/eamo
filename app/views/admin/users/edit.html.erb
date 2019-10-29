@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <%= form_for(@end_user,url:end_user_user_path) do |f| %>
+  <%= form_for(@end_user,url:admin_user_path) do |f| %>
     <div class="profile">
       <h2 class="text-center"><姓></br>
         <%= f.text_field :kanzi_last_name %>

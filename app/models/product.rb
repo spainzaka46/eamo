@@ -17,7 +17,7 @@ class Product < ApplicationRecord
 
 	attachment :photo
 
-	acts_as_paranoid without_default_scope: true
+	acts_as_paranoid
 
 	enum sales_status: {販売中: 0, 販売停止中: 1}
 
